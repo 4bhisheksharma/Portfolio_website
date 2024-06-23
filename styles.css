@@ -1,0 +1,616 @@
+/* pre defined colors  */
+:root {
+    --color-background-light: #e0e0e0;
+    --color-background-dark: #171b22;
+    --color-text-light: #000000;
+    --color-text-dark: #ffffff;
+    --color-primary: #4ca8ad90;
+    --color-secondary: #03dac561;
+}
+
+/* overall style */
+*{
+    text-decoration: none;
+}
+
+/* for body */
+body.light-mode {
+    position: relative;  /* Ensure the body can contain a positioned pseudo-element */
+    background-color: var(--color-background-light);
+    color: var(--color-text-light);
+    font-family: Quicksand2;
+    
+}
+
+body.light-mode::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(whitethemebg.jpg);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    filter: blur(7px);  /* Adjust the blur radius as needed */
+    z-index: -1;  /* Ensure the blurred background is behind the content */
+}
+
+body.dark-mode {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-dark);
+    font-family: Quicksand;
+    background-image: url(blur.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+   
+}
+
+/* for header */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light); /* Adjust text color */
+    padding: 1rem;
+    width: 98%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateY(0); /* Start with header visible */
+    backdrop-filter: blur(4px); 
+}
+
+/* for logo */
+.logo{
+    color: var(--color-background-light);
+}
+
+/* for navigation bar */
+/* General styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--color-text-dark);
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    transform: translateY(2px);
+    transition: all 0.1s;
+    text-decoration: underline;
+}
+
+/* Hamburger menu styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.3rem;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-text-dark);
+    transition: all 0.3s;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: var(--color-primary);
+        position: absolute;
+        top: 100px; /* Adjust based on your header height */
+        right: 0px;
+        left: 2px;
+        width: 100%;
+        padding:1.5rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
+/* Optional: Theme toggle button positioning for mobile */
+@media (max-width: 768px) {
+    #theme-toggle {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+}
+
+
+/* for typewriter effect */
+.typewriter {
+    display: inline-block;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: 4px solid black;
+    white-space: nowrap;
+    animation: blink-caret 0.75s step-end infinite;
+    font-size: 2.5em; /* Adjust font size if necessary */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--color-text-light); }
+}
+
+/* home content */
+#home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem;
+    margin-bottom: 3rem;
+    position: relative;
+    
+}
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+.home-text {
+    margin-bottom: 1rem;
+}
+
+.home-image {
+    position: relative;
+    display: inline-block;
+}
+
+.home-image img {
+    width: 220px; /* Adjust the size as needed */
+    height: 220px; /* Adjust the size as needed */
+    border-radius: 50%; /* Makes the image round */
+    border: 3px solid var(--color-primary); /* Adds a border around the image */
+    transition: transform 0.3s ease;
+}
+
+.home-image:hover img {
+    transform: scale(1.07);
+}
+
+.home-image .follow-text {
+    display: none;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+    padding: 0.5rem;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-image:hover .follow-text {
+    display: block;
+}
+
+#element {
+    color:rgb(79, 102, 228);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+/* Optional: Adjust layout for larger screens */
+@media (min-width: 768px) {
+    .home-content {
+        flex-direction: row;
+    }
+    .home-text {
+        margin-right: 2rem;
+        text-align: left;
+    }
+}
+
+/* dark mode light mode */
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-dark);
+    font-size: 1.5rem;
+}
+
+.download-cv-btn {
+    display: inline-block;
+    padding: 8px;
+    margin-top: 25px;
+    font-size: 1.2rem;
+    color:white;
+    background-color: var(--color-primary);
+    border-radius: 5px;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.download-cv-btn:hover {
+    transform: translateY(3px);
+}
+
+
+main {
+    padding: 2rem;
+    margin-top: 80px; /* Adjust according to header height */
+}
+
+.skills-section {
+    text-align: center;
+    padding: 4rem 0; /* Adjust padding as needed */
+   
+}
+
+.skills-container {
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.skills-container h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.skills-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    
+}
+
+.skills-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skills-list li {
+    background-color: #4ca8ad; /* Primary color */
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative; /* Added for absolute positioning */
+}
+
+.skills-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip */
+.skills-list li::after {
+    content: attr(data-info); /* Display the data-info attribute as content */
+    position: absolute;
+    bottom: 100%; /* Position above the skill item */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    padding: 0.5rem;
+    background-color: var(--color-primary);
+    font-size: 0.8rem;
+    border-radius: 5px;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevents the tooltip from interfering with hover */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    white-space: nowrap; /* Prevents wrapping of tooltip text */
+}
+
+.skills-list li:hover::after {
+    opacity: 1; /* Show tooltip on hover */
+}
+
+
+#skills-progress {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#skills-progress h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    
+}
+
+.skill {
+    margin-bottom: 2rem;
+}
+
+.skill h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+    background-color: #c9c8c8;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 15px;
+    width: 25%;
+    margin: 0 auto;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 25px;
+    background: linear-gradient(90deg, rgba(76, 168, 173, 0.9), rgba(3, 218, 198, 0.6));
+    box-shadow: 0 3px 10px -2px rgba(0, 0, 0, 0.3);
+    transition: width 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    from {
+        left: -20px;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+
+
+
+section {
+    margin-bottom: 2rem;
+}
+
+.projects-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    background-color: var(--color-primary);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.project-card img {
+    width: 50%; /* Adjust width as needed */
+    height: auto;
+    border-bottom: 2px solid var(--color-secondary);
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.project-card img:hover {
+    transform: scale(1.03);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+#more-projects {
+    padding: 2rem;
+    background-color: var(--color-background);
+    text-align: justify;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.projects-container {
+    display: flex;
+    gap: 2rem;
+    width: 100%; /* Ensure the container takes up the full width */
+}
+
+.project-cardd {
+    background-color: var(--color-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 400px; /* Ensure the cards have a max-width */
+    flex: 1 0 300px; /* Adjust the flex-grow, flex-shrink, and flex-basis properties */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+}
+
+#more-projects h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.project-cardd h3 {
+    margin-top: 0;
+}
+
+.project-cardd img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.project-cardd p {
+    font-size: 1rem;
+    color: var(--color-text);
+    flex-grow: 1; /* Allow the paragraph to grow and fill the remaining space */
+}
+
+.project-cardd img:hover {
+    transform: scale(1.03);
+}
+
+.project-cardd:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+footer {
+    background-color: var(--color-primary);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.footer-section {
+    max-width: 300px;
+    margin-bottom: 2rem;
+}
+
+.footer-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section p, .footer-section a {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: all 0.2S;
+
+}
+
+.footer-section p:hover {
+    transform: translateY(3px);
+}
+
+.footer-section img {
+    width: 40px;
+    margin: 0 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.footer-section img:hover {
+    transform: translateY(3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--color-secondary);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .footer-section {
+        max-width: none;
+        text-align: center;
+    }
+
+    .footer-section img {
+        margin: 0.5rem;
+    }
+}
+
+.back-to-top {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+
+    transform: translateY(-5px);
+}
+
+@font-face {
+    font-family: Quicksand;
+    src: url(Quicksand_Light.otf);
+}
+@font-face {
+    font-family: Quicksand2;
+    src: url(Quicksand_Bold.otf);
+}
+
