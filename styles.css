@@ -11,7 +11,10 @@
 /* overall style */
 *{
     text-decoration: none;
-    overflow-x: hidden;
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0
 }
 
 /* for body */
@@ -124,12 +127,12 @@ nav {
         top: 110px; /* Adjust based on your header height */
         right: 0px;
         left: 2px;
-        width: 45%;
+        width: 85%;
         padding:1.5rem;
     }
 
     header {
-        width: 25%;
+        width: 20%;
     }
 
 
@@ -147,7 +150,7 @@ nav {
 @media (max-width: 768px) {
     #theme-toggle {
         position: absolute;
-        right: 20Px;
+        right: 10Px;
         top: 10px;
     }
 

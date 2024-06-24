@@ -19,30 +19,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('header');
-    let timeout = null;
+// document.addEventListener('DOMContentLoaded', () => {
+//     const header = document.querySelector('header');
+//     let timeout = null;
 
-    // Function to hide header after 3 seconds
-    const hideHeader = () => {
-        header.style.transform = 'translateY(-100%)'; // Move header above viewport
-    };
+//     // Function to hide header after 3 seconds
+//     const hideHeader = () => {
+//         header.style.transform = 'translateY(-100%)'; // Move header above viewport
+//     };
 
-    // Reset timeout and show header on mousemove or click
-    const resetTimer = () => {
-        clearTimeout(timeout);
-        header.style.transform = 'translateY(0)';
-        timeout = setTimeout(hideHeader, 2000); // 3000ms = 3 seconds
-    };
+//     // Reset timeout and show header on mousemove or click
+//     const resetTimer = () => {
+//         clearTimeout(timeout);
+//         header.style.transform = 'translateY(0)';
+//         timeout = setTimeout(hideHeader, 2000); // 3000ms = 3 seconds
+//     };
 
-    // Initial setup: Show header and start timer
-    resetTimer();
+//     // Initial setup: Show header and start timer
+//     resetTimer();
 
-    // Reset timer on mousemove or click
-    document.addEventListener('mousemove', resetTimer);
-    document.addEventListener('click', resetTimer);
-    document.addEventListener('touchstart', resetTimer);
-});
+//     // Reset timer on mousemove or click
+//     document.addEventListener('mousemove', resetTimer);
+//     document.addEventListener('click', resetTimer);
+//     document.addEventListener('touchstart', resetTimer);
+// });
 
 document.addEventListener('DOMContentLoaded', function() {
     const hours = new Date().getHours();
