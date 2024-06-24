@@ -50,7 +50,7 @@ body.dark-mode {
 header {
     background-color: var(--color-primary);
     color: var(--color-text-light); /* Adjust text color */
-    /* padding: 1rem; */
+    padding: 1rem;
     width: 100%;
     position: fixed;
     top: 0;
@@ -127,7 +127,7 @@ nav {
         padding:1.5rem;
     }
     nav{
-        width: 45%;
+        width: 35%;
     }
 
 
@@ -145,7 +145,7 @@ nav {
 @media (max-width: 768px) {
     #theme-toggle {
         position: absolute;
-        right: 335Px;
+        right: 400Px;
         top: 10px;
     }
 
