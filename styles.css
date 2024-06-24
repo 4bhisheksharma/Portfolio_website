@@ -50,8 +50,8 @@ body.dark-mode {
 header {
     background-color: var(--color-primary);
     color: var(--color-text-light); /* Adjust text color */
-    padding: 1rem;
-    width: 98%;
+    /* padding: 1rem; */
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
@@ -73,7 +73,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    width: 100%;
+    overflow: hidden;
 }
 
 .nav-links {
@@ -87,12 +87,12 @@ nav {
 .nav-links a {
     color: var(--color-text-dark);
     text-decoration: none;
+    transition: all 0.1s;
 }
 
 .nav-links a:hover {
     transform: translateY(2px);
-    transition: all 0.1s;
-    text-decoration: underline;
+
 }
 
 /* Hamburger menu styles */

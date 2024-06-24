@@ -4,17 +4,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTheme = localStorage.getItem('theme') || 'dark-mode';
 
     document.body.classList.add(currentTheme + '-mode');
-    themeIcon.textContent = currentTheme === 'dark' ? '🌞' : '🌙';
+    themeIcon.textContent = currentTheme === 'dark' ? '☀︎' : '☽';
 
     themeToggleBtn.addEventListener('click', () => {
         if (document.body.classList.contains('light-mode')) {
             document.body.classList.replace('light-mode', 'dark-mode');
             localStorage.setItem('theme', 'dark');
-            themeIcon.textContent = '🌞';
+            themeIcon.textContent = '☀︎';
         } else {
             document.body.classList.replace('dark-mode', 'light-mode');
             localStorage.setItem('theme', 'light');
-            themeIcon.textContent = '🌙';
+            themeIcon.textContent = '☽';
         }
     });
 });
