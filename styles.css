@@ -73,6 +73,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    width: 100%;
 }
 
 .nav-links {
@@ -100,6 +101,7 @@ nav {
     flex-direction: column;
     cursor: pointer;
     gap: 0.3rem;
+
 }
 
 .hamburger-menu span {
@@ -124,6 +126,10 @@ nav {
         width: 100%;
         padding:1.5rem;
     }
+    nav{
+        width: 60%;
+    }
+
 
     .nav-links.active {
         display: flex;
@@ -132,15 +138,23 @@ nav {
     .hamburger-menu {
         display: flex;
     }
+
+    #theme-toggle {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
 }
 
 /* Optional: Theme toggle button positioning for mobile */
 @media (max-width: 768px) {
     #theme-toggle {
         position: absolute;
-        right: 20px;
+        right: 240px;
         top: 10px;
     }
+
+
 }
 
 
