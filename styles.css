@@ -127,7 +127,7 @@ nav {
         padding:1.5rem;
     }
     nav{
-        width: 60%;
+        width: 45%;
     }
 
 
@@ -139,18 +139,13 @@ nav {
         display: flex;
     }
 
-    #theme-toggle {
-        position: absolute;
-        right: 20px;
-        top: 10px;
-    }
 }
 
 /* Optional: Theme toggle button positioning for mobile */
 @media (max-width: 768px) {
     #theme-toggle {
         position: absolute;
-        right: 240px;
+        right: 335Px;
         top: 10px;
     }
 
