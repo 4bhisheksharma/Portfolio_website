@@ -11,10 +11,7 @@
 /* overall style */
 *{
     text-decoration: none;
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0
+
 }
 
 /* for body */
@@ -35,7 +32,7 @@ body.light-mode::before {
     bottom: 0;
     background-image: url(whitethemebg.jpg);
     background-size: cover;
-    /* background-repeat: no-repeat; */
+    background-repeat: no-repeat;
     filter: blur(7px);  /* Adjust the blur radius as needed */
     z-index: -1;  /* Ensure the blurred background is behind the content */
 }
@@ -78,6 +75,7 @@ nav {
     align-items: center;
     padding: 1rem;
     overflow: hidden;
+    width: 50%;
 }
 
 .nav-links {
@@ -127,12 +125,7 @@ nav {
         top: 110px; /* Adjust based on your header height */
         right: 0px;
         left: 2px;
-        width: 85%;
         padding:1.5rem;
-    }
-
-    header {
-        width: 20%;
     }
 
 
@@ -150,7 +143,7 @@ nav {
 @media (max-width: 768px) {
     #theme-toggle {
         position: absolute;
-        right: 10Px;
+        right: 300Px;
         top: 10px;
     }
 
