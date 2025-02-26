@@ -30,7 +30,7 @@ body.light-mode::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(whitethemebg.jpg);
+    background-image: url(/assets/images/whitethemebg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     filter: blur(7px);  /* Adjust the blur radius as needed */
@@ -41,7 +41,7 @@ body.dark-mode {
     background-color: var(--color-background-dark);
     color: var(--color-text-dark);
     font-family: Quicksand;
-    background-image: url(blur.jpg);
+    background-image: url(/assets/images/blur.jpg);
     background-size: cover;
     background-repeat: no-repeat;
    
@@ -614,10 +614,10 @@ footer {
 
 @font-face {
     font-family: Quicksand;
-    src: url(Quicksand_Light.otf);
+    src: url(/assets/fonts/Quicksand_Light.otf);
 }
 @font-face {
     font-family: Quicksand2;
-    src: url(Quicksand_Bold.otf);
+    src: url(/assets/fonts/Quicksand_Bold.otf);
 }
 
