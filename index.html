@@ -5,526 +5,390 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Abhishek Sharma">
     <meta name="description" content="I'm Abhishek Sharma, currently pursuing BSc. (Hons) Computing at Itahari International College. Explore my projects, skills, achievements, and more.">
-    <!-- General Meta Description for Homepage -->
-    <meta name="description" content="Discover the portfolio of Abhishek Sharma, a dedicated BSc. (Hons) Computing student at Itahari International College. Explore my projects, skills, achievements, and connect with me on social media.">
     <meta name="keywords" content="Abhishek Sharma, BSc. Computing, Itahari International College, portfolio, projects, skills, achievements, contact, social media">
-
-    <!-- Section Specific Meta Descriptions and Keywords -->
-    <meta name="description" content="Explore the innovative projects of Abhishek Sharma, including a wireless charging drone system, Beam Smart adaptive vehicle headlights, and a user-friendly grocery website product page.">
-    <meta name="keywords" content="Abhishek Sharma projects, wireless charging drone, Beam Smart, adaptive vehicle headlights, grocery website, product page">
-
-    <meta name="description" content="Learn about Abhishek Sharma's technical skills in front-end and back-end development, database management, and programming languages including HTML, CSS, JavaScript, Python, Java, and more.">
-    <meta name="keywords" content="Abhishek Sharma skills, front-end development, back-end development, HTML, CSS, JavaScript, Python, Java, database management">
-
-    <meta name="description" content="Discover Abhishek Sharma's proficiency levels in various technical skills including HTML, CSS, JavaScript, Python, and Java, with continuous improvement in programming expertise.">
-    <meta name="keywords" content="Abhishek Sharma skills proficiency, HTML proficiency, CSS proficiency, JavaScript proficiency, Python proficiency, Java proficiency">
-
-    <meta name="description" content="Explore additional projects and honors achieved by Abhishek Sharma, showcasing a strong commitment to technical excellence and innovation.">
-    <meta name="keywords" content="Abhishek Sharma additional projects, honors, awards, technical excellence, innovation">
-
-    <meta name="description" content="Get in touch with Abhishek Sharma for collaboration opportunities. Contact via email or phone and connect on social media platforms including Instagram, LinkedIn, Facebook, and GitHub.">
-    <meta name="keywords" content="Abhishek Sharma contact, email, phone, Instagram, LinkedIn, Facebook, GitHub">
-
     <title>Abhishek Sharma</title>
-    <link rel="icon" href="/assets/images/icons8-A-64.png" type="image/x-icon">
-
+    <link rel="icon" href="assets/images/icons8-A-64.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="dot-pattern"></div>
+    
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
     <header>
         <nav>
-            <a href="#" class="logo"><img src="/assets/images/icons8-A-64.png"></a>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#skills-progress">Skills Proficiency</a></li>
-                <li><a href="#more-projects">Honors & Awards</a></li>
-            </ul>
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-container">
+                <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
+                <a href="#projects" class="nav-item"><i class="fas fa-code"></i> Projects</a>
+                <a href="#skills" class="nav-item"><i class="fas fa-brain"></i> Skills</a>
+                <a href="#skills-progress" class="nav-item"><i class="fas fa-chart-bar"></i> Proficiency</a>
+                <a href="#honors-awards" class="nav-item"><i class="fas fa-award"></i> Awards</a>
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <button id="theme-toggle"><span id="theme-icon">☽</button>
+            <div class="hamburger-menu">
+                <button id="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <div class="mobile-nav">
+                <div class="mobile-nav-container">
+                    <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
+                    <a href="#projects" class="nav-item"><i class="fas fa-code"></i> Projects</a>
+                    <a href="#skills" class="nav-item"><i class="fas fa-brain"></i> Skills</a>
+                    <a href="#skills-progress" class="nav-item"><i class="fas fa-chart-bar"></i> Proficiency</a>
+                    <a href="#honors-awards" class="nav-item"><i class="fas fa-award"></i> Awards</a>
+                    <button id="mobile-theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
         </nav>
-    </header>
-    
     </header>
 
     <main>
-        <style>
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white; /* Change this to match your site's background color */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-          }
-          
-          .container {
-            --uib-size: 45px;
-            --uib-color: black;
-            --uib-speed: 2.5s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: var(--uib-size);
-            width: var(--uib-size);
-          }
-        
-          .slice {
-            position: relative;
-            height: calc(var(--uib-size) / 6);
-            width: 100%;
-          }
-        
-          .slice::before,
-          .slice::after {
-            --uib-a: calc(var(--uib-speed) / -2);
-            --uib-b: calc(var(--uib-speed) / -6);
-            content: '';
-            position: absolute;
-            top: 0;
-            left: calc(50% - var(--uib-size) / 12);
-            height: 100%;
-            width: calc(100% / 6);
-            border-radius: 50%;
-            background-color: var(--uib-color);
-            flex-shrink: 0;
-            animation: orbit var(--uib-speed) linear infinite;
-            transition: background-color 0.3s ease;
-          }
-        
-          .slice:nth-child(1)::after {
-            animation-delay: var(--uib-a);
-          }
-        
-          .slice:nth-child(2)::before {
-            animation-delay: var(--uib-b);
-          }
-        
-          .slice:nth-child(2)::after {
-            animation-delay: calc(var(--uib-a) + var(--uib-b));
-          }
-        
-          .slice:nth-child(3)::before {
-            animation-delay: calc(var(--uib-b) * 2);
-          }
-          .slice:nth-child(3)::after {
-            animation-delay: calc(var(--uib-a) + var(--uib-b) * 2);
-          }
-        
-          .slice:nth-child(4)::before {
-            animation-delay: calc(var(--uib-b) * 3);
-          }
-          .slice:nth-child(4)::after {
-            animation-delay: calc(var(--uib-a) + var(--uib-b) * 3);
-          }
-        
-          .slice:nth-child(5)::before {
-            animation-delay: calc(var(--uib-b) * 4);
-          }
-          .slice:nth-child(5)::after {
-            animation-delay: calc(var(--uib-a) + var(--uib-b) * 4);
-          }
-        
-          .slice:nth-child(6)::before {
-            animation-delay: calc(var(--uib-b) * 5);
-          }
-          .slice:nth-child(6)::after {
-            animation-delay: calc(var(--uib-a) + var(--uib-b) * 5);
-          }
-        
-          @keyframes orbit {
-            0% {
-              transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684);
-              opacity: 0.65;
-            }
-            5% {
-              transform: translateX(calc(var(--uib-size) * 0.235)) scale(0.684208);
-              opacity: 0.58;
-            }
-            10% {
-              transform: translateX(calc(var(--uib-size) * 0.182)) scale(0.631576);
-              opacity: 0.51;
-            }
-            15% {
-              transform: translateX(calc(var(--uib-size) * 0.129)) scale(0.578944);
-              opacity: 0.44;
-            }
-            20% {
-              transform: translateX(calc(var(--uib-size) * 0.076)) scale(0.526312);
-              opacity: 0.37;
-            }
-            25% {
-              transform: translateX(0%) scale(0.47368);
-              opacity: 0.3;
-            }
-            30% {
-              transform: translateX(calc(var(--uib-size) * -0.076)) scale(0.526312);
-              opacity: 0.37;
-            }
-            35% {
-              transform: translateX(calc(var(--uib-size) * -0.129)) scale(0.578944);
-              opacity: 0.44;
-            }
-            40% {
-              transform: translateX(calc(var(--uib-size) * -0.182)) scale(0.631576);
-              opacity: 0.51;
-            }
-            45% {
-              transform: translateX(calc(var(--uib-size) * -0.235)) scale(0.684208);
-              opacity: 0.58;
-            }
-            50% {
-              transform: translateX(calc(var(--uib-size) * -0.25)) scale(0.73684);
-              opacity: 0.65;
-            }
-            55% {
-              transform: translateX(calc(var(--uib-size) * -0.235)) scale(0.789472);
-              opacity: 0.72;
-            }
-            60% {
-              transform: translateX(calc(var(--uib-size) * -0.182)) scale(0.842104);
-              opacity: 0.79;
-            }
-            65% {
-              transform: translateX(calc(var(--uib-size) * -0.129)) scale(0.894736);
-              opacity: 0.86;
-            }
-            70% {
-              transform: translateX(calc(var(--uib-size) * -0.076)) scale(0.947368);
-              opacity: 0.93;
-            }
-            75% {
-              transform: translateX(0%) scale(1);
-              opacity: 1;
-            }
-            80% {
-              transform: translateX(calc(var(--uib-size) * 0.076)) scale(0.947368);
-              opacity: 0.93;
-            }
-            85% {
-              transform: translateX(calc(var(--uib-size) * 0.129)) scale(0.894736);
-              opacity: 0.86;
-            }
-            90% {
-              transform: translateX(calc(var(--uib-size) * 0.182)) scale(0.842104);
-              opacity: 0.79;
-            }
-            95% {
-              transform: translateX(calc(var(--uib-size) * 0.235)) scale(0.789472);
-              opacity: 0.72;
-            }
-            100% {
-              transform: translateX(calc(var(--uib-size) * 0.25)) scale(0.73684);
-              opacity: 0.65;
-            }
-          }
-        </style>
-      </head>
-      <body>
-        <div class="preloader">
-          <div class="container">
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-          </div>
-        </div>
-      
-        <div class="content" style="display: none;">
-          
-        
-        <section id="home">
-            <div class="home-content">
-                <div class="home-text">
-                    <div id="typewriter" class="typewriter"></div>
-                    <h1 style="font-size: 2.6rem;">I'm Abhishek Sharma,</h1>
-                    <p style="font-size: 1.3rem;">Currently pursuing BSc. (Hons) Computing at Itahari International College.<br> Check out my</p><span id="element"></span>  <!-- Element to contain animated typing -->
-                    <br>
-                    <a href="/assets/misc/Abhishek_Sharma_Resume.pdf" class="download-cv-btn" target="_blank">Download CV</a>
+        <section id="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="greeting">Hello <span class="wave">👋</span></p>
+                    <h1>Abhishek Sharma</h1>
+                    <h6 class="fa-solid fa-location-dot"> Morang, Nepal</h6>
+                    <p class="title">BSc. (Hons) Computing Student</p>
+                    <p class="subtitle">Check out my <span id="element" style="color:#2563eb;"></span></p>
+                    
+                    <div class="action-buttons">
+                        <a href="https://www.linkedin.com/in/abhishek-sharma0/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> About Me</a>
+                        <a href="https://github.com/4bhisheksharma" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="assets/misc/Abhishek_Sharma_Resume.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-file-alt"></i> Download CV</a>
+                    </div>
                 </div>
-                <div class="home-image">
+                <div class="hero-image">
                     <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank">
-                        <img src="/assets/images/profileLinkedin.png" alt="Abhishek Sharma">
-                        <span class="follow-text">Follow me on Instagram <br>Mail me @ sharmaabhi10101010@gmail.com</span>
+                        <img src="assets/images/profileLinkedin.png" alt="Abhishek Sharma">
                     </a>
                 </div>
             </div>
         </section>
-        
-        <hr>
-        <br><br>
-        <section id="projects" class="projects-section">
-            <h2>Projects</h2>
-            <br>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <a href="https://drive.google.com/file/d/1yrcpW9rmvFbDrAbAlU-gZMDlEjf7aLzW/view?usp=sharing" target="_blank"><img src="/assets/images/WCD.jpeg" alt="Wireless Charging Drone Project"></a>
-                    <h3>Wireless Charging Drone Project</h3>
-                    <p>During my high school years, I embarked on an ambitious project to develop a wireless charging drone. This project not only showcased my technical skills and innovative mindset but also highlighted my commitment to finding practical solutions to contemporary technological challenges.</p>
-                    <p style="font-size: 10px;"><i>* The picture is AI generated.<br>You can click the image for more details.</i></p>
-                </div>  
-                <div class="project-card">
-                    <a href="https://drive.google.com/drive/folders/1yE1Qp5snZ6C2qLPd0nqt1y2i_1qptqpS?usp=sharing" target="_blank"><img src="/assets/images/AVHC.jpeg" alt="Beam Smart: Adaptive Vehicle Headlight Control."></a>
-                    <h3>Beam Smart: Adaptive Vehicle Headlight Control.</h3>
-                    <p>I am excited to introduce Beam Smart, the innovative solution for safer night driving, which autonomously adjusts headlights to counter the risks of blinding high beams.</p>
-                    <p style="font-size: 10px;"><i>* The picture is AI generated.<br>You can click the image for more details.</i></p>
-                </div>
-                <div class="project-card">
-                    <a href="https://drive.google.com/drive/folders/11TQf6VqpduAcBV-B2YCjSuImmuMaW1Km?usp=sharing" target="_blank"><img src="/assets/images/product page.jpeg.png" alt="Website's Product Page" style="height: 200px; width: auto;"></a>
-                    <h3>Grossory Website: Product page</h3>
-                    <p>I designed a user-friendly product page, inspired by Daraz and Mero Kirana, with clear categories and detailed information to ensure a seamless shopping experience, empowering users to make informed purchasing decisions.</p>
-                    <p style="font-size: 10px;"><i>* This Progect is a Group Project where I build Product Page.<br>You can click the image for more details.</i></p>
-                </div>
 
-                <!-- Add more project cards as needed -->
+        <section id="projects">
+            <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="https://drive.google.com/file/d/1yrcpW9rmvFbDrAbAlU-gZMDlEjf7aLzW/view?usp=sharing" target="_blank">
+                            <img src="assets/images/WCD.jpeg" alt="Wireless Charging Drone Project">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3>Wireless Charging Drone Project</h3>
+                        <p>During my high school years, I embarked on an ambitious project to develop a wireless charging drone. This project showcased my technical skills and innovative mindset.</p>
+                        <p class="note"><i class="fas fa-info-circle"></i> The picture is AI generated. Click for more details.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="https://drive.google.com/drive/folders/1yE1Qp5snZ6C2qLPd0nqt1y2i_1qptqpS?usp=sharing" target="_blank">
+                            <img src="assets/images/AVHC.jpeg" alt="Beam Smart: Adaptive Vehicle Headlight Control">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3>Beam Smart: Adaptive Vehicle Headlight Control</h3>
+                        <p>I am excited to introduce Beam Smart, the innovative solution for safer night driving, which autonomously adjusts headlights to counter the risks of blinding high beams.</p>
+                        <p class="note"><i class="fas fa-info-circle"></i> The picture is AI generated. Click for more details.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <a href="https://drive.google.com/drive/folders/11TQf6VqpduAcBV-B2YCjSuImmuMaW1Km?usp=sharing" target="_blank">
+                            <img src="assets/images/product page.jpeg.png" alt="Grocery Website: Product page">
+                        </a>
+                    </div>
+                    <div class="project-content">
+                        <h3>Grocery Website: Product Page</h3>
+                        <p>I designed a user-friendly product page, inspired by Daraz and Mero Kirana, with clear categories and detailed information to ensure a seamless shopping experience.</p>
+                        <p class="note"><i class="fas fa-info-circle"></i> This Project is a Group Project where I build Product Page. Click for more details.</p>
+                    </div>
+                </div>
             </div>
         </section>
-        <br><br>
-        <hr>
 
-        <section id="skills" class="skills-section">
-            <div class="skills-container">
-                <h2>What I Know</h2>
-                <h3><u>Front-end</u></h3>
-                <ul class="skills-list">
-                    <li data-info="Markup language for creating web pages.">HTML</li>
-                    <li data-info="Style sheet language used for describing the look and formatting of a document written in a markup language.">CSS</li>
-                    <li data-info="Programming language that conforms to the ECMAScript specification.">JavaScript</li>
-                </ul>
-                
-                <h3>Back-end</h3>
-                <ul class="skills-list">
-                    <li data-info="Used for both client-side and server-side programming.">JavaScript</li>
-                    <li data-info="High-level programming language for general-purpose programming.">Python</li>
-                </ul>
-                
-                <h3>Database</h3>
-                <ul class="skills-list">
-                    <li data-info="Relational database management system.">MySQL</li>
-                </ul>
-                
-                <h3>Languages</h3>
-                <ul class="skills-list">
-                    <li data-info="Object-oriented programming language.">Java</li>
-                    <li data-info="High-level programming language for general-purpose programming.">Python</li>
-                    <li data-info="General-purpose programming language.">C</li>
-                </ul>
-                
-                <h3>Others</h3>
-                <ul class="skills-list">
-                    <li data-info="Art of capturing light with a camera.">Photography</li>
-                    <li data-info="Network of physical objects embedded with sensors, software, and other technologies.">IoT</li>
-                    <li data-info="Process of capturing moving images.">Videography</li>
-                    <li data-info="Manipulation and arrangement of video shots.">Video Editing</li>
-                </ul>
+        <section id="skills">
+            <h2 class="section-title"><i class="fas fa-brain"></i> Skills</h2>
+            
+            <div class="skills-categories">
+                <div class="skill-category active">Front-end</div>
+                <div class="skill-category">Back-end</div>
+                <div class="skill-category">Database</div>
+                <div class="skill-category">Languages</div>
+                <div class="skill-category">Others</div>
             </div>
+
+            <div class="skills-content">
+                <div class="skills-group active" id="frontend-skills">
+                    <div class="tech-stack">
+                        <div class="tech-badge" data-info="Markup language for creating web pages.">
+                            <i class="fab fa-html5"></i> HTML
+                        </div>
+                        <div class="tech-badge" data-info="Style sheet language used for describing the look and formatting of a document written in a markup language.">
+                            <i class="fab fa-css3-alt"></i> CSS
+                        </div>
+                        <div class="tech-badge" data-info="Programming language that conforms to the ECMAScript specification.">
+                            <i class="fab fa-js"></i> JavaScript
+                        </div>
+                        <div class="tech-badge" >
+                          <i class="fa-brands fa-flutter"></i> Flutter
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="skills-group" id="backend-skills">
+                    <div class="tech-stack">
+                        <div class="tech-badge" data-info="Used for both client-side and server-side programming.">
+                            <i class="fab fa-node-js"></i> JavaScript
+                        </div>
+                        <div class="tech-badge" data-info="High-level programming language for general-purpose programming.">
+                            <i class="fab fa-python"></i> Django
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-group" id="database-skills">
+                    <div class="tech-stack">
+                        <div class="tech-badge" data-info="Relational database management system.">
+                            <i class="fas fa-database"></i> MySQL
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-group" id="languages-skills">
+                    <div class="tech-stack">
+                        <div class="tech-badge" data-info="Object-oriented programming language.">
+                            <i class="fab fa-java"></i> Java
+                        </div>
+                        <div class="tech-badge" data-info="High-level programming language for general-purpose programming.">
+                            <i class="fab fa-python"></i> Python
+                        </div>
+                        <div class="tech-badge" data-info="General-purpose programming language.">
+                            <i class="fas fa-code"></i> C
+                        </div>
+                        <div class="tech-badge">
+                            <i class="fa-brands fa-dart-lang"></i> Dart
+                      </div>
+                    </div>
+                </div>
+                
+                <div class="skills-group" id="others-skills">
+                    <div class="tech-stack">
+                        <div class="tech-badge" data-info="Art of capturing light with a camera.">
+                            <i class="fas fa-camera"></i> Photography
+                        </div>
+                        <div class="tech-badge" data-info="Network of physical objects embedded with sensors, software, and other technologies.">
+                            <i class="fas fa-microchip"></i> IoT
+                        </div>
+                        <div class="tech-badge" data-info="Process of capturing moving images.">
+                            <i class="fas fa-video"></i> Videography
+                        </div>
+                        <div class="tech-badge" data-info="Manipulation and arrangement of video shots.">
+                            <i class="fas fa-film"></i> Video Editing
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div id="tooltip" class="tooltip"></div>
         </section>
-        <hr>
-        <br>
+
         <section id="skills-progress">
-            <h2>Skills Proficiency</h2>
-            <div class="skill">
-                <div class="skill-label">
-                    <h3>HTML</h3>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-label">
-                    <h3>CSS</h3>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-label">
-                    <h3>JavaScript</h3>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 25%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-label">
-                    <h3>Java</h3>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-label">
-                    <h3>Python</h3>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 50%;"></div>
-                </div>
-                <p style="font-size: 10px;"><i>And Still Working on it....</i></p>
-            </div>
-            <!-- Add more skills as needed -->
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i> Skills Proficiency</h2>
             
+            <div class="progress-container">
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <h3><i class="fab fa-html5"></i> HTML</h3>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <h3><i class="fab fa-css3-alt"></i> CSS</h3>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <h3><i class="fab fa-js"></i> JavaScript</h3>
+                        <span>25%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 25%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <h3><i class="fab fa-java"></i> Java</h3>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-progress">
+                    <div class="skill-info">
+                        <h3><i class="fab fa-python"></i> Python</h3>
+                        <span>50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 50%"></div>
+                    </div>
+                    <p class="note"><i class="fas fa-info-circle"></i> And still working on it...</p>
+                </div>
+            </div>
         </section>
-        <br>
-        <hr>
-        <br><br>
 
-        
-        <h2 style="text-align: center;">Honors & Awards</h2>
-        <section id="more-projects">
+        <section id="honors-awards">
+            <h2 class="section-title"><i class="fas fa-award"></i> Honors & Awards</h2>
             
-            <div class="project-cardd">
-                <h3>7th Young Scientist Summit</h3>
-                <a href="https://www.facebook.com/100016129393562/videos/pcb.1320731315141169/1233925317226078" target="_blank"><img src="/assets/images/certification_of_YSS.jpg" alt="Description of image 1"></a>
-                <p>Young Scientist Summit Winner (February 2023)
-
-                Securing victory at the Young Scientist Summit in February 2023 was a significant milestone in my scientific journey. This achievement reflects my dedication, hard work, and ability to effectively present complex scientific concepts.</p>
-            </div>
-            <div class="project-cardd">
-                <h3>Asia Pacific Conference of Young Scientists 2023</h3>
-               <a href="https://drive.google.com/file/d/1g1egQJaJ_5ilaCQbaEaMmPhcc2oxHf0M/view?usp=sharing" target="_blank"> <img src="/assets/images/certification_of_APCYS.jpg.png" alt="Description of image 2"></a>
-                <p>In November 2023, I had the honor of presenting my research at the Asia Pacific Conference of Young Scientists (APCYS). This international platform enabled me to engage with peers from various countries, gaining invaluable insights into global scientific advancements.</p>
-            </div>
-            <div class="project-cardd">
-              <h3>Python Essential Training Certificate 2024</h3>
-             <a href="https://drive.google.com/file/d/1fjk4ucSxnULn6nlhXzqUm0xVNOJxrwsN/view?usp=sharing" target="_blank"> <img src="/assets/images/Certification_of_Python.jpg" alt="Description of image 3"></a>
-              <p>On August 13, 2024, I successfully completed the Python Essential Training course. This achievement has strengthened my understanding of core Python concepts and enhanced my coding proficiency.</p>
-            </div>
-            <div class="project-cardd">
-              <h3>Learning Java 11 Certificate 2024</h3>
-             <a href="https://drive.google.com/file/d/1zhqsz99KvwdAuYPeHGXwGtpL-JlctZrX/view?usp=sharing" target="_blank"> <img src="/assets/images/Certification_of_Java.jpg" alt="Description of image 4"></a>
-              <p>On August 13, 2024, at 12:14 PM UTC, I successfully completed the "Learning Java 11" course. The course, lasting 2 hours and 36 minutes, provided a comprehensive overview of Java 11. Key skills acquired include Java programming fundamentals and best practices.</p>
-          </div>
-          <div class="project-cardd">
-            <h3>JavaScript Essential Training Certificate 2024</h3>
-           <a href="https://drive.google.com/file/d/11cc78A6T_U4t7aBBbbg424u_OyBh7TmP/view?usp=sharing" target="_blank"> <img src="/assets/images/Certification_of_JavaScript.jpg" alt="Description of image 5"></a>
-            <p>On August 15, 2024, I successfully completed the "JavaScript Essential Training" course. The course lasted 6 hours and 14 minutes, covering fundamental JavaScript concepts and best practices. My key takeaway was a solid understanding of JavaScript programming.</p>
-        </div>
-          <div class="project-cardd">
-          <h3>HTML Essential Training Certificate 2024</h3>
-         <a href="https://drive.google.com/file/d/1L-M-Kb-5U8E9WDyx2wA05x69onwJycSK/view?usp=sharing" target="_blank"> <img src="/assets/images/Certification_of_HTML.jpg" alt="Description of image 6"></a>
-          <p>On August 20, 2024, I successfully completed the "HTML Essential Training" course. The 2-hour and 45-minute course provided a thorough introduction to HTML, focusing on core concepts and best practices. This training enhanced my ability to structure and design web content effectively.</p>
-      </div>
-            <div class="project-cardd">
-                <h3>More to come...</h3>
+            <div class="awards-container">
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://www.facebook.com/100016129393562/videos/pcb.1320731315141169/1233925317226078" target="_blank">
+                            <img src="assets/images/certification_of_YSS.jpg" alt="Young Scientist Summit Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>7th Young Scientist Summit</h3>
+                        <p>Young Scientist Summit Winner (February 2023). Securing victory at the Young Scientist Summit was a significant milestone in my scientific journey.</p>
+                    </div>
+                </div>
                 
-                <p>I am working on it...</p>
-                <p style="font-size: 10px;"><i>Stay Tuned</i></p>
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://drive.google.com/file/d/1g1egQJaJ_5ilaCQbaEaMmPhcc2oxHf0M/view?usp=sharing" target="_blank">
+                            <img src="assets/images/certification_of_APCYS.jpg.png" alt="APCYS Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>Asia Pacific Conference of Young Scientists 2023</h3>
+                        <p>In November 2023, I had the honor of presenting my research at the Asia Pacific Conference of Young Scientists (APCYS).</p>
+                    </div>
+                </div>
                 
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://drive.google.com/file/d/1fjk4ucSxnULn6nlhXzqUm0xVNOJxrwsN/view?usp=sharing" target="_blank">
+                            <img src="assets/images/Certification_of_Python.jpg" alt="Python Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>Python Essential Training Certificate 2024</h3>
+                        <p>On August 13, 2024, I successfully completed the Python Essential Training course.</p>
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://drive.google.com/file/d/1zhqsz99KvwdAuYPeHGXwGtpL-JlctZrX/view?usp=sharing" target="_blank">
+                            <img src="assets/images/Certification_of_Java.jpg" alt="Java Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>Learning Java 11 Certificate 2024</h3>
+                        <p>On August 13, 2024, I successfully completed the "Learning Java 11" course.</p>
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://drive.google.com/file/d/11cc78A6T_U4t7aBBbbg424u_OyBh7TmP/view?usp=sharing" target="_blank">
+                            <img src="assets/images/Certification_of_JavaScript.jpg" alt="JavaScript Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>JavaScript Essential Training Certificate 2024</h3>
+                        <p>On August 15, 2024, I successfully completed the "JavaScript Essential Training" course.</p>
+                    </div>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-image">
+                        <a href="https://drive.google.com/file/d/1L-M-Kb-5U8E9WDyx2wA05x69onwJycSK/view?usp=sharing" target="_blank">
+                            <img src="assets/images/Certification_of_HTML.jpg" alt="HTML Certificate">
+                        </a>
+                    </div>
+                    <div class="award-content">
+                        <h3>HTML Essential Training Certificate 2024</h3>
+                        <p>On August 20, 2024, I successfully completed the "HTML Essential Training" course.</p>
+                    </div>
+                </div>
+                
+                <div class="award-card coming-soon">
+                    <h3><i class="fas fa-hourglass-half"></i> More to come...</h3>
+                    <p>I am working on it...</p>
+                </div>
             </div>
-            <!-- Add more project-cardd divs as needed -->
-        </section>  
-        <br>
-        <br>
-        <hr>
-        <br>      
-        
+        </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-section contact">
-                <h2>Contact:</h2>
-                <p>Email: <a href="mailto:sharmaabhi10101010@gmail.com" target="_blank">sharmaabhi10101010@gmail.com</a></p>
-                <p>Phone: <a href="tel:+977 9805390066" target="_blank">+977 9805390066</a></p>
+            <div class="contact-info">
+                <h3><i class="fas fa-envelope"></i> Contact</h3>
+                <p><a href="mailto:abhishek@example.com">sharmaabhi10101010@gmail.com</a></p>
+                <p><a href="tel:+9779805390066">+977 9805390066</a></p>
             </div>
-            <div class="footer-section social">
-                <h2>Connect with Me:</h2>
-                <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank"><img src="/assets/images/icons8-insta-48.png" alt="Instagram"></a>
-                <a href="https://www.linkedin.com/in/abhishek-sharma0/" target="_blank"><img src="/assets/images/icons8-linkedin-48.png" alt="LinkedIn"></a>
-                <a href="https://www.facebook.com/Sharmaabhi024" target="_blank"><img src="/assets/images/icons8-facebook-48.png" alt="Facebook"></a>
-                <a href="https://github.com/4bhisheksharma" target="_blank"><img src="/assets/images/icons8-github-48.png" alt="GitHub"></a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <a href="#top" class="back-to-top">Back to Top</a>
-            <p>&copy; 2024 Abhishek Sharma | All rights reserved.</p>
-            <p>Last Update: 24<sup>th</sup> March 2025.</p>
-            <p>The Website is still Under Development*</p>
-            <p>V1. 2. 1</p>
             
+            <div class="social-links">
+                <h3><i class="fas fa-link"></i> Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/abhishek-sharma0/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.facebook.com/Sharmaabhi024" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://github.com/4bhisheksharma" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
+        
+        <div class="footer-bottom">
+            <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
+            <p>&copy; 2024 Abhishek Sharma | All rights reserved.</p>
+            <p>Last Update: 26<sup>th</sup> March 2025 | V1.4.0</p>
+        </div>
     </footer>
-    
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        var typed = new Typed('#element', {
-        strings: ['Works', 'Projects', "Achievements", "Skills","Certifications","Presentations","Different Research Files","Interests","Education","Hobbies"],
-        typeSpeed: 60,
-        backSpeed: 20,
-        loop: true
-    });
-
-     
-        document.querySelector('.back-to-top').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        document.querySelector('.hamburger-menu').addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Active link highlighting
-    const sections = document.querySelectorAll("section");
-    const navLi = document.querySelectorAll("nav ul li a");
-
-    window.onscroll = () => {
-        let current = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (scrollY >= sectionTop - 60) {
-                current = section.getAttribute("id");
-            }
-        });
-
-        navLi.forEach(a => {
-            a.classList.remove("active");
-            if (a.getAttribute("href").includes(current)) {
-                a.classList.add("active");
-            }
-        });
-    };
-});
-window.addEventListener('load', function() {
-    setTimeout(function() {
-      document.querySelector('.preloader').style.display = 'none';
-      document.querySelector('.content').style.display = 'block';
-    }, 1500); 
-  });
-    </script>
-    
     <script src="/scripts/scripts.js"></script>
 </body>
 </html>
+
