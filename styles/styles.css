@@ -1,5 +1,5 @@
 :root {
-    --bg-color: #eaeaea;
+    --bg-color: #eaeaeaef;
     --text-color: #333333;
     --primary-color: #2563eb;
     --secondary-color: #93c5fd;
@@ -286,7 +286,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 4rem;
+    gap: 0rem;
   }
   
   .hero-text {
@@ -857,8 +857,8 @@
     }
   
     .hero-image img {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
     }
   
     h1 {
