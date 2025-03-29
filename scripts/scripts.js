@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     document.querySelector(".preloader").style.opacity = "0";
     document.querySelector(".preloader").style.visibility = "hidden";
-  }, 1000);
+  }, 1500);
 
   // Set dark mode as default on page load
   document.body.classList.add("dark");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "Hobbies",
     ],
     typeSpeed: 20,
-    backSpeed: 20,
+    backSpeed: 15,
     loop: true,
   });
 
