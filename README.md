@@ -1,3 +1,2 @@
-# Preview: 
-# _https://www.abhishek-sharma.com.np/_
+# Live: [Portfolio](https://www.abhishek-sharma.com.np/)
 
