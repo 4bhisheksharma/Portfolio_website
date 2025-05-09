@@ -565,12 +565,39 @@
         <div class="footer-bottom">
             <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
             <p>&copy; 2025 Abhishek Sharma | All rights reserved.</p>
-            <p>Last Update: 2<sup>nd</sup> May 2025 | V1.4.5</p>
+            <p>Last Update: 9<sup>th</sup> May 2025 | V1.5</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="/scripts/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const img = document.getElementById('profile-pic');
+            const tooltip = document.getElementById('instagram-tooltip');
+          
+            // Show tooltip on hover
+            img.addEventListener('mouseenter', () => {
+              tooltip.style.opacity = '1';
+            });
+          
+            // Move tooltip with cursor
+            img.addEventListener('mousemove', (e) => {
+              const rect = img.getBoundingClientRect();
+              // Calculate relative X/Y inside the image container
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              // Position tooltip
+              tooltip.style.left  = `${x}px`;
+              tooltip.style.top   = `${y}px`;
+            });
+          
+            // Hide tooltip when leaving image
+            img.addEventListener('mouseleave', () => {
+              tooltip.style.opacity = '0';
+            });
+          });
+    </script>
 </body>
 </html>
 
