@@ -421,6 +421,7 @@
   /* Tooltip styling */
   #instagram-tooltip {
     position: absolute;
+    margin-top: 15px;
     pointer-events: none;         /* Let the mouse events pass through */
     padding: 6px 10px;
     font-size: 0.9rem;
@@ -441,9 +442,9 @@
     top: -6px;                    /* move arrow above the tooltip box */
     left: 50%;
     transform: translateX(-50%);
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgba(0, 0, 0, 0.8);
   }
 
   
