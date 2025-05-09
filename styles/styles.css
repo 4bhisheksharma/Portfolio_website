@@ -399,25 +399,54 @@
   }
   
   .hero-image {
+    position: relative;         /* For absolutely positioned tooltip */
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    overflow: hidden; 
-}
-
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
   
-.hero-image img {
-  width: 450px;
-  height: auto; /* Maintain aspect ratio */
-  object-fit:contain; /* Ensures the entire image fits inside the container */
-  transition: transform 0.3s ease;
-
-}
-
+  .hero-image img {
+    width: 450px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;            /* Show pointer on hover */
+  }
   
   .hero-image img:hover {
     transform: scale(1.02);
   }
+  
+  /* Tooltip styling */
+  #instagram-tooltip {
+    position: absolute;
+    pointer-events: none;         /* Let the mouse events pass through */
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    white-space: nowrap;
+    transform: translate(-50%, 8px); /* center horizontally, sit just below cursor */
+    transition: opacity 0.1s ease;
+    opacity: 0;                   /* Hidden by default */
+    z-index: 10;
+  }
+
+  /* Arrow pointing at the image */
+  #instagram-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -6px;                    /* move arrow above the tooltip box */
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+  }
+
+  
   
   /* Section Styles */
   section {
