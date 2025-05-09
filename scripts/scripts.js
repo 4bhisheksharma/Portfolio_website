@@ -254,6 +254,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const img = document.getElementById('profile-pic');
+    const tooltip = document.getElementById('instagram-tooltip');
+  
+    // Show tooltip on hover
+    img.addEventListener('mouseenter', () => {
+      tooltip.style.opacity = '1';
+    });
+  
+    // Move tooltip with cursor
+    img.addEventListener('mousemove', (e) => {
+      const rect = img.getBoundingClientRect();
+      // Calculate relative X/Y inside the image container
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // Position tooltip
+      tooltip.style.left  = `${x}px`;
+      tooltip.style.top   = `${y}px`;
+    });
+  
+    // Hide tooltip when leaving image
+    img.addEventListener('mouseleave', () => {
+      tooltip.style.opacity = '0';
+  });
+});
 
 // Add this to the top of your CSS styles dynamically
 document.head.insertAdjacentHTML(
