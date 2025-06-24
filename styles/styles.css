@@ -868,6 +868,11 @@
     }
   }
   
+  .nav-logo {
+    height: 40px;
+    margin-right: 15px;
+  }
+
   @media (max-width: 576px) {
     .hamburger-menu {
       top: 15px;
@@ -906,6 +911,13 @@
       padding: 8px 15px;
       font-size: 0.9rem;
     }
+  }
+  
+  /* Logo in nav bar */
+  .nav-logo {
+    height: 40px;
+    margin-right: 15px;
+    user-select: none;
   }
   
   
