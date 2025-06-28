@@ -730,13 +730,79 @@
     gap: 8px;
   }
   
-  /* Footer */
-  footer {
+/* Footer */
+footer {
     background-color: var(--card-bg);
     padding: 50px 20px 20px;
     margin-top: 50px;
     border-top: 1px solid var(--border-color);
-  }
+}
+
+/* Experience Section Timeline Style */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 40px;
+    border-left: 2px solid var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 20px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-year {
+    position: absolute;
+    left: -80px;
+    top: 0;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    font-size: 0.9rem;
+    width: 60px;
+    text-align: center;
+    user-select: none;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -11px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--card-bg);
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: var(--text-color);
+    /* font-style: italic; */
+}
+
+.timeline-content p {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-weight: 400;
+}
   
   .footer-content {
     max-width: 1200px;
