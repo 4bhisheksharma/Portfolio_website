@@ -112,177 +112,371 @@
 
         <section id="projects">
             <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
-            <div class="projects-container">
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/digital-khata" target="_blank">
-                            <img src="assets/images/digital_khata.png" alt="digital-khata">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Digital Khata (Mobile App)</h3>
-                        <p>Digital खाता is a Flutter-powered mobile application designed for shop owners in Nepal to seamlessly manage customer dues and purchase histories.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/bhetghat-app" target="_blank">
-                            <img src="assets/images/bhetghat.png" alt="bhetghat app">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Bhetghat (Mobile App)</h3>
-                        <p>BHETGHAT - Minimal Social Media App | Flutter x Firebase</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/flutter-chess" target="_blank">
-                            <img src="assets/images/chess.png" alt="chess">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Chess (Mobile Game)</h3>
-                        <p>Developed a simple 2 player Chess game with flutter.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/khutruke-app" target="_blank">
-                            <img src="assets/images/khutruke.png" alt="Khutruke">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Khutruke (Mobile App)</h3>
-                        <p>Developed, Khutruke - An Expense Tracker App | Build with Flutter/Dart, Firebase and BLoC</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/flutter-weather-app" target="_blank">
-                            <img src="assets/images/weather.png" alt="weather app">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Weather App (Mobile App)</h3>
-                        <p>Developed a Minimal Weather App.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/book_swap3" target="_blank">
-                            <img src="assets/images/More_books.png" alt="Book swap app">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Book Swap (Mobile App)</h3>
-                        <p>Developed "Book Swap" a book-swapping app where user can send and receive swap request
-                            and can swap the book with other users.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/HamroBasti" target="_blank">
-                            <img src="assets/images/Hamro-Basti_project.png" alt="Hamro-Basti project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Hamro-Basti (Java Web-app)</h3>
-                        <p>Developed "Hamro-Basti" project, in which users/Citizens can report the issues which were in the socity or community and authority tracks and resolves it.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image more details.</p>
+            
+            <!-- Project Categories Filter -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Projects
+                </button>
+                <button class="filter-btn" data-filter="mobile">
+                    <i class="fas fa-mobile-alt"></i> Mobile Apps
+                </button>
+                <button class="filter-btn" data-filter="web">
+                    <i class="fas fa-globe"></i> Web Apps
+                </button>
+                <button class="filter-btn" data-filter="iot">
+                    <i class="fas fa-microchip"></i> IoT Projects
+                </button>
+                <button class="filter-btn" data-filter="games">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Mobile Apps -->
+                <div class="project-card-new" data-category="mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/digital_khata.png" alt="Digital Khata">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">Dart</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Digital Khata</h3>
+                                <p>Flutter-powered mobile application for shop owners in Nepal to manage customer dues and purchase histories.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/digital-khata" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://drive.google.com/file/d/1yrcpW9rmvFbDrAbAlU-gZMDlEjf7aLzW/view?usp=sharing" target="_blank">
-                            <img src="assets/images/Wireless_charging_drone.jpg" alt="Wireless Charging Drone Project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Wireless Charging Drone Project (IoT)</h3>
-                        <p>Collaborated with a team to create a wireless charging drone using induction-based charge.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i>Click the image for more details.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://drive.google.com/drive/folders/1yE1Qp5snZ6C2qLPd0nqt1y2i_1qptqpS?usp=sharing" target="_blank">
-                            <img src="assets/images/Beam Smart.jpg" alt="Beam Smart: Adaptive Vehicle Headlight Control project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Beam Smart: Adaptive Vehicle Headlight Control (IoT)</h3>
-                        <p>I am excited to introduce Beam Smart, the innovative solution for safer night driving, which autonomously adjusts headlights to counter the risks of blinding high beams.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/Simple_snake_game" target="_blank">
-                            <img src="assets/images/Snake game.png" alt="Simple Snake Game project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Simpe Snake Game (Python/pygames)</h3>
-                        <p>Created a simple snake game using python/pygames which is easy and fun to play.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
+                <div class="project-card-new" data-category="mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/bhetghat.png" alt="Bhetghat">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Bhetghat</h3>
+                                <p>Minimal Social Media App built with Flutter and Firebase for seamless social interactions.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/bhetghat-app" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://github.com/4bhisheksharma/Prevent_Accidental_Close_Extension" target="_blank">
-                            <img src="assets/images/Chrome Extension.png" alt="Chrome Extension: Prevent Accidental Quit project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Chrome Extension: Prevent Accidental Quit</h3>
-                        <p>Created Chrome extension which provides a warning prompt when the user attempts to close the Chrome browser window, helping to prevent accidental quitting.</p>
-                        <p class="note"><i class="fas fa-info-circle"></i> Click the image for more details.</p>
-                    </div>
-                </div>
-                
-
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://leave-a-notes.vercel.app/" target="_blank">
-                            <img src="assets/images/leave-a-notes.png" alt="Leave a notes project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Leave-a-notes*</h3>
-                        <p>Realtime notes sharing website while staying anonymous. <br>
-                        <i>* This web application is majorly AI-generated; I was simply testing the capabilities and limitations of the v0 website. So, it's normal to find bugs there.</i></p>
-                        <p class="note"><i class="fas fa-info-circle"></i>Click the image to visite the site.</p>
+                <div class="project-card-new" data-category="games mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/chess.png" alt="Chess Game">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile Game</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">Dart</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Chess Game</h3>
+                                <p>A simple 2-player Chess game developed with Flutter for strategic gameplay on mobile devices.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/flutter-chess" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="https://real-times-chat.vercel.app/" target="_blank">
-                            <img src="assets/images/chithi-patra.png" alt="Chithi-Patra project">
-                        </a>
-                    </div>
-                    <div class="project-content">
-                        <h3>Chithi-Patra*</h3>
-                        <p>Realtime chatting website while staying anonymous. <br>
-                       <i>* This web application is majorly AI-generated; I was simply testing the capabilities and limitations of the v0 website. So, it's normal to find bugs there.</i> </p>
-                        <p class="note"><i class="fas fa-info-circle"></i>Click the image to visite the site.</p>
+                <div class="project-card-new" data-category="mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/khutruke.png" alt="Khutruke">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">BLoC</span>
+                                        <span class="tech-tag">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Khutruke</h3>
+                                <p>An Expense Tracker App built with Flutter/Dart, Firebase and BLoC for efficient money management.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/khutruke-app" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
 
+                <div class="project-card-new" data-category="mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/weather.png" alt="Weather App">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">API</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Weather App</h3>
+                                <p>A minimal weather application providing real-time weather updates with clean UI design.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/flutter-weather-app" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-new" data-category="mobile">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/More_books.png" alt="Book Swap">
+                                <div class="project-overlay">
+                                    <span class="project-category">Mobile App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Flutter</span>
+                                        <span class="tech-tag">Firebase</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Book Swap</h3>
+                                <p>A book-swapping app where users can send and receive swap requests to exchange books with others.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/book_swap3" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Apps -->
+                <div class="project-card-new" data-category="web">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/Hamro-Basti_project.png" alt="Hamro-Basti">
+                                <div class="project-overlay">
+                                    <span class="project-category">Web App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Java</span>
+                                        <span class="tech-tag">JSP</span>
+                                        <span class="tech-tag">MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Hamro-Basti</h3>
+                                <p>A community issue reporting web application where citizens can report issues and authorities can track and resolve them.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/HamroBasti" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-new" data-category="web">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/leave-a-notes.png" alt="Leave-a-notes">
+                                <div class="project-overlay">
+                                    <span class="project-category">Web App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Leave-a-notes*</h3>
+                                <p>Realtime notes sharing website while staying anonymous. Built to test AI capabilities.</p>
+                                <div class="project-links">
+                                    <a href="https://leave-a-notes.vercel.app/" target="_blank" class="project-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-new" data-category="web">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/chithi-patra.png" alt="Chithi-Patra">
+                                <div class="project-overlay">
+                                    <span class="project-category">Web App</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Socket.io</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Chithi-Patra*</h3>
+                                <p>Realtime chatting website while staying anonymous. Built to explore real-time communication.</p>
+                                <div class="project-links">
+                                    <a href="https://real-times-chat.vercel.app/" target="_blank" class="project-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-new" data-category="web">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/Chrome Extension.png" alt="Chrome Extension">
+                                <div class="project-overlay">
+                                    <span class="project-category">Browser Extension</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">JavaScript</span>
+                                        <span class="tech-tag">Chrome API</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Prevent Accidental Quit</h3>
+                                <p>Chrome extension that provides a warning prompt when users attempt to close the browser, preventing accidental quitting.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/Prevent_Accidental_Close_Extension" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IoT Projects -->
+                <div class="project-card-new" data-category="iot">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/Wireless_charging_drone.jpg" alt="Wireless Charging Drone">
+                                <div class="project-overlay">
+                                    <span class="project-category">IoT Project</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Arduino</span>
+                                        <span class="tech-tag">Wireless Charging</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Wireless Charging Drone</h3>
+                                <p>Collaborated with a team to create a wireless charging drone using induction-based charging technology.</p>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/file/d/1yrcpW9rmvFbDrAbAlU-gZMDlEjf7aLzW/view?usp=sharing" target="_blank" class="project-btn">
+                                        <i class="fas fa-external-link-alt"></i> View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-new" data-category="iot">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/Beam Smart.jpg" alt="Beam Smart">
+                                <div class="project-overlay">
+                                    <span class="project-category">IoT Project</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Arduino</span>
+                                        <span class="tech-tag">Sensors</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Beam Smart</h3>
+                                <p>Adaptive Vehicle Headlight Control system that autonomously adjusts headlights for safer night driving.</p>
+                                <div class="project-links">
+                                    <a href="https://drive.google.com/drive/folders/1yE1Qp5snZ6C2qLPd0nqt1y2i_1qptqpS?usp=sharing" target="_blank" class="project-btn">
+                                        <i class="fas fa-external-link-alt"></i> View Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Games -->
+                <div class="project-card-new" data-category="games">
+                    <div class="project-card-inner">
+                        <div class="project-front">
+                            <div class="project-image-new">
+                                <img src="assets/images/Snake game.png" alt="Snake Game">
+                                <div class="project-overlay">
+                                    <span class="project-category">Game</span>
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Pygame</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Simple Snake Game</h3>
+                                <p>Created a simple snake game using Python/Pygame which is easy and fun to play with classic gameplay.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/4bhisheksharma/Simple_snake_game" target="_blank" class="project-btn">
+                                        <i class="fab fa-github"></i> View Code
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -428,22 +622,133 @@
 
         <section id="experience">
             <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h3>Growing in My Career</h3>
-                        <h4>--<span style="font-style: italic;">--</span></h4> 
-                        <p>--</p>
+            
+            <!-- Experience Stats -->
+            <div class="experience-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>2+</h3>
+                        <p>Years Coding</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
-                        <h3>Flutter Developer</h3>
-                        <h4>Digital Pathshala, Itahari | <span style="font-style: italic;">June 2025 - August 2025</span></h4> 
-                        <p>Internship as a Flutter Developer at Digital Pathshala, where I worked on building cross-platform mobile apps and implemented new features and optimizing performance. Gained hands-on experience with Flutter, Django Backend integration, and state management tools.</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <div class="stat-info">
+                        <h3>15+</h3>
+                        <p>Projects Built</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>10+</h3>
+                        <p>Awards Won</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>8+</h3>
+                        <p>Technologies</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Timeline -->
+            <div class="experience-timeline">
+                <div class="timeline-header">
+                    <h3><i class="fas fa-briefcase"></i> Professional Journey</h3>
+                    <p>My career path and professional experiences</p>
+                </div>
+                
+                <div class="experience-cards">
+                    <!-- Future Goals -->
+                    <div class="experience-card future">
+                        <div class="exp-date">
+                            <span class="year">2025+</span>
+                            <span class="status">Future Goals</span>
+                        </div>
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <h3>Growing in My Career</h3>
+                                <div class="company-info">
+                                    <span class="company">Aspiring Mobile App Developer</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Remote/On-site</span>
+                                </div>
+                            </div>
+                            <div class="exp-description">
+                                <p>Seeking opportunities to work with innovative teams and contribute to impactful projects. Focus on full-stack development, mobile applications, and emerging technologies.</p>
+                            </div>
+                            <div class="exp-goals">
+                                <div class="goal-item">
+                                    <i class="fas fa-target"></i>
+                                    <span>Full-Stack Development</span>
+                                </div>
+                                <div class="goal-item">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Advanced Mobile App Development</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Experience -->
+                    <div class="experience-card current">
+                        <div class="exp-date">
+                            <span class="year">2025</span>
+                            <span class="duration">3 Months</span>
+                            <span class="status">Completed</span>
+                        </div>
+                        <div class="exp-content">
+                            <div class="exp-header">
+                                <h3>Flutter Developer Intern</h3>
+                                <div class="company-info">
+                                    <span class="company">Digital Pathshala</span>
+                                    <span class="location"><i class="fas fa-map-marker-alt"></i> Itahari, Nepal</span>
+                                </div>
+                            </div>
+                            <div class="exp-period">
+                                <i class="fas fa-calendar"></i>
+                                <span>June 2025 - August 2025</span>
+                            </div>
+                            <div class="exp-description">
+                                <p>Worked as a Flutter Developer intern, building cross-platform mobile applications and implementing new features while optimizing app performance.</p>
+                            </div>
+                            <div class="exp-achievements">
+                                <h4><i class="fas fa-trophy"></i> Key Achievements</h4>
+                                <ul>
+                                    <li>Built cross-platform mobile apps using Flutter/Dart</li>
+                                    <li>Integrated Django backend with mobile applications</li>
+                                    <li>Implemented state management using BLoC pattern</li>
+                                    <li>Optimized app performance and user experience</li>
+                                    <li>Collaborated with team on feature development</li>
+                                </ul>
+                            </div>
+                            <div class="exp-technologies">
+                                <h4><i class="fas fa-code"></i> Technologies Used</h4>
+                                <div class="tech-tags">
+                                    <span class="tech-tag-exp">Flutter</span>
+                                    <span class="tech-tag-exp">Dart</span>
+                                    <span class="tech-tag-exp">Django</span>
+                                    <span class="tech-tag-exp">BLoC</span>
+                                   
+                                    <span class="tech-tag-exp">REST API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
                 </div>
             </div>
         </section>
@@ -612,7 +917,7 @@
         <div class="footer-bottom">
             <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
             <p>&copy; 2025 Abhishek Sharma | All rights reserved.</p>
-            <p>Last Update: 13<sup>th</sup> October 2025 | V2.7</p>
+            <p>Last Update: 14<sup>th</sup> October 2025 | V2.8</p>
         </div>
     </footer>
 

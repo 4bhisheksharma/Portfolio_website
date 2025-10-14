@@ -252,6 +252,74 @@ document.addEventListener("DOMContentLoaded", () => {
       themeIcon.classList.add("fa-moon");
     }
   });
+
+  // Project filtering functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card-new');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all filter buttons
+      filterBtns.forEach(button => button.classList.remove('active'));
+      // Add active class to clicked button
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const categories = card.getAttribute('data-category').split(' ');
+        
+        if (filter === 'all' || categories.includes(filter)) {
+          card.style.display = 'block';
+          card.style.animation = 'fadeInUp 0.6s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Statistics Counter Animation
+  const animateCounter = (element, target, duration = 2000) => {
+    let startTime = null;
+    const startValue = 0;
+    
+    const animate = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      const currentValue = Math.floor(progress * target);
+      element.textContent = currentValue + '+';
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        element.textContent = target + '+';
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  };
+
+  // Intersection Observer for stats animation
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statNumbers = entry.target.querySelectorAll('.stat-info h3');
+        statNumbers.forEach(stat => {
+          const target = parseInt(stat.textContent.replace('+', ''));
+          animateCounter(stat, target);
+        });
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observe stats section
+  const statsSection = document.querySelector('.experience-stats');
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
