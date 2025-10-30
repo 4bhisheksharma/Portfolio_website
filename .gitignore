@@ -1,1 +1,2 @@
-/scripts/chatbot.js
+# AI Chatbot Configuration (contains API keys)
+/scripts/config.js
