@@ -256,6 +256,41 @@ document.addEventListener("DOMContentLoaded", () => {
   // Project filtering functionality
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card-new');
+  const viewMoreBtn = document.getElementById('view-more-projects-btn');
+  let showingAllProjects = false;
+  const initialProjectCount = 6;
+
+  // Initially hide projects beyond the 6th one
+  projectCards.forEach((card, index) => {
+    if (index >= initialProjectCount) {
+      card.style.display = 'none';
+    }
+  });
+
+  // View More button functionality
+  if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', () => {
+      showingAllProjects = !showingAllProjects;
+      
+      projectCards.forEach((card, index) => {
+        if (index >= initialProjectCount) {
+          card.style.display = showingAllProjects ? 'block' : 'none';
+          if (showingAllProjects) {
+            card.style.animation = 'fadeInUp 0.6s ease forwards';
+          }
+        }
+      });
+
+      // Update button text and icon
+      if (showingAllProjects) {
+        viewMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> View Less Projects';
+      } else {
+        viewMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> View More Projects';
+        // Scroll to projects section when collapsing
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -265,17 +300,43 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
+      let visibleCount = 0;
+      let totalMatchingProjects = 0;
 
+      // First pass: count total matching projects
+      projectCards.forEach(card => {
+        const categories = card.getAttribute('data-category').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
+          totalMatchingProjects++;
+        }
+      });
+
+      // Second pass: show/hide projects based on filter and view state
       projectCards.forEach(card => {
         const categories = card.getAttribute('data-category').split(' ');
         
         if (filter === 'all' || categories.includes(filter)) {
-          card.style.display = 'block';
-          card.style.animation = 'fadeInUp 0.6s ease forwards';
+          // Show project if it matches filter and is within visible range or all are shown
+          if (visibleCount < initialProjectCount || showingAllProjects) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeInUp 0.6s ease forwards';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
         } else {
           card.style.display = 'none';
         }
       });
+
+      // Update view more button visibility based on total matching results
+      if (viewMoreBtn) {
+        if (totalMatchingProjects > initialProjectCount) {
+          viewMoreBtn.style.display = 'inline-flex';
+        } else {
+          viewMoreBtn.style.display = 'none';
+        }
+      }
     });
   });
 
