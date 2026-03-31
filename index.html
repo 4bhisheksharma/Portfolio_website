@@ -117,13 +117,12 @@
     <title>Abhishek Sharma - Flutter Mobile App Developer | Portfolio</title>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/styles/styles.css">
-    <link rel="stylesheet" href="/styles/chatbot.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&family=La+Belle+Aurore&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="dot-pattern"></div>
@@ -132,22 +131,19 @@
         <div class="loader"></div>
     </div>
     
-    <header>
-        <nav>
-            <div class="nav-container">
-                <img src="assets/images/logo.png" alt="Abhishek Sharma Logo" class="nav-logo" />
-                <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
-                <a href="#projects" class="nav-item"><i class="fas fa-code"></i> Projects</a>
-                <a href="#skills" class="nav-item"><i class="fas fa-brain"></i> Skills</a>
-                <a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i> Experience</a>
-                <!-- <a href="#skills-progress" class="nav-item"><i class="fas fa-chart-bar"></i> Proficiency</a> -->
-                <a href="#honors-awards" class="nav-item"><i class="fas fa-award"></i> Awards</a>
-                <a href="#footer-contents" class="nav-item"><i class="fa-solid fa-address-card"></i> Contacts</a>
-                <a href="https://blog.abhishek-sharma.com.np/" target="_blank" class="nav-item"><i class="fa-solid fa-blog"></i> Blog</a>
-                <button id="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
+    <header class="modern-header">
+        <nav class="modern-nav">
+            <div class="nav-brand">
+                <a href="#">&lt; <span>Abhishek</span> /&gt;</a>
             </div>
+            <div class="nav-links desktop-nav">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Tech</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#footer-contents" class="nav-link">Contact</a>
+            </div>
+            
             <div class="hamburger-menu">
                 <button id="menu-toggle" aria-label="Toggle navigation menu">
                     <span></span>
@@ -155,57 +151,74 @@
                     <span></span>
                 </button>
             </div>
-
-            <div class="mobile-nav">
-            <div class="mobile-nav-container">
-                <a href="#" class="nav-item active"><i class="fas fa-home"></i> Home</a>
-                <a href="#projects" class="nav-item"><i class="fas fa-code"></i> Projects</a>
-                <a href="#skills" class="nav-item"><i class="fas fa-brain"></i> Skills</a>
-                <a href="#experience" class="nav-item"><i class="fas fa-briefcase"></i> Experience</a>
-                <!-- <a href="#skills-progress" class="nav-item"><i class="fas fa-chart-bar"></i> Proficiency</a> -->
-                <a href="#honors-awards" class="nav-item"><i class="fas fa-award"></i> Awards</a>
-                <a href="#footer-contents" class="nav-item"><i class="fa-solid fa-address-card"></i> Contacts</a>
-                <a href="https://blog.abhishek-sharma.com.np/" target="_blank" class="nav-item"><i class="fa-solid fa-blog"></i> Blog</a>
-                <button id="mobile-theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-            </div>
         </nav>
+        <!-- Mobile Dropdown will be handled via JS/CSS -->
+        <div class="mobile-nav">
+            <div class="mobile-nav-container">
+                <a href="#about" class="nav-item">About</a>
+                <a href="#skills" class="nav-item">Tech</a>
+                <a href="#projects" class="nav-item">Projects</a>
+                <a href="#experience" class="nav-item">Experience</a>
+                <a href="#footer-contents" class="nav-item">Contact</a>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="greeting">Hello <span class="wave">👋</span></p>
-                    <h1>Abhishek Sharma</h1>
-                    <h6 class="fa-solid fa-location-dot"> Morang, Nepal</h6>
-                    <p class="title">Mobile App Developer</p>
-                    <p class="subtitle">Open to Work • Check out my <span id="element" style="color:#2563eb;"></span></p>
-                    
-                    <div class="action-buttons">
-                        <a href="https://www.linkedin.com/in/4bhisheksharma/" target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="https://github.com/4bhisheksharma" target="_blank" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="assets/misc/Abhishek Sharma CV.pdf" target="_blank" class="btn btn-secondary"><i class="fas fa-file-alt"></i> View CV</a>
-                    </div>
+        <section id="hero" class="modern-hero fade-up">
+            <div class="hero-left">
+                <span class="role-badge"><img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter" style="width: 14px; margin-right: 2px; vertical-align: middle;">lutter Developer</span>
+                <h1 class="hero-name"><strong>ABHISHEK</strong><br>SHARMA</h1>
+                <p class="hero-subtitle">
+                    <i class="fa-solid fa-play"></i>
+                    Open to Work • Explore my <span id="element" class="typed-text""></span>
+                </p>
+                <div class="hero-divider"></div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/4bhisheksharma/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/4bhisheksharma" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://pub.dev/publishers/abhishek-sharma.com.np/packages" target="_blank" aria-label="pub.dev"><img src="assets/images/pub-dev.png" style="width:20px; filter: grayscale(1) invert(1) brightness(2);" alt="pub.dev" class="pub-icon"></a>
+                    <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://blog.abhishek-sharma.com.np/" target="_blank" aria-label="Blog"><i class="fa-solid fa-blog"></i></a>
+                    <a href="assets/misc/Abhishek Sharma CV.pdf" target="_blank" aria-label="Resume"><i class="fas fa-file-alt"></i></a>
                 </div>
-                <div class="hero-image">
-                    <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank">
-                    <img
-                      id="profile-pic"
-                      src="assets/images/profile2.png"
-                      alt="Abhishek Sharma"
-                    />
-                    </a>
-                    <!-- Tooltip element (initially empty/hidden) -->
-                    <span id="instagram-tooltip">Instagram</span>
-                  </div>
-                  
+                <a href="#footer-contents" class="chat-link">LET'S CHAT!</a>
+            </div>
+
+            <div class="hero-right">
+                <div class="hero-image-container">
+
+                    <img id="profile-pic" src="assets/images/profile2.png" alt="Abhishek Sharma" />
+                    <!-- <div class="hero-circle-backdrop"></div> -->
+                    <!-- <div class="hero-spiral-bg"></div> -->
+                    <!-- Floating decorative points -->
+                </div>
             </div>
         </section>
 
-        <section id="projects">
+        <!-- Keep an about section anchor for new nav -->
+        <section id="about" class="modern-about fade-up">
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="image-box box-1"><img src="assets/images/AAA.jpg" alt="About Image 1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'#333\'/></svg>'"></div>
+                    <div class="image-box box-2"><img src="assets/images/yss.jpeg" alt="About Image 2" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect width=\'100\' height=\'100\' fill=\'#444\'/></svg>'"></div>
+                </div>
+                <div class="about-text">
+                    <h3 class="modern-section-title">About Me</h3>
+                    <h2 class="about-headline">Hello! I'm Abhishek</h2>
+                    <p class="about-subheadline">Mobile App Developer</p>
+                    <p class="about-description">
+                        <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter" style="width: 14px; margin-right: 2px; vertical-align: middle;">lutter Mobile App Developer focusing on building scalable systems. I have developed solutions, 
+                        MVPs, products, and systems for different niches such as accounting, social networking, and fintech. 
+                        <br><br>
+                        Currently working as Associate <img src="https://storage.googleapis.com/cms-storage-bucket/4fd5520fe28ebf839174.svg" alt="Flutter" style="width: 14px; margin-right: 2px; vertical-align: middle;">lutter Developer at <a href="https://digitalpathshalanepal.com/" target="_blank" style="color: #6AFF9D;">Digital Pathshala</a> and pursuing BSc. Computing at Itahari International College, Nepal.
+                    </p>
+                    <a href="assets/misc/Abhishek Sharma CV.pdf" target="_blank" class="btn-download"><i class="fas fa-file-alt"></i> Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-up">
             <h2 class="section-title"><i class="fas fa-code"></i> Projects</h2>
             
             <!-- Project Categories Filter -->
@@ -271,7 +284,7 @@
                             </div>
                             <div class="project-info">
                                 <h3>clean_arch</h3>
-                                <p>A command-line tool that scaffolds Flutter projects following Clean Architecture — generates the full core layer and feature modules with boilerplate files in one command.</p>
+                                <p>A command-line tool that scaffolds Flutter projects following Clean Architecture - generates the full core layer and feature modules with boilerplate files in one command.</p>
                                 <div class="project-links">
                                     <a href="https://pub.dev/packages/clean_arch" target="_blank" class="project-btn">
                                         <i class="fas fa-external-link-alt"></i> Pub.dev Package
@@ -712,7 +725,7 @@
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="fade-up">
             <h2 class="section-title"><i class="fas fa-brain"></i> Skills</h2>
             
             <div class="skills-categories">
@@ -852,7 +865,7 @@
             <div id="tooltip" class="tooltip"></div>
         </section>
 
-        <section id="experience">
+        <section id="experience" class="fade-up">
             <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
             
             <!-- Experience Stats -->
@@ -1140,30 +1153,30 @@
             <div class="social-links">
                 <h3><i class="fas fa-link"></i> Connect</h3>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
+                    <a href="https://github.com/4bhisheksharma" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/4bhisheksharma/" target="_blank" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
+                     <a href="https://pub.dev/publishers/abhishek-sharma.com.np/packages" target="_blank" aria-label="pub.dev"><img src="assets/images/pub-dev.png" style="width:20px; filter: grayscale(1) invert(1) brightness(2);" alt="pub.dev" class="pub-icon"></a>
                     <a href="https://www.facebook.com/4bhisheksharma" target="_blank" aria-label="Facebook">
                         <i class="fab fa-facebook"></i>
                     </a>
-                    <a href="https://github.com/4bhisheksharma" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
+                    <a href="https://www.instagram.com/btw.its_abhishek/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
                     </a>
+                    
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i> Back to Top</a>
             <p>&copy; 2026 Abhishek Sharma | All rights reserved.</p>
-            <p>Last Update: 29<sup>th</sup> March 2026 | V3.7</p>
+            <p>Last Update: 31<sup>st</sup> March 2026 | V3.8</p>
         </div>
     </footer>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="/scripts/scripts.js"></script>
-    <script src="/scripts/config.js"></script>
-    <script src="/scripts/chatbot.js"></script>
 </body>
 </html>

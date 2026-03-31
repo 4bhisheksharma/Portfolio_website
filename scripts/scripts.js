@@ -5,20 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".preloader").style.visibility = "hidden";
   }, 1500);
 
-  // Set dark mode as default on page load
+  // Set dark mode as default
   document.body.classList.add("dark");
-
-  // Initialize theme icons for both desktop and mobile
-  const themeToggle = document.getElementById("theme-toggle");
-  const themeIcon = themeToggle.querySelector("i");
-  const mobileThemeToggle = document.getElementById("mobile-theme-toggle");
-  const mobileThemeIcon = mobileThemeToggle.querySelector("i");
-
-  // Set initial icons to sun since dark mode is active by default
-  themeIcon.classList.remove("fa-moon");
-  themeIcon.classList.add("fa-sun");
-  mobileThemeIcon.classList.remove("fa-moon");
-  mobileThemeIcon.classList.add("fa-sun");
 
   // Initialize Typed.js
   const typed = new Typed("#element", {
@@ -95,23 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Theme toggle functionality for desktop
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
-      mobileThemeIcon.classList.remove("fa-moon");
-      mobileThemeIcon.classList.add("fa-sun");
-    } else {
-      themeIcon.classList.remove("fa-sun");
-      themeIcon.classList.add("fa-moon");
-      mobileThemeIcon.classList.remove("fa-sun");
-      mobileThemeIcon.classList.add("fa-moon");
-    }
-  });
-
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -140,14 +111,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Animate progress bars when they come into view
+  // Animate progress bars and fade-up elements
   const progressBars = document.querySelectorAll(".progress");
+  const fadeUpElements = document.querySelectorAll(".fade-up");
 
   // Create an Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          if (entry.target.classList.contains("fade-up")) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+            return;
+          }
+          
           // Get the width from the style attribute
           const width = entry.target.style.width;
 
@@ -165,9 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.1 }
   );
 
-  // Observe each progress bar
+  // Observe each progress bar and fade-up element
   progressBars.forEach((bar) => {
     observer.observe(bar);
+  });
+  fadeUpElements.forEach((el) => {
+    observer.observe(el);
   });
 
   // Active navigation highlighting based on scroll position
@@ -234,23 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  });
-
-  // Mobile theme toggle functionality
-  mobileThemeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-      mobileThemeIcon.classList.remove("fa-moon");
-      mobileThemeIcon.classList.add("fa-sun");
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
-    } else {
-      mobileThemeIcon.classList.remove("fa-sun");
-      mobileThemeIcon.classList.add("fa-moon");
-      themeIcon.classList.remove("fa-sun");
-      themeIcon.classList.add("fa-moon");
-    }
   });
 
   // Project filtering functionality
