@@ -621,7 +621,7 @@
   
   .project-category {
     align-self: flex-start;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(255, 255, 255);
     color: black;
     padding: 6px 12px;
     border-radius: 15px;
@@ -638,8 +638,8 @@
   }
   
   .tech-tag {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: var(--text-color);
+    background-color: rgb(255, 255, 255);
+    color: black;
     padding: 4px 8px;
     border-radius: 10px;
     font-size: 0.7rem;
