@@ -1,0 +1,86 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Original dark + neon green */
+    --background: 230 7% 14%;
+    --foreground: 214 32% 91%;
+    --card: 230 6% 11%;
+    --card-foreground: 214 32% 91%;
+    --primary: 142 100% 71%;
+    --primary-foreground: 230 7% 10%;
+    --secondary: 230 5% 18%;
+    --secondary-foreground: 214 32% 91%;
+    --accent: 142 100% 71%;
+    --accent-foreground: 230 7% 10%;
+    --muted: 230 5% 18%;
+    --muted-foreground: 215 16% 57%;
+    --border: 230 5% 22%;
+    --ring: 142 100% 71%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-primary/25 text-foreground;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-5 sm:px-8 lg:px-10 py-20 md:py-24;
+  }
+
+  .container-max {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+/* Subtle dot grid — matches original, no glow orbs */
+.bg-dots {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Terminal scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.4);
+}
