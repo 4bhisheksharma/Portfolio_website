@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -7,14 +8,18 @@ import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
+import { TerminalModal } from "@/components/common/TerminalModal";
+import { AiChatWidget } from "@/components/common/AiChatWidget";
 
 function App() {
+  const [terminalOpen, setTerminalOpen] = useState(false);
+
   return (
     <>
       <div className="bg-dots" aria-hidden="true" />
-      <Navbar />
+      <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
       <main>
-        <Hero />
+        <Hero onOpenTerminal={() => setTerminalOpen(true)} />
         <About />
         <Projects />
         <Skills />
@@ -23,6 +28,8 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <TerminalModal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
+      <AiChatWidget />
     </>
   );
 }

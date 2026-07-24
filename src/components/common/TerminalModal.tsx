@@ -55,7 +55,7 @@ const BANNER = [
 function bootLines(): Line[] {
   const now = new Date().toLocaleString();
   return [
-    { type: "dim", text: `Windows PowerShell · ${now}` },
+    { type: "dim", text: `Portfolio Terminal · ${now}` },
     { type: "dim", text: "Copyright (C) Abhishek Sharma Portfolio. All rights reserved." },
     { type: "system", text: "" },
     ...BANNER.map((t) => ({ type: "accent" as const, text: t })),
@@ -127,7 +127,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
         { type: "accent", text: "   /\\_/\\  │  abhishek@portfolio         │" },
         { type: "accent", text: "  ( o.o ) │─────────────────────────────│" },
         { type: "accent", text: "   > ^ <  │  OS:      Web Portfolio     │" },
-        { type: "output", text: "          │  Shell:   PowerShell 7.x    │" },
+        { type: "output", text: "          │  Shell:   bash              │" },
         { type: "output", text: `          │  Host:    ${siteConfig.name.padEnd(17)}│` },
         { type: "output", text: "          │  Role:    Flutter Dev       │" },
         { type: "output", text: `          │  Loc:     Nepal             │` },
@@ -310,7 +310,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
       return [
         {
           type: "error",
-          text: `  CommandNotFoundException: '${cmd}' is not recognized.`,
+          text: `  bash: ${cmd}: command not found`,
         },
         {
           type: "dim",
@@ -521,7 +521,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
               <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
                 <TerminalIcon className="h-3.5 w-3.5 text-primary shrink-0" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground font-mono truncate">
-                  abhishek@portfolio — PowerShell
+                  abhishek@portfolio — Terminal
                 </span>
               </div>
 
@@ -539,7 +539,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
                 <div key={i} className={cn("whitespace-pre-wrap break-words", lineClass(line.type))}>
                   {line.type === "input" ? (
                     <>
-                      <span className="text-primary/60">PS ~/portfolio&gt; </span>
+                      <span className="text-primary/60">abhishek@portfolio:~$ </span>
                       <span>{line.text}</span>
                     </>
                   ) : (
@@ -549,7 +549,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
               ))}
 
               <form onSubmit={submit} className="flex items-center gap-1 mt-0.5">
-                <span className="text-primary/60 shrink-0">PS ~/portfolio&gt;</span>
+                <span className="text-primary/60 shrink-0">abhishek@portfolio:~$</span>
                 <input
                   ref={inputRef}
                   value={value}

@@ -23,7 +23,7 @@ export const siteConfig = {
   profileImage: "/assets/images/profile1.png",
   logo: "/assets/images/logo.png",
   copyright: "© 2026 Abhishek Sharma | All rights reserved.",
-  version: "Last Update: 28th June 2026 | V5.0",
+  version: "Last Update: 24th July 2026 | V6.0",
   about: {
     headline: "Hello! I'm Abhishek",
     subheadline: "Mobile App Developer",

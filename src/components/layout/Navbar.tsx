@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, Terminal, X } from "lucide-react";
 import { navLinks, sectionIds } from "@/data/site";
 import { useScrolled } from "@/hooks/useScrolled";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+interface NavbarProps {
+  onOpenTerminal: () => void;
+}
+
+export function Navbar({ onOpenTerminal }: NavbarProps) {
   const scrolled = useScrolled();
   const activeSection = useActiveSection(sectionIds);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -63,6 +67,14 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
+          <button
+            type="button"
+            onClick={onOpenTerminal}
+            className="flex items-center gap-1.5 text-xs lg:text-sm text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+          >
+            <Terminal className="h-3.5 w-3.5" aria-hidden="true" />
+            Developer Zone
+          </button>
         </div>
 
         <button
@@ -104,6 +116,17 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  onOpenTerminal();
+                }}
+                className="flex items-center gap-2 px-3 py-3 text-base text-muted-foreground hover:text-primary transition-colors rounded text-left"
+              >
+                <Terminal className="h-4 w-4" aria-hidden="true" />
+                Developer Zone
+              </button>
             </div>
           </motion.div>
         )}

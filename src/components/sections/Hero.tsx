@@ -1,15 +1,16 @@
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Terminal } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { heroSocials } from "@/data/socials";
 import { TypedText } from "@/components/common/TypedText";
 import { SocialLinks } from "@/components/common/SocialLinks";
-import { TerminalModal } from "@/components/common/TerminalModal";
 
-export function Hero() {
+interface HeroProps {
+  onOpenTerminal: () => void;
+}
+
+export function Hero({ onOpenTerminal }: HeroProps) {
   const prefersReducedMotion = useReducedMotion();
-  const [terminalOpen, setTerminalOpen] = useState(false);
 
   return (
     <section
@@ -42,7 +43,7 @@ export function Hero() {
               <SocialLinks links={heroSocials} />
               <button
                 type="button"
-                onClick={() => setTerminalOpen(true)}
+                onClick={onOpenTerminal}
                 aria-label="Open developer terminal"
                 title="Open terminal"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-muted-foreground border border-border transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -78,8 +79,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-
-      <TerminalModal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
     </section>
   );
 }
