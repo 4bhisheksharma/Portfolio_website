@@ -8,10 +8,11 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Bot, X, Send, Loader2 } from "lucide-react";
+import { X, Send, Loader2 } from "lucide-react";
 import { buildSystemPrompt } from "@/lib/portfolioContext";
 import { streamChatCompletion, type ChatMessage } from "@/lib/openrouter";
 import { siteConfig } from "@/data/site";
+import { LottieBot } from "@/components/common/LottieBot";
 import { cn } from "@/lib/utils";
 
 interface Message {
@@ -145,11 +146,11 @@ export function AiChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-5 right-5 z-[90] flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-[0_4px_24px_rgba(106,255,157,0.35)] hover:brightness-110 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="fixed bottom-5 right-5 z-[90] bg-transparent p-0 border-0 shadow-none hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Open AI assistant"
             title="Ask about Abhishek"
           >
-            <Bot className="h-6 w-6" aria-hidden="true" />
+            <LottieBot size={56} />
           </motion.button>
         )}
       </AnimatePresence>
@@ -169,9 +170,7 @@ export function AiChatWidget() {
           >
             {/* Header */}
             <div className="flex items-center gap-3 border-b border-border px-4 py-3 bg-secondary/50">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Bot className="h-5 w-5" aria-hidden="true" />
-              </div>
+              <LottieBot size={32} />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium truncate">Ask about {siteConfig.name.split(" ")[0]}</p>
                 <p className="text-xs text-muted-foreground">Portfolio AI assistant</p>
