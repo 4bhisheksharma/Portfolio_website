@@ -50,7 +50,7 @@ RESUME: ${siteConfig.resumeUrl}
 
 ABOUT:
 ${siteConfig.about.description}
-${siteConfig.about.currentRole}
+${siteConfig.about.currentRole.beforeCompany}${siteConfig.about.currentRole.company}${siteConfig.about.currentRole.afterCompany}
 Education: BSc. Computing at ${siteConfig.about.college}
 
 STATS: ${stats}

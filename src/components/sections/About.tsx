@@ -54,16 +54,16 @@ export function About() {
               <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
                 <p>{siteConfig.about.description}</p>
                 <p>
-                  Currently working as Flutter Developer at{" "}
+                  {siteConfig.about.currentRole.beforeCompany}
                   <a
                     href={siteConfig.about.digitalPathshalaUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"
                   >
-                    Digital Pathshala
-                  </a>{" "}
-                  and pursuing BSc. Computing at {siteConfig.about.college}, Nepal.
+                    {siteConfig.about.currentRole.company}
+                  </a>
+                  {siteConfig.about.currentRole.afterCompany}
                 </p>
               </div>
 

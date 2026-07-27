@@ -2,7 +2,12 @@ export const siteConfig = {
   name: "Abhishek Sharma",
   title: "Flutter Mobile App Developer",
   role: "Flutter Developer",
-  tagline: "Open to Work",
+  tagline: "Open to Work · 15+ Projects · AWS Certified",
+  seo: {
+    title: "Abhishek Sharma | Flutter Mobile App Developer",
+    description:
+      "Flutter developer building cross-platform mobile apps with Flutter & Dart. 15+ projects, AWS Certified, open to work. Based in Nepal.",
+  },
   typedStrings: [
     "Works",
     "Projects",
@@ -28,9 +33,12 @@ export const siteConfig = {
     headline: "Hello! I'm Abhishek",
     subheadline: "Mobile App Developer",
     description:
-      "Flutter Mobile App Developer focusing on building scalable systems. I have developed solutions, MVPs, products, and systems for different niches such as accounting, social networking, and fintech.",
-    currentRole:
-      "Currently working as Flutter Developer at Digital Pathshala and pursuing BSc. Computing at Itahari International College, Nepal.",
+      "Flutter Mobile App Developer specializing in scalable cross-platform apps with Flutter, Dart, and Firebase. 15+ projects across fintech, social, and accounting — including Digital Khata and Bhetghat.",
+    currentRole: {
+      beforeCompany: "Flutter Developer at ",
+      company: "Digital Pathshala",
+      afterCompany: " · BSc. Computing at Itahari International College, Nepal",
+    },
     digitalPathshalaUrl: "https://digitalpathshalanepal.com/",
     college: "Itahari International College",
     images: [
