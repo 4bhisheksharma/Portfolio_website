@@ -71,6 +71,25 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "urban-homes",
+    title: "Urban Homes",
+    description:
+      "Urban Homes - admin-managed customer portal for project files and properties.",
+    image: "/assets/images/urban-homes.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Next.js", "Supabase", "DigitalOcean"],
+    featured: true,
+    links: [
+      { label: "Web", href: "https://urbanhomes.com.np/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.digitalpathshala.urbanhomes",
+        type: "store",
+      },
+    ],
+  },
+  {
     id: "digital-khata",
     title: "Digital Khata",
     description:

@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Abhishek Sharma",
   title: "Flutter Mobile App Developer",
   role: "Flutter Developer",
-  tagline: "Open to Work · 15+ Projects · AWS Certified",
+  tagline: "Open to Work · 15+ Projects",
   seo: {
     title: "Abhishek Sharma | Flutter Mobile App Developer",
     description:
