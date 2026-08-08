@@ -1,9 +1,51 @@
-import { certifications } from "@/data/certifications";
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { certifications, type Certification } from "@/data/certifications";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Reveal } from "@/components/common/Reveal";
-import { ImageLightbox } from "@/components/common/ImageLightbox";
+import { ScrollDepthCarousel } from "@/components/common/ScrollDepthCarousel";
+import { CertificationDepthCard } from "@/components/common/PortfolioDepthCards";
+import { Button } from "@/components/ui/button";
+import { useDepthCarouselLayout } from "@/hooks/useCardSwapSize";
+
+const INITIAL_CERT_COUNT = 6;
 
 export function Certifications() {
+  const [showAll, setShowAll] = useState(false);
+  const { width, height, spread, depth, scrollStepVh, visibleCards, isMobile } =
+    useDepthCarouselLayout();
+
+  const visibleCerts = showAll
+    ? certifications
+    : certifications.slice(0, INITIAL_CERT_COUNT);
+
+  const realCertCount = certifications.filter((c) => !c.comingSoon).length;
+  const hasMore = certifications.length > INITIAL_CERT_COUNT;
+
+  const toggleShowAll = () => {
+    if (showAll) {
+      document.getElementById("honors-awards")?.scrollIntoView({ behavior: "smooth" });
+    }
+    setShowAll(!showAll);
+  };
+
+  const viewMoreFooter =
+    hasMore && !showAll ? (
+      <Button className="min-h-[44px] shadow-lg" onClick={() => setShowAll(true)}>
+        <ChevronDown className="h-4 w-4" aria-hidden="true" />
+        View More ({realCertCount}+ credentials)
+      </Button>
+    ) : showAll && hasMore ? (
+      <Button
+        variant="outline"
+        className="min-h-[44px] shadow-lg bg-background/90 backdrop-blur-sm"
+        onClick={toggleShowAll}
+      >
+        <ChevronUp className="h-4 w-4" aria-hidden="true" />
+        View Less
+      </Button>
+    ) : undefined;
+
   return (
     <section id="honors-awards" className="section-padding">
       <div className="container-max">
@@ -11,42 +53,26 @@ export function Certifications() {
           <SectionHeading title="Honors & Awards" />
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {certifications.map((cert, index) =>
-            cert.comingSoon ? (
-              <Reveal key={cert.id} delay={index * 0.04}>
-                <div className="h-full flex flex-col items-center justify-center text-center rounded-lg border border-dashed border-border bg-card/50 p-8 min-h-[220px]">
-                  <h3 className="text-base font-medium mb-2">{cert.title}</h3>
-                  <p className="text-sm text-muted-foreground">{cert.description}</p>
-                </div>
-              </Reveal>
-            ) : (
-              <Reveal key={cert.id} delay={index * 0.04}>
-                <article className="h-full flex flex-col rounded-lg border border-border bg-card overflow-hidden hover:border-primary/40 transition-colors">
-                  <div className="h-36 sm:h-40 overflow-hidden bg-muted">
-                    <ImageLightbox src={cert.image} alt={cert.imageAlt} />
-                  </div>
-                  <div className="p-4 sm:p-5 flex-1">
-                    <h3 className="text-sm font-medium mb-2 leading-snug">{cert.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {cert.description}
-                    </p>
-                    {cert.link && (
-                      <a
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-3 text-xs text-primary hover:underline"
-                      >
-                        View credential →
-                      </a>
-                    )}
-                  </div>
-                </article>
-              </Reveal>
-            )
-          )}
-        </div>
+        <ScrollDepthCarousel<Certification>
+          key={`certs-${showAll}-${visibleCerts.length}`}
+          items={visibleCerts}
+          renderItem={(cert) => <CertificationDepthCard cert={cert} />}
+          cardWidth={width}
+          cardHeight={height}
+          depth={depth}
+          spread={spread}
+          tilt={0}
+          tiltDirection="right"
+          perspective={1550}
+          visibleCards={visibleCards}
+          falloff={0.17}
+          blur={6}
+          radius={12}
+          scrollStepVh={scrollStepVh}
+          isMobile={isMobile}
+          hint="Scroll — one credential at a time"
+          footer={viewMoreFooter}
+        />
       </div>
     </section>
   );

@@ -49,13 +49,18 @@ export const siteConfig = {
   },
 };
 
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Tech", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-] as const;
+export type NavLink =
+  | { label: string; href: string; type: "hash" }
+  | { label: string; href: string; type: "route" };
+
+export const navLinks: NavLink[] = [
+  { label: "About", href: "#about", type: "hash" },
+  { label: "Projects", href: "#projects", type: "hash" },
+  { label: "Gallery", href: "/gallery", type: "route" },
+  { label: "Tech", href: "#skills", type: "hash" },
+  { label: "Experience", href: "#experience", type: "hash" },
+  { label: "Contact", href: "#contact", type: "hash" },
+];
 
 export const sectionIds = [
   "hero",
