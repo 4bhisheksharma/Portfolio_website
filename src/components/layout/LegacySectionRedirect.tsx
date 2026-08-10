@@ -4,7 +4,7 @@ import { sectionIds } from "@/data/site";
 
 const KNOWN_ROUTES = new Set(["/", "/gallery"]);
 
-/** Redirect legacy section hashes (#about) that HashRouter parses as /about */
+/** Redirect legacy section paths (/about) to home with hash anchors */
 export function LegacySectionRedirect() {
   const location = useLocation();
   const navigate = useNavigate();

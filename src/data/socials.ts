@@ -30,7 +30,7 @@ export const heroSocials: SocialLink[] = [
   },
   { label: "Instagram", href: "https://www.instagram.com/btw.its_abhishek/", icon: FaInstagram },
   { label: "Blog", href: "https://blog.abhishek-sharma.com.np/", icon: FaBlog },
-  { label: "Resume", href: "/assets/misc/Abhishek Sharma CV.pdf", icon: FaFileAlt },
+  { label: "Resume", href: "/assets/misc/abhishek-sharma-cv.pdf", icon: FaFileAlt },
 ];
 
 export const footerSocials: SocialLink[] = [

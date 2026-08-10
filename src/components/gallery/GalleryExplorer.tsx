@@ -29,14 +29,15 @@ export function GalleryExplorer() {
       <div className="relative">
         <div className="mb-8 md:mb-10">
           <p className="text-xs uppercase tracking-widest text-primary/70 mb-1.5">Visual Archive</p>
-          <h2 className="text-2xl md:text-3xl font-medium text-foreground tracking-tight">
-            Gallery
+          <h1 className="text-2xl md:text-3xl font-medium text-foreground tracking-tight">
+            Abhishek Sharma Gallery
             <span className="text-muted-foreground/50 ml-2 text-base md:text-lg font-normal">
               {galleryImages.length}
             </span>
-          </h2>
-          <p className="text-sm text-muted-foreground mt-2 max-w-lg">
-            Projects, certifications, and moments from my portfolio. Click a tile to view full size.
+          </h1>
+          <p className="text-sm text-muted-foreground mt-2 max-w-xl">
+            Photos, Flutter project screenshots, certifications, and hackathon moments from
+            Abhishek Sharma — Flutter developer based in Itahari, Nepal.
           </p>
         </div>
 

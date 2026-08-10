@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://abhishek-sharma.com.np/</loc>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/profile1.png</image:loc>
+      <image:title>Abhishek Sharma — Flutter developer from Itahari, Nepal</image:title>
+      <image:caption>Profile photo of Abhishek Sharma, Flutter mobile app developer from Itahari, Nepal</image:caption>
+      <image:geo_location>Itahari, Nepal</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/profile2.png</image:loc>
+      <image:title>Abhishek Sharma portrait — mobile app developer from Nepal</image:title>
+      <image:caption>Abhishek Sharma, Flutter developer from Nepal</image:caption>
+      <image:geo_location>Itahari, Nepal</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/og.png</image:loc>
+      <image:title>Abhishek Sharma | Flutter Developer from Itahari, Nepal</image:title>
+      <image:caption>Portfolio preview — Abhishek Sharma Flutter developer open to work</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/AAA.jpg</image:loc>
+      <image:title>Abhishek Sharma at an event in Itahari, Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/yss.jpeg</image:loc>
+      <image:title>Abhishek Sharma — young scientist presentation, Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/hackathone.jpeg</image:loc>
+      <image:title>Abhishek Sharma at a hackathon in Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/digital_khata.png</image:loc>
+      <image:title>Digital Khata — Flutter app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/bhetghat.png</image:loc>
+      <image:title>Bhetghat — Flutter project by Abhishek Sharma, Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/arya.png</image:loc>
+      <image:title>A.R.Y.A — Flutter AI app by Abhishek Sharma</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://abhishek-sharma.com.np/gallery</loc>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/profile1.png</image:loc>
+      <image:title>Abhishek Sharma — Flutter developer from Itahari, Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/profile2.png</image:loc>
+      <image:title>Abhishek Sharma portrait — Nepal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/digital_khata.png</image:loc>
+      <image:title>Digital Khata app screenshot — Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/invisible-vpn.png</image:loc>
+      <image:title>Invisible VPN — Flutter app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/urban-homes.png</image:loc>
+      <image:title>Urban Homes — Flutter project by Abhishek Sharma</image:title>
+    </image:image>
+  </url>
+</urlset>

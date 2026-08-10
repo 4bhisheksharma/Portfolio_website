@@ -30,6 +30,7 @@ export function Hero({ onOpenTerminal }: HeroProps) {
             <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-semibold leading-[1.05] tracking-tight mb-6">
               <span className="block">ABHISHEK</span>
               <span className="block font-normal text-foreground/90">SHARMA</span>
+              <span className="sr-only"> — Flutter Developer from Itahari, Nepal</span>
             </h1>
 
             <p className="text-base text-muted-foreground mb-8">
@@ -69,7 +70,7 @@ export function Hero({ onOpenTerminal }: HeroProps) {
             <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-[380px] lg:h-[380px]">
               <img
                 src={siteConfig.profileImage}
-                alt="Abhishek Sharma"
+                alt="Abhishek Sharma — Flutter developer from Itahari, Nepal"
                 width={380}
                 height={380}
                 className="w-full h-full object-contain grayscale hover:grayscale-0 transition-[filter] duration-500 [mask-image:linear-gradient(to_bottom,black_75%,transparent_100%)]"
