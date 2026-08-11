@@ -16,13 +16,13 @@ export function ResumeApp() {
           initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <GlassCard className="p-4 text-center">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1a1a1c] ring-1 ring-white/10">
-              <FileText className="h-7 w-7 text-white/85" strokeWidth={1.5} />
+          <GlassCard className="p-3 text-center">
+            <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-[#1a1a1c] ring-1 ring-white/10">
+              <FileText className="h-4.5 w-4.5 text-white/85" strokeWidth={1.5} />
             </div>
-            <h2 className="mt-3 text-sm font-semibold text-white">{siteConfig.name}</h2>
+            <h2 className="mt-2 text-sm font-semibold text-white">{siteConfig.name}</h2>
             <p className="text-[11px] text-white/55">{siteConfig.title}</p>
-            <p className="mt-2 text-[10px] leading-relaxed text-white/45">
+            <p className="mt-1.5 text-[10px] leading-relaxed text-white/45">
               Curriculum Vitae — Flutter mobile development, projects, and certifications.
             </p>
           </GlassCard>

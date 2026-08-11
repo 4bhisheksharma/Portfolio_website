@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 import { AppScreenShell } from "../AppScreenShell";
@@ -10,7 +10,17 @@ export function SkillsApp() {
   const meta = screenMeta.skills;
   const [activeCategory, setActiveCategory] = useState(skillCategories[0]?.id ?? "");
   const prefersReducedMotion = useReducedMotion();
+  const filterBtnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const category = skillCategories.find((c) => c.id === activeCategory);
+
+  const handleCategoryClick = (id: string) => {
+    setActiveCategory(id);
+    filterBtnRefs.current[id]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "end",
+      block: "nearest",
+    });
+  };
 
   return (
     <AppScreenShell title={meta.title} icon={meta.icon}>
@@ -19,8 +29,11 @@ export function SkillsApp() {
           {skillCategories.map((cat) => (
             <button
               key={cat.id}
+              ref={(el) => {
+                filterBtnRefs.current[cat.id] = el;
+              }}
               type="button"
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => handleCategoryClick(cat.id)}
               className={cn(
                 "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition-colors",
                 activeCategory === cat.id

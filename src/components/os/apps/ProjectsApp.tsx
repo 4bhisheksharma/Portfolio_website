@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, prefersReducedMotion } from "framer-motion";
 import { ExternalLink, Github, Star } from "lucide-react";
 import { projects, projectFilters, type ProjectCategory } from "@/data/projects";
 import { AppScreenShell } from "../AppScreenShell";
@@ -10,27 +10,16 @@ import { cn } from "@/lib/utils";
 export function ProjectsApp() {
   const meta = screenMeta.projects;
   const [filter, setFilter] = useState<"all" | ProjectCategory>("all");
-  const prefersReducedMotion = useReducedMotion();
-  const filterRef = useRef<HTMLDivElement>(null);
-  const paused = useRef(false);
+  const filterBtnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
 
-  useEffect(() => {
-    const el = filterRef.current;
-    if (!el || prefersReducedMotion) return;
-
-    let dir = 1;
-    const id = window.setInterval(() => {
-      if (paused.current) return;
-      const max = el.scrollWidth - el.clientWidth;
-      if (max <= 4) return;
-      const next = el.scrollLeft + dir * 0.6;
-      if (next >= max) dir = -1;
-      else if (next <= 0) dir = 1;
-      el.scrollLeft += dir * 0.6;
-    }, 24);
-
-    return () => window.clearInterval(id);
-  }, [prefersReducedMotion]);
+  const handleFilterClick = (id: "all" | ProjectCategory) => {
+    setFilter(id);
+    filterBtnRefs.current[id]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "end",
+      block: "nearest",
+    });
+  };
 
   const filtered =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
@@ -38,29 +27,15 @@ export function ProjectsApp() {
   return (
     <AppScreenShell title={meta.title} icon={meta.icon}>
       <div className="space-y-3 p-3">
-        <div
-          ref={filterRef}
-          onPointerDown={() => {
-            paused.current = true;
-          }}
-          onPointerUp={() => {
-            window.setTimeout(() => {
-              paused.current = false;
-            }, 2500);
-          }}
-          onWheel={() => {
-            paused.current = true;
-            window.setTimeout(() => {
-              paused.current = false;
-            }, 2500);
-          }}
-          className="flex gap-1.5 overflow-x-auto os-scroll pb-1"
-        >
+        <div className="flex gap-1.5 overflow-x-auto os-scroll pb-1">
           {projectFilters.map((f) => (
             <button
               key={f.id}
+              ref={(el) => {
+                filterBtnRefs.current[f.id] = el;
+              }}
               type="button"
-              onClick={() => setFilter(f.id)}
+              onClick={() => handleFilterClick(f.id)}
               className={cn(
                 "shrink-0 rounded-full px-3 py-1 text-[10px] font-medium transition-colors",
                 filter === f.id
