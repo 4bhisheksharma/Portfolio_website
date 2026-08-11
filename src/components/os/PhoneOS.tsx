@@ -13,7 +13,7 @@ export function PhoneOS() {
   const { screen } = usePhoneOS();
 
   return (
-    <div className="os-desktop-bg flex min-h-[100dvh] items-center justify-center p-4 md:p-8">
+    <div className="os-desktop-bg flex h-[100dvh] w-full items-center justify-center p-0 md:p-4">
       <PhoneFrame>
         <div
           className="relative h-full w-full overflow-hidden os-no-select"

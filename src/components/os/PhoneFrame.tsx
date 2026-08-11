@@ -34,7 +34,13 @@ export function PhoneFrame({ children, className }: PhoneFrameProps) {
   const { volumeUp, volumeDown, lock, screen } = usePhoneOS();
 
   return (
-    <div className={cn("relative mx-auto w-full max-w-[390px]", className)}>
+    <div
+      className={cn("relative mx-auto", className)}
+      style={{
+        width: "min(100%, 410px, calc((100dvh - 2.5rem) * (410 / 864)))",
+        aspectRatio: "410 / 864",
+      }}
+    >
       {/* Volume up */}
       <SideButton
         label="Volume up"
@@ -62,12 +68,12 @@ export function PhoneFrame({ children, className }: PhoneFrameProps) {
 
       <div
         className={cn(
-          "relative rounded-[40px] p-[10px]",
+          "relative rounded-[40px] p-[10px] h-full",
           "bg-gradient-to-br from-[#2c2c30] to-[#0c0c10]",
           "shadow-[0_25px_65px_rgba(0,0,0,0.95),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.6)]"
         )}
       >
-        <div className="relative overflow-hidden rounded-[32px] bg-black aspect-[390/844]">
+        <div className="relative overflow-hidden rounded-[32px] bg-black w-full h-full">
           {children}
         </div>
       </div>
