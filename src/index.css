@@ -1,6 +1,7 @@
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
+@import "@fontsource/outfit/300.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
 
 @tailwind base;
 @tailwind components;
@@ -8,22 +9,21 @@
 
 @layer base {
   :root {
-    /* Original dark + neon green */
-    --background: 230 7% 14%;
-    --foreground: 214 32% 91%;
-    --card: 230 6% 11%;
-    --card-foreground: 214 32% 91%;
-    --primary: 142 100% 71%;
-    --primary-foreground: 230 7% 10%;
-    --secondary: 230 5% 18%;
-    --secondary-foreground: 214 32% 91%;
-    --accent: 142 100% 71%;
-    --accent-foreground: 230 7% 10%;
-    --muted: 230 5% 18%;
+    --background: 222 47% 4%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 6%;
+    --card-foreground: 210 40% 96%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 4%;
+    --secondary: 222 30% 12%;
+    --secondary-foreground: 210 40% 96%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+    --muted: 222 30% 14%;
     --muted-foreground: 215 16% 57%;
-    --border: 230 5% 22%;
-    --ring: 142 100% 71%;
-    --radius: 0.5rem;
+    --border: 222 20% 18%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
   }
 
   * {
@@ -50,6 +50,14 @@
   }
 }
 
+/* Phone OS — prevent accidental selection / copy */
+.os-no-select,
+.os-no-select * {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
 @layer utilities {
   .section-padding {
     @apply px-5 sm:px-8 lg:px-10 py-20 md:py-24;
@@ -58,16 +66,30 @@
   .container-max {
     @apply max-w-6xl mx-auto;
   }
-}
 
-/* Subtle dot grid — matches original, no glow orbs */
-.bg-dots {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
+  .os-desktop-bg {
+    background: radial-gradient(
+      ellipse 80% 60% at 50% 40%,
+      hsl(222 47% 8%) 0%,
+      hsl(222 47% 4%) 45%,
+      hsl(230 50% 2%) 100%
+    );
+  }
+
+  .os-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+  }
+
+  .os-scroll::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  .os-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+  }
 }
 
 /* Terminal scrollbar */

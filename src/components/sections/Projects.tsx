@@ -84,7 +84,6 @@ export function Projects() {
         </Reveal>
 
         <ScrollDepthCarousel<Project>
-          key={`${activeFilter}-${showAll}-${visibleProjects.length}`}
           items={visibleProjects}
           renderItem={(project) => <ProjectDepthCard project={project} />}
           cardWidth={width}

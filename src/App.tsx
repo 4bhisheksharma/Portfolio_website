@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { LegacySectionRedirect } from "@/components/layout/LegacySectionRedirect";
 import { LegacyHashRedirect } from "@/components/layout/LegacyHashRedirect";
 import { SeoHead } from "@/components/common/SeoHead";
@@ -14,19 +12,17 @@ function AppShell() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const location = useLocation();
   const seoRoute = location.pathname === "/gallery" ? "gallery" : "home";
+  const openTerminal = () => setTerminalOpen(true);
 
   return (
     <>
       <SeoHead route={seoRoute} />
       <LegacyHashRedirect />
       <LegacySectionRedirect />
-      <div className="bg-dots" aria-hidden="true" />
-      <Navbar onOpenTerminal={() => setTerminalOpen(true)} />
       <Routes>
-        <Route path="/" element={<HomePage onOpenTerminal={() => setTerminalOpen(true)} />} />
-        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/" element={<HomePage onOpenTerminal={openTerminal} />} />
+        <Route path="/gallery" element={<GalleryPage onOpenTerminal={openTerminal} />} />
       </Routes>
-      <Footer />
       <TerminalModal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
       <AiChatWidget />
     </>

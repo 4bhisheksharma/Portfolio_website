@@ -21,6 +21,7 @@ import {
   SiVscodium,
   SiEclipseide,
   SiIntellijidea,
+  SiReact,
 } from "react-icons/si";
 import { FaServer, FaCamera, FaVideo, FaFilm, FaAws, FaDatabase } from "react-icons/fa";
 
@@ -42,6 +43,7 @@ export const skillCategories: SkillCategory[] = [
     label: "Front-end",
     skills: [
       { name: "Flutter", icon: SiFlutter },
+      { name: "React", info: "Library for building user interfaces with components.", icon: SiReact },
       { name: "HTML", info: "Markup language for creating web pages.", icon: SiHtml5 },
       {
         name: "CSS",
