@@ -87,6 +87,11 @@ export const projects: Project[] = [
         href: "https://play.google.com/store/apps/details?id=com.digitalpathshala.urbanhomes",
         type: "store",
       },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/us/app/urban-homes-np/id6796251918",
+        type: "store",
+      },
     ],
   },
   {
