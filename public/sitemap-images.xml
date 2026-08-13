@@ -67,5 +67,9 @@
       <image:loc>https://abhishek-sharma.com.np/assets/images/urban-homes.png</image:loc>
       <image:title>Urban Homes — Flutter project by Abhishek Sharma</image:title>
     </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/sanskar-vastu-compass.png</image:loc>
+      <image:title>Sanskar Vastu Compass — Flutter project by Abhishek Sharma</image:title>
+    </image:image>
   </url>
 </urlset>

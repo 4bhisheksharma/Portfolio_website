@@ -92,6 +92,7 @@ export function ProjectsApp() {
                   </div>
                 </div>
               </div>
+              {project.links.length > 0 && (
               <div className="flex border-t border-white/5">
                 {project.links.map((link) => (
                   <a
@@ -110,6 +111,7 @@ export function ProjectsApp() {
                   </a>
                 ))}
               </div>
+              )}
             </GlassCard>
           </motion.div>
         ))}

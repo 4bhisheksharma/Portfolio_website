@@ -95,6 +95,25 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "sanskar-vastu-compass",
+    title: "Sanskar Vastu Compass",
+    description:
+      "Sanskar Compass is a professional direction and planning companion designed for architects, Vastu consultants, students, and anyone who works with orientation, alignment, and site layout in real-world conditions.",
+    image: "/assets/images/sanskar-vastu-compass.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart"],
+    featured: true,
+    links: [
+      { label: "Web", href: "https://sanskaracademy.net/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.bobthedeveloper.mobileApp",
+        type: "store",
+      },
+    ],
+  },
+  {
     id: "digital-khata",
     title: "Digital Khata",
     description:
