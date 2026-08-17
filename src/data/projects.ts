@@ -71,6 +71,25 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "dhrms",
+    title: "DHRMS",
+    description:
+      "DHRMS - Digital Health Record Management System for Nepal",
+    image: "/assets/images/dhrms.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Node.js", "Supabase", "DigitalOcean"],
+    featured: true,
+    links: [
+      { label: "Web", href: "https://dhrmsfrontend-puyrr.ondigitalocean.app/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.dhrms.axile",
+        type: "store",
+      },
+    ],
+  },
+  {
     id: "urban-homes",
     title: "Urban Homes",
     description:
