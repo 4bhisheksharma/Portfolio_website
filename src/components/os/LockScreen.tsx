@@ -68,17 +68,15 @@ export function LockScreen() {
   const handleDragEnd = (_: unknown, info: PanInfo) => {
     const shouldUnlock = info.offset.y < -70 || info.velocity.y < -500;
     if (shouldUnlock) {
-      if (prefersReducedMotion) {
-        finishUnlock();
-        return;
-      }
-      animate(dragY, -520, {
-        duration: 0.38,
-        ease: [0.32, 0.72, 0, 1],
-      }).then(finishUnlock);
-    } else {
-      animate(dragY, 0, { type: "spring", stiffness: 420, damping: 34 });
+      // Unlock immediately so home is already under the sliding lock (no black flash).
+      finishUnlock();
+      return;
     }
+    animate(dragY, 0, {
+      type: "spring",
+      stiffness: 420,
+      damping: 34,
+    });
   };
 
   return (

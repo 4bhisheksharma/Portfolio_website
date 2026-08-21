@@ -43,7 +43,7 @@ export function OsBottomSheet({ open, onClose, title, children }: OsBottomSheetP
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
-            className="absolute inset-0 z-[90] bg-black/55 backdrop-blur-[2px]"
+            className="absolute inset-0 z-[90] bg-black/50"
             onClick={onClose}
           />
           <motion.div
@@ -56,11 +56,11 @@ export function OsBottomSheet({ open, onClose, title, children }: OsBottomSheetP
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={{ top: 0.04, bottom: 0.45 }}
             onDragEnd={onDragEnd}
-            initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { y: "100%" }}
+            initial={prefersReducedMotion ? false : { y: "100%" }}
             animate={{ y: 0 }}
             exit={prefersReducedMotion ? { opacity: 0 } : { y: "100%" }}
-            transition={{ type: "spring", stiffness: 340, damping: 36 }}
-            className="absolute inset-x-0 bottom-0 z-[91] flex max-h-[88%] flex-col overflow-hidden rounded-t-[28px] border-t border-white/10 bg-[#121218]/97 shadow-[0_-12px_40px_rgba(0,0,0,0.45)] backdrop-blur-2xl"
+            transition={{ duration: prefersReducedMotion ? 0 : 0.28, ease: [0.32, 0.72, 0, 1] }}
+            className="absolute inset-x-0 bottom-0 z-[91] flex max-h-[88%] flex-col overflow-hidden rounded-t-[28px] border-t border-white/10 bg-[#16161c] shadow-[0_-12px_40px_rgba(0,0,0,0.45)] will-change-transform"
           >
             <div
               className="flex shrink-0 cursor-grab touch-none flex-col items-center active:cursor-grabbing"

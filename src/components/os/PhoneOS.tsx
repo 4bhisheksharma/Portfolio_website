@@ -11,41 +11,38 @@ import { VolumeHUD } from "./VolumeHUD";
 
 export function PhoneOS() {
   const { screen } = usePhoneOS();
+  const unlocked = screen === "home" || screen === "app";
 
   return (
     <div className="os-desktop-bg flex h-[100dvh] w-full items-center justify-center p-0 md:p-4">
       <PhoneFrame>
         <div
-          className="relative h-full w-full overflow-hidden os-no-select"
+          className="relative h-full w-full overflow-hidden os-no-select bg-[#0a0a0f]"
           onCopy={(e) => e.preventDefault()}
           onCut={(e) => e.preventDefault()}
           onContextMenu={(e) => e.preventDefault()}
         >
-          <AnimatePresence mode="wait">
+          {/* Home mounts under the lock so unlock never flashes black */}
+          {unlocked && (
+            <div className="absolute inset-0">
+              <HomeScreen />
+            </div>
+          )}
+
+          <AnimatePresence>
             {screen === "lock" && (
               <motion.div
                 key="lock"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, y: -48, filter: "blur(6px)" }}
-                transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-                className="absolute inset-0 z-10"
+                initial={false}
+                exit={{ y: "-105%" }}
+                transition={{ duration: 0.32, ease: [0.32, 0.72, 0, 1] }}
+                className="absolute inset-0 z-10 will-change-transform"
               >
                 <LockScreen />
               </motion.div>
             )}
-            {(screen === "home" || screen === "app") && (
-              <motion.div
-                key="home"
-                initial={{ opacity: 0, scale: 1.06, filter: "blur(8px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 28 }}
-                className="absolute inset-0"
-              >
-                <HomeScreen />
-              </motion.div>
-            )}
           </AnimatePresence>
+
           <AppScreenRouter />
           <PullDownHandle />
           <NotificationPanel />

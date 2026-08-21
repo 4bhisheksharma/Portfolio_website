@@ -32,15 +32,15 @@ export function AppScreenRouter() {
   const App = activeApp ? appComponents[activeApp] : null;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout">
       {App && activeApp && (
         <motion.div
           key={activeApp}
-          initial={{ opacity: 0, x: 40, scale: 0.94, filter: "blur(4px)" }}
-          animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, x: 24, scale: 0.96, filter: "blur(2px)" }}
-          transition={{ type: "spring", stiffness: 360, damping: 30 }}
-          className="absolute inset-0 z-20"
+          initial={{ opacity: 0, x: 18 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 10 }}
+          transition={{ duration: 0.18, ease: [0.32, 0.72, 0, 1] }}
+          className="absolute inset-0 z-20 will-change-[opacity,transform]"
         >
           <App />
         </motion.div>

@@ -1,5 +1,4 @@
 import { useMemo } from "react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Search, Briefcase, MapPin } from "lucide-react";
 import { useLiveClock } from "@/hooks/useLiveClock";
 import { usePhoneOS } from "@/context/PhoneOSContext";
@@ -14,7 +13,6 @@ import { GlassCard } from "./GlassCard";
 export function HomeScreen() {
   const { handleAction, searchQuery, setSearchQuery, openApp } = usePhoneOS();
   const { time, date } = useLiveClock();
-  const prefersReducedMotion = useReducedMotion();
 
   const filteredApps = useMemo(() => {
     if (!searchQuery.trim()) return homeApps;
@@ -22,8 +20,6 @@ export function HomeScreen() {
       a.label.toLowerCase().includes(searchQuery.toLowerCase())
     );
   }, [searchQuery]);
-
-  const isSearching = searchQuery.trim().length > 0;
 
   return (
     <PhoneWallpaper className="flex flex-col select-none">
@@ -35,13 +31,9 @@ export function HomeScreen() {
           <p className="text-3xl font-light text-white tabular-nums drop-shadow-md">{time}</p>
         </div>
 
-        <motion.div
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.08, type: "spring", stiffness: 300, damping: 26 }}
-          className="mt-3"
-        >
+        <div className="mt-3">
           <GlassCard
+            solid
             className="flex items-center gap-3 px-3 py-2.5"
             onClick={() => openApp("about")}
           >
@@ -60,14 +52,9 @@ export function HomeScreen() {
               </span>
             </div>
           </GlassCard>
-        </motion.div>
+        </div>
 
-        <motion.div
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={0.22}
-          className="relative mt-4 min-h-0 flex-1 overflow-y-auto os-scroll touch-pan-y"
-        >
+        <div className="relative mt-4 min-h-0 flex-1 overflow-y-auto os-scroll touch-pan-y">
           {filteredApps.length === 0 ? (
             <div className="flex h-full min-h-[160px] flex-col items-center justify-center gap-2 px-6 text-center">
               <Search className="h-8 w-8 text-white/25" />
@@ -78,36 +65,17 @@ export function HomeScreen() {
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-x-2 gap-y-4 py-1">
-              {filteredApps.map((app, i) => (
-                <motion.div
+              {filteredApps.map((app) => (
+                <AppIcon
                   key={app.id}
-                  initial={
-                    prefersReducedMotion || isSearching
-                      ? false
-                      : { opacity: 0, scale: 0.75 }
-                  }
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={
-                    isSearching
-                      ? { duration: 0 }
-                      : {
-                          delay: 0.03 + i * 0.025,
-                          type: "spring",
-                          stiffness: 380,
-                          damping: 22,
-                        }
-                  }
-                >
-                  <AppIcon
-                    label={app.label}
-                    icon={app.icon}
-                    onClick={() => handleAction(app.action)}
-                  />
-                </motion.div>
+                  label={app.label}
+                  icon={app.icon}
+                  onClick={() => handleAction(app.action)}
+                />
               ))}
             </div>
           )}
-        </motion.div>
+        </div>
 
         <div className="py-2">
           <label className="sr-only" htmlFor="os-search">
