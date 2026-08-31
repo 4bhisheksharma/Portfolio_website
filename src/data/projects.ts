@@ -298,6 +298,19 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "nepal-business",
+    title: "Nepal Business",
+    description:
+      "A business platform providing expert business guides, market insights, and free financial & calculation tools for Nepali entrepreneurs.",
+    image: "/assets/images/nepalbusiness.png",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    links: [
+      { label: "Live", href: "https://nepalbusiness.org/", type: "live" },
+    ],
+  },
+  {
     id: "leave-a-notes",
     title: "Leave-a-notes*",
     description:
