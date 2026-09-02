@@ -114,6 +114,25 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "belbari-municipality",
+    title: "Belbari Municipality",
+    description:
+      "Official mobile application for Belbari Municipality (Morang, Nepal) providing citizen services, public notices, grievance redressal, ward directory, and AI assistant.",
+    image: "/assets/images/belbari-municipality.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "REST API"],
+    featured: true,
+    links: [
+      { label: "Web", href: "https://belbarimun.gov.np/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.palika.palika_app",
+        type: "store",
+      },
+    ],
+  },
+  {
     id: "sanskar-vastu-compass",
     title: "Sanskar Vastu Compass",
     description:
