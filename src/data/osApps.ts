@@ -17,7 +17,6 @@ import {
   Smartphone,
   Settings,
   Phone,
-  Globe,
   Camera,
 } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -78,6 +77,7 @@ export const homeApps: OSApp[] = [
   { id: "projects", label: "Projects", icon: Rocket, action: { type: "screen", id: "projects" } },
   { id: "skills", label: "Skills", icon: Zap, action: { type: "screen", id: "skills" } },
   { id: "contact", label: "Contact", icon: Mail, action: { type: "screen", id: "contact" } },
+  { id: "resume", label: "Resume", icon: FileText, action: { type: "screen", id: "resume" } },
   { id: "gallery", label: "Gallery", icon: Images, action: { type: "screen", id: "gallery" } },
   { id: "github", label: "GitHub", icon: Github, action: { type: "screen", id: "github" } },
   { id: "linkedin", label: "LinkedIn", icon: Linkedin, action: { type: "external", href: LINKS.linkedin } },
@@ -85,7 +85,6 @@ export const homeApps: OSApp[] = [
   { id: "certifications", label: "Honors", icon: Award, action: { type: "screen", id: "certifications" } },
   { id: "terminal", label: "Terminal", icon: Terminal, action: { type: "modal", id: "terminal" } },
   { id: "blog", label: "Blog", icon: BookOpen, action: { type: "external", href: LINKS.blog } },
-  { id: "resume", label: "Resume", icon: FileText, action: { type: "screen", id: "resume" } },
   { id: "pubdev", label: "pub.dev", icon: Package, action: { type: "external", href: LINKS.pubdev } },
   { id: "instagram", label: "Instagram", icon: Instagram, action: { type: "external", href: LINKS.instagram } },
   { id: "app", label: "My App", icon: Smartphone, action: { type: "external", href: LINKS.app } },
@@ -108,10 +107,10 @@ export const dockApps: OSApp[] = [
     dock: true,
   },
   {
-    id: "browser",
-    label: "Browser",
-    icon: Globe,
-    action: { type: "external", href: LINKS.site },
+    id: "resume-dock",
+    label: "Resume",
+    icon: FileText,
+    action: { type: "screen", id: "resume" },
     dock: true,
   },
   {

@@ -10,22 +10,26 @@ export function VolumeHUD() {
     <AnimatePresence>
       {volumeVisible && (
         <motion.div
-          initial={{ opacity: 0, x: -12 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -8 }}
-          transition={{ type: "spring", stiffness: 400, damping: 28 }}
-          className="pointer-events-none absolute left-3 top-24 z-[95] w-14 select-none"
+          initial={{ opacity: 0, x: 14, scale: 0.95 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: 10, scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 450, damping: 30 }}
+          className="pointer-events-none absolute right-2.5 top-[110px] z-[95] w-[46px] select-none"
         >
-          <div className="rounded-2xl border border-white/10 bg-[#1c1c1e]/95 px-2.5 py-3 shadow-2xl backdrop-blur-xl">
-            <Icon className="mx-auto mb-2 h-4 w-4 text-white/80" />
-            <div className="mx-auto flex h-28 w-1.5 flex-col justify-end overflow-hidden rounded-full bg-white/15">
+          {/* Volume Slider Pill HUD */}
+          <div className="flex flex-col items-center rounded-[24px] border border-white/15 bg-[#141418]/95 px-2 py-3 shadow-[0_12px_32px_rgba(0,0,0,0.6)] backdrop-blur-2xl">
+            <Icon className="mb-2.5 h-4 w-4 text-blue-400 drop-shadow-sm" />
+
+            {/* Vertical Pill Track */}
+            <div className="relative flex h-28 w-2 flex-col justify-end overflow-hidden rounded-full bg-white/15 shadow-inner">
               <motion.div
-                className="w-full rounded-full bg-white"
+                className="w-full rounded-full bg-gradient-to-t from-blue-500 to-cyan-400 shadow-sm"
                 animate={{ height: `${volume}%` }}
-                transition={{ type: "spring", stiffness: 300, damping: 28 }}
+                transition={{ type: "spring", stiffness: 320, damping: 26 }}
               />
             </div>
-            <p className="mt-2 text-center text-[9px] font-medium tabular-nums text-white/70">
+
+            <p className="mt-2 text-center text-[10px] font-semibold tabular-nums text-white/80">
               {volume}
             </p>
           </div>
@@ -34,3 +38,4 @@ export function VolumeHUD() {
     </AnimatePresence>
   );
 }
+

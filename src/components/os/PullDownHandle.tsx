@@ -7,7 +7,7 @@ export function PullDownHandle() {
   const { openPanel, screen } = usePhoneOS();
   const opened = useRef(false);
 
-  if (screen === "lock") return null;
+  if (screen !== "home") return null;
 
   const onDrag = (_: unknown, info: PanInfo) => {
     if (!opened.current && info.offset.y > 56) {

@@ -17,7 +17,7 @@ export function SkillsApp() {
     setActiveCategory(id);
     filterBtnRefs.current[id]?.scrollIntoView({
       behavior: "smooth",
-      inline: "end",
+      inline: "center",
       block: "nearest",
     });
   };

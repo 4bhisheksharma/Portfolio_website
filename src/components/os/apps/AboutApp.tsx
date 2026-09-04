@@ -1,14 +1,16 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { MapPin, Clock, Circle } from "lucide-react";
+import { MapPin, Clock, Circle, FileText } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { experienceStats, companies } from "@/data/experience";
 import { AppScreenShell } from "../AppScreenShell";
 import { GlassCard } from "../GlassCard";
 import { screenMeta } from "@/data/osApps";
 import { Counter } from "@/components/common/Counter";
+import { usePhoneOS } from "@/context/PhoneOSContext";
 
 export function AboutApp() {
   const meta = screenMeta.about;
+  const { handleAction } = usePhoneOS();
   const prefersReducedMotion = useReducedMotion();
   const currentRole = companies[0]?.roles.find((r) => r.isCurrent);
 
@@ -46,6 +48,15 @@ export function AboutApp() {
             <p className="mt-3 text-[11px] leading-relaxed text-white/70">
               {siteConfig.about.description}
             </p>
+
+            <button
+              type="button"
+              onClick={() => handleAction({ type: "screen", id: "resume" })}
+              className="mt-3.5 flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-3.5 py-2.5 text-xs font-semibold text-white shadow-sm transition-all hover:bg-white/15 hover:border-white/25 active:scale-[0.98]"
+            >
+              <FileText className="h-4 w-4 text-amber-400" />
+              <span>View Abhishek&apos;s Resume / CV</span>
+            </button>
           </GlassCard>
         </motion.div>
 
