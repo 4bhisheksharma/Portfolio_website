@@ -27,8 +27,28 @@ const WELCOME: Message = {
   content: `Hi! I'm Abhishek's portfolio assistant. Ask me about his skills, projects, experience, awards, or how to get in touch.`,
 };
 
-function renderMarkdown(text: string) {
+export function stripThinking(text: string): string {
   return text
+    // Remove closed thinking/thought/reasoning blocks
+    .replace(/<think(?:ing)?>[\s\S]*?<\/think(?:ing)?>/gi, "")
+    .replace(/<thought>[\s\S]*?<\/thought>/gi, "")
+    .replace(/<reasoning>[\s\S]*?<\/reasoning>/gi, "")
+    .replace(/\[thought\][\s\S]*?\[\/thought\]/gi, "")
+    .replace(/```(?:thought|thinking)[\s\S]*?```/gi, "")
+    // Remove currently in-progress thinking block while streaming
+    .replace(/<think(?:ing)?>[\s\S]*$/gi, "")
+    .replace(/<thought>[\s\S]*$/gi, "")
+    .replace(/<reasoning>[\s\S]*$/gi, "")
+    .replace(/\[thought\][\s\S]*$/gi, "")
+    .replace(/```(?:thought|thinking)[\s\S]*$/gi, "")
+    // Remove conversational thought preambles if any
+    .replace(/^(?:Thought|Thinking Process|Internal Monologue):\s*[\s\S]*?\n\n/i, "")
+    .trimStart();
+}
+
+function renderMarkdown(text: string) {
+  const clean = stripThinking(text);
+  return clean
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\n/g, "<br />");
 }
@@ -86,14 +106,16 @@ export function AiChatWidget() {
         apiMessages,
         (chunk) => {
           streamed += chunk;
+          const cleaned = stripThinking(streamed);
           setMessages((prev) =>
-            prev.map((m) => (m.id === assistantId ? { ...m, content: streamed } : m))
+            prev.map((m) => (m.id === assistantId ? { ...m, content: cleaned } : m))
           );
         },
         abortRef.current.signal
       );
 
-      if (!streamed.trim()) {
+      const finalCleaned = stripThinking(streamed);
+      if (!finalCleaned.trim()) {
         setMessages((prev) =>
           prev.map((m) =>
             m.id === assistantId
@@ -105,9 +127,15 @@ export function AiChatWidget() {
     } catch (err) {
       if ((err as Error).name === "AbortError") return;
 
-      const message =
+      const raw =
         err instanceof Error ? err.message : "Something went wrong. Please try again.";
-      setError(message);
+      const friendlyMessage =
+        raw.includes("404") || raw.includes("unavailable for free") || raw.includes("slug instead") || raw.includes("Request failed")
+          ? "The AI assistant is momentarily refreshing its connection. Please try again in a moment."
+          : raw.startsWith("{") || raw.includes("{\"error\"")
+            ? "Unable to connect to the AI service. Please try again in a moment."
+            : raw;
+      setError(friendlyMessage);
       setMessages((prev) => prev.filter((m) => m.id !== assistantId));
     } finally {
       setLoading(false);

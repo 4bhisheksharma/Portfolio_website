@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import botAnimation from "../../../public/assets/lottie/ai-bot.json";
+import botAnimation from "@/assets/lottie/ai-bot.json";
 
 interface LottieBotProps {
   size?: number;
