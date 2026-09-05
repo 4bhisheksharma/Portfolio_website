@@ -1,3 +1,3 @@
 # Abhishek Sharma - Portfolio
 
-**Live:** [abhishek-sharma.com.np](https://www.abhishek-sharma.com.np/)
+**Live:** [abhishek-sharma.com.np](https://abhishek-sharma.com.np/)

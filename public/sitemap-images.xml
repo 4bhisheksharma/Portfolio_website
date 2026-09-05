@@ -33,8 +33,30 @@
       <image:title>Abhishek Sharma at a hackathon in Nepal</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/invisible-vpn.png</image:loc>
+      <image:title>Invisible VPN — Flutter app on Google Play by Abhishek Sharma</image:title>
+      <image:caption>Invisible VPN secure mobile application created with Flutter and Node.js</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://abhishek-sharma.com.np/assets/images/digital_khata.png</image:loc>
       <image:title>Digital Khata — Flutter app by Abhishek Sharma</image:title>
+      <image:caption>Digital Khata accounting and bookkeeping mobile application</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/hisab-khata.png</image:loc>
+      <image:title>Hisab Khata — Flutter financial management app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/dhrms.png</image:loc>
+      <image:title>DHRMS — Digital Health Record Management System by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/urban-homes.png</image:loc>
+      <image:title>Urban Homes — Real estate mobile app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/belbari-municipality.png</image:loc>
+      <image:title>Belbari Municipality — Smart City app by Abhishek Sharma</image:title>
     </image:image>
     <image:image>
       <image:loc>https://abhishek-sharma.com.np/assets/images/bhetghat.png</image:loc>
@@ -43,6 +65,26 @@
     <image:image>
       <image:loc>https://abhishek-sharma.com.np/assets/images/arya.png</image:loc>
       <image:title>A.R.Y.A — Flutter AI app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/sanskar-vastu-compass.png</image:loc>
+      <image:title>Sanskar Vastu Compass — Flutter sensor utility app</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/khutruke.png</image:loc>
+      <image:title>Khutruke — Flutter savings app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/pulse.png</image:loc>
+      <image:title>Pulse — Social networking mobile app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/chithi-patra.png</image:loc>
+      <image:title>Chithi Patra — Nepali messaging app by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/flutter_app_vitals.png</image:loc>
+      <image:title>Flutter App Vitals — Dart open-source package by Abhishek Sharma</image:title>
     </image:image>
   </url>
   <url>
@@ -64,6 +106,14 @@
       <image:title>Invisible VPN — Flutter app by Abhishek Sharma</image:title>
     </image:image>
     <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/hisab-khata.png</image:loc>
+      <image:title>Hisab Khata app screenshot — Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/dhrms.png</image:loc>
+      <image:title>DHRMS app screenshot — Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
       <image:loc>https://abhishek-sharma.com.np/assets/images/urban-homes.png</image:loc>
       <image:title>Urban Homes — Flutter project by Abhishek Sharma</image:title>
     </image:image>
@@ -74,6 +124,18 @@
     <image:image>
       <image:loc>https://abhishek-sharma.com.np/assets/images/sanskar-vastu-compass.png</image:loc>
       <image:title>Sanskar Vastu Compass — Flutter project by Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/khutruke.png</image:loc>
+      <image:title>Khutruke app screenshot — Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/pulse.png</image:loc>
+      <image:title>Pulse app screenshot — Abhishek Sharma</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://abhishek-sharma.com.np/assets/images/chithi-patra.png</image:loc>
+      <image:title>Chithi Patra app screenshot — Abhishek Sharma</image:title>
     </image:image>
   </url>
 </urlset>

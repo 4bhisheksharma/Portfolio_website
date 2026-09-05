@@ -1,0 +1,23 @@
+{
+  "name": "Abhishek Sharma | Flutter Developer Portfolio",
+  "short_name": "Abhishek Sharma",
+  "description": "Portfolio of Abhishek Sharma — Flutter mobile app developer from Itahari, Nepal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#6AFF9D",
+  "icons": [
+    {
+      "src": "/assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

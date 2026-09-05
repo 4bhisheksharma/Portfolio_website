@@ -28,6 +28,8 @@ export const SEO = {
       "cross-platform mobile apps",
       "Digital Khata",
       "Bhetghat",
+      "Invisible VPN",
+      "DHRMS Nepal",
       "Itahari International College",
       "AWS certified developer Nepal",
     ],
@@ -40,6 +42,12 @@ export const SEO = {
     description:
       "Photos and project screenshots from Abhishek Sharma, Flutter developer based in Itahari, Nepal — apps, certifications, hackathons, and portfolio work.",
     path: "/gallery",
+  },
+  notFound: {
+    title: "404: Page Not Found | Abhishek Sharma",
+    description:
+      "The page you are looking for does not exist. Explore Abhishek Sharma's portfolio, mobile applications, and projects.",
+    robots: "noindex, follow",
   },
   person: {
     jobTitle: "Flutter Mobile App Developer",
@@ -88,8 +96,24 @@ export function getPersonSchema() {
     "@type": "Person",
     "@id": `${SEO.siteUrl}/#person`,
     name: siteConfig.name,
-    alternateName: ["Abhishek Sharma Flutter Developer", "Abhishek Sharma Nepal"],
+    alternateName: [
+      "Abhishek Sharma Flutter Developer",
+      "Abhishek Sharma Nepal",
+      "Abhishek Sharma Itahari",
+    ],
     jobTitle: SEO.person.jobTitle,
+    gender: "Male",
+    hasOccupation: [
+      {
+        "@type": "Occupation",
+        name: "Flutter Mobile App Developer",
+        occupationLocation: {
+          "@type": "City",
+          name: "Itahari, Nepal",
+        },
+        skills: "Flutter, Dart, Mobile App Development, iOS, Android, Firebase, AWS",
+      },
+    ],
     description: SEO.default.description,
     url: SEO.siteUrl,
     image: [
@@ -142,15 +166,22 @@ export function getPersonSchema() {
       "https://www.facebook.com/4bhisheksharma",
       "https://pub.dev/publishers/abhishek-sharma.com.np/packages",
       "https://blog.abhishek-sharma.com.np/",
+      "https://play.google.com/store/apps/details?id=com.digitalpathshala.invisiblevpn",
     ],
     knowsAbout: [
       "Flutter",
       "Dart",
       "Mobile App Development",
       "Cross-platform Development",
+      "Android Development",
+      "iOS Development",
+      "BLoC Architecture",
+      "State Management",
       "Firebase",
-      "AWS",
-      "Nepal software development",
+      "AWS Cloud",
+      "Supabase",
+      "REST APIs",
+      "Nepal Software Development",
     ],
     address: {
       "@type": "PostalAddress",
@@ -188,4 +219,136 @@ export function getImageGallerySchema() {
       author: { "@id": `${SEO.siteUrl}/#person` },
     })),
   };
+}
+
+export function getBreadcrumbSchema(route: "home" | "gallery" | "404") {
+  const itemListElement = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${SEO.siteUrl}/`,
+    },
+  ];
+
+  if (route === "gallery") {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 2,
+      name: "Gallery",
+      item: `${SEO.siteUrl}/gallery`,
+    });
+  } else if (route === "404") {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 2,
+      name: "Page Not Found",
+      item: `${SEO.siteUrl}/404`,
+    });
+  }
+
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${SEO.siteUrl}/#breadcrumb-${route}`,
+    itemListElement,
+  };
+}
+
+export function getFaqSchema() {
+  return {
+    "@type": "FAQPage",
+    "@id": `${SEO.siteUrl}/#faq`,
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Who is Abhishek Sharma?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Abhishek Sharma is a Flutter mobile app developer based in Itahari, Nepal with 15+ cross-platform mobile projects, AWS certification, and experience at Digital Pathshala.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What mobile apps has Abhishek Sharma developed?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "He has built production mobile apps including Invisible VPN (Google Play Store), Hisab Khata (business ledger & accounting), DHRMS (Digital Health Record Management System for Nepal), Belbari Municipality smart city app, Urban Homes, and Bhetghat.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What technologies does Abhishek Sharma specialize in?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Abhishek specializes in Flutter, Dart, Android, iOS, Firebase, Supabase, AWS Cloud Computing, BLoC state management, REST APIs, and Clean Architecture.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is Abhishek Sharma available for hire or freelance work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, Abhishek Sharma is open to work for full-time Flutter developer roles, freelance mobile application contracts, and collaborative software engineering projects.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Abhishek Sharma located?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Abhishek Sharma is located in Itahari, Morang, Koshi Province, Nepal.",
+        },
+      },
+    ],
+  };
+}
+
+export function getSoftwareApplicationsSchema() {
+  return [
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SEO.siteUrl}/#app-invisible-vpn`,
+      name: "Invisible VPN",
+      operatingSystem: "Android, ChromeOS",
+      applicationCategory: "UtilitiesApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      description: "Invisible VPN - Secure and private online browsing app built with Flutter and Node.js.",
+      url: "https://play.google.com/store/apps/details?id=com.digitalpathshala.invisiblevpn",
+      author: { "@id": `${SEO.siteUrl}/#person` },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SEO.siteUrl}/#app-hisab-khata`,
+      name: "Hisab Khata",
+      operatingSystem: "Android, iOS",
+      applicationCategory: "BusinessApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      description: "Modern digital credit and ledger management system designed for businesses in Nepal.",
+      url: "https://btwitsabhishek.me/",
+      author: { "@id": `${SEO.siteUrl}/#person` },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": `${SEO.siteUrl}/#app-dhrms`,
+      name: "DHRMS",
+      operatingSystem: "Android, iOS",
+      applicationCategory: "MedicalApplication",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+      description: "Digital Health Record Management System for patient and healthcare tracking in Nepal.",
+      url: "https://play.google.com/store/apps/details?id=com.dhrms.axile",
+      author: { "@id": `${SEO.siteUrl}/#person` },
+    },
+  ];
 }

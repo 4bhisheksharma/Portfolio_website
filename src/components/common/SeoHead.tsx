@@ -1,7 +1,16 @@
 import { useEffect } from "react";
-import { SEO, absoluteUrl, getImageGallerySchema, getPersonSchema, getWebsiteSchema } from "@/data/seo";
+import {
+  SEO,
+  absoluteUrl,
+  getImageGallerySchema,
+  getPersonSchema,
+  getWebsiteSchema,
+  getBreadcrumbSchema,
+  getFaqSchema,
+  getSoftwareApplicationsSchema,
+} from "@/data/seo";
 
-type SeoRoute = "home" | "gallery";
+export type SeoRoute = "home" | "gallery" | "404";
 
 interface SeoHeadProps {
   route?: SeoRoute;
@@ -34,12 +43,46 @@ function upsertJsonLd(id: string, data: object) {
 export function SeoHead({ route = "home" }: SeoHeadProps) {
   useEffect(() => {
     const isGallery = route === "gallery";
-    const title = isGallery ? SEO.gallery.title : SEO.default.title;
-    const description = isGallery ? SEO.gallery.description : SEO.default.description;
-    const canonical = isGallery ? absoluteUrl(SEO.gallery.path) : SEO.siteUrl;
+    const is404 = route === "404";
+
+    let title: string = SEO.default.title;
+    let description: string = SEO.default.description;
+    let canonical: string = SEO.siteUrl;
+
+    if (isGallery) {
+      title = SEO.gallery.title;
+      description = SEO.gallery.description;
+      canonical = absoluteUrl(SEO.gallery.path);
+    } else if (is404) {
+      title = SEO.notFound.title;
+      description = SEO.notFound.description;
+      canonical = absoluteUrl("/404");
+    }
+
     const ogImage = absoluteUrl(SEO.default.ogImage);
 
     document.title = title;
+
+    // Robots directive — prevent indexing of 404 while retaining link equity
+    if (is404) {
+      upsertMeta('meta[name="robots"]', {
+        name: "robots",
+        content: "noindex, follow",
+      });
+      upsertMeta('meta[name="googlebot"]', {
+        name: "googlebot",
+        content: "noindex, follow",
+      });
+    } else {
+      upsertMeta('meta[name="robots"]', {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      });
+      upsertMeta('meta[name="googlebot"]', {
+        name: "googlebot",
+        content: "index, follow, max-image-preview:large",
+      });
+    }
 
     upsertMeta('meta[name="description"]', {
       name: "description",
@@ -66,25 +109,35 @@ export function SeoHead({ route = "home" }: SeoHeadProps) {
     });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: ogImage });
 
+    // Build structured data graph
     const graph: object[] = [
       getWebsiteSchema(),
-      {
-        "@type": "ProfilePage",
-        "@id": `${SEO.siteUrl}/#profilepage`,
-        url: isGallery ? absoluteUrl(SEO.gallery.path) : SEO.siteUrl,
-        name: title,
-        description,
-        mainEntity: { "@id": `${SEO.siteUrl}/#person` },
-        inLanguage: "en-US",
-      },
-      getPersonSchema(),
+      getBreadcrumbSchema(route),
     ];
 
-    if (isGallery) {
-      graph.push(getImageGallerySchema());
+    if (!is404) {
+      graph.push(
+        {
+          "@type": "ProfilePage",
+          "@id": `${SEO.siteUrl}/#profilepage`,
+          url: isGallery ? absoluteUrl(SEO.gallery.path) : SEO.siteUrl,
+          name: title,
+          description,
+          mainEntity: { "@id": `${SEO.siteUrl}/#person` },
+          inLanguage: "en-US",
+        },
+        getPersonSchema(),
+        getFaqSchema(),
+        ...getSoftwareApplicationsSchema()
+      );
+
+      if (isGallery) {
+        graph.push(getImageGallerySchema());
+      }
     }
 
-    upsertJsonLd("seo-jsonld-runtime", {
+    // Upsert into single canonical JSON-LD script (reusing initial #seo-jsonld from index.html)
+    upsertJsonLd("seo-jsonld", {
       "@context": "https://schema.org",
       "@graph": graph,
     });
