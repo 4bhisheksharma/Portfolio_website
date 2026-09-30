@@ -39,20 +39,20 @@ export function Skills() {
         <MarqueeRow items={allSkills.slice(half)} reverse />
       </FadeIn>
 
-      <div className="container-max mt-20">
-        <div className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+      <div className="container-max mt-12 sm:mt-20">
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border lg:grid-cols-3">
           {skillCategories.map((cat, i) => (
-            <div key={cat.id} className="group bg-background p-7 transition-colors duration-500 hover:bg-card">
+            <div key={cat.id} className="group bg-background p-4 transition-colors duration-500 hover:bg-card sm:p-7">
               <FadeIn delay={(i % 3) * 0.06}>
-                <div className="mb-6 flex items-baseline justify-between">
-                  <h3 className="text-base font-medium">{cat.label}</h3>
+                <div className="mb-4 flex items-baseline justify-between sm:mb-6">
+                  <h3 className="text-sm font-medium sm:text-base">{cat.label}</h3>
                   <span className="font-mono text-xs text-muted-foreground">{String(cat.skills.length).padStart(2, "0")}</span>
                 </div>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2 sm:space-y-2.5">
                   {cat.skills.map((skill) => (
-                    <li key={skill.name} title={skill.info} className="group/item flex items-center gap-3 text-sm text-muted-foreground">
+                    <li key={skill.name} title={skill.info} className="group/item flex items-center gap-2 text-[13px] text-muted-foreground sm:gap-3 sm:text-sm">
                       <skill.icon
-                        className="h-4 w-4 transition-all duration-300 group-hover/item:scale-110 group-hover/item:text-primary"
+                        className="h-3.5 w-3.5 shrink-0 transition-all sm:h-4 sm:w-4 duration-300 group-hover/item:scale-110 group-hover/item:text-primary"
                         aria-hidden
                       />
                       <span className="transition-all duration-300 group-hover/item:translate-x-0.5 group-hover/item:text-foreground">

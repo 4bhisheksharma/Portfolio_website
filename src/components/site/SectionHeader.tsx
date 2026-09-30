@@ -13,8 +13,8 @@ interface SectionHeaderProps {
 export function SectionHeader({ index, label, title, accent, aside }: SectionHeaderProps) {
   const reduced = useReducedMotion();
   return (
-    <div className="mb-14 md:mb-20">
-      <div className="mb-8 flex items-center gap-4 text-xs text-muted-foreground">
+    <div className="mb-10 sm:mb-14 md:mb-20">
+      <div className="mb-6 flex items-center gap-4 text-xs text-muted-foreground sm:mb-8">
         <span className="font-mono">{index}</span>
         <motion.span
           className="h-px flex-1 origin-left bg-border"

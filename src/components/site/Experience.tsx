@@ -83,9 +83,9 @@ function CompanyBlock({ company }: { company: Company }) {
             aria-controls={panelId}
             className="group mb-8 flex w-full items-center justify-between gap-4 rounded-2xl border border-white/[0.08] px-5 py-4 text-left transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.02]"
           >
-            <span className="text-sm">
+            <span className="flex flex-col gap-0.5 text-sm sm:block">
               {company.roles.length} {company.roles.length === 1 ? "role" : "roles"}
-              <span className="ml-2 font-mono text-xs text-muted-foreground">{span}</span>
+              <span className="font-mono text-xs text-muted-foreground sm:ml-2">{span}</span>
             </span>
             <span className="flex items-center gap-2 text-xs text-muted-foreground transition-colors group-hover:text-foreground">
               {open ? "Collapse" : "Expand"}

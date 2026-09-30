@@ -17,9 +17,9 @@ export function About() {
       <div className="container-max">
         <SectionHeader index="01" label="About" title="A developer who" accent="sweats the details." />
 
-        <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+        <div className="grid gap-10 sm:gap-14 md:grid-cols-12 md:gap-10">
           <FadeIn className="md:col-span-5">
-            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-sm md:mx-0 md:max-w-none">
+            <TiltCard className="mx-auto aspect-[4/5] w-full max-w-[280px] sm:max-w-sm md:mx-0 md:max-w-none">
               <div className="h-full w-full overflow-hidden rounded-3xl border border-white/[0.06] bg-card">
                 <img
                   src={siteConfig.profileImage}
@@ -33,7 +33,7 @@ export function About() {
             </TiltCard>
           </FadeIn>
 
-          <div className="flex flex-col justify-between gap-14 md:col-span-7 md:pl-6">
+          <div className="flex flex-col justify-between gap-10 sm:gap-14 md:col-span-7 md:pl-6">
             <ScrollText
               text={siteConfig.about.description}
               className="text-[clamp(1.35rem,2.4vw,2rem)] font-medium leading-[1.3] tracking-[-0.02em]"

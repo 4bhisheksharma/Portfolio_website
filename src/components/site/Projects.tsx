@@ -22,7 +22,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
           target="_blank"
           rel="noopener noreferrer"
           data-cursor="View"
-          className="relative block aspect-[4/5] overflow-hidden rounded-3xl border border-white/[0.06] bg-card"
+          className="relative block aspect-[5/6] overflow-hidden rounded-3xl sm:aspect-[4/5] border border-white/[0.06] bg-card"
         >
           {project.mockup === "iphone" ? (
             <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(ellipse_at_50%_110%,hsl(var(--primary)/0.14),transparent_60%)]">
@@ -63,7 +63,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link inline-flex items-center gap-1 rounded-full border border-white/[0.08] px-3 py-1 text-xs text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-foreground"
+              className="group/link inline-flex items-center gap-1 rounded-full border border-white/[0.08] px-3.5 py-2 text-xs text-muted-foreground transition-all sm:px-3 sm:py-1 duration-300 hover:border-primary/40 hover:text-foreground"
             >
               {link.label}
               <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/link:-translate-y-px group-hover/link:translate-x-px" />
@@ -147,18 +147,18 @@ export function Projects() {
           }
         />
 
-        <div className="grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-12">
+        <div className="grid gap-12 sm:gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-12">
           {featured.map((p, i) => (
             <FeaturedCard key={p.id} project={p} index={i} />
           ))}
         </div>
 
-        <div className="mt-28 md:mt-40">
+        <div className="mt-20 sm:mt-28 md:mt-40">
           <FadeIn className="mb-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <h3 className="text-2xl font-medium tracking-tight">
               More projects <span className="font-mono text-sm text-muted-foreground">({rest.length})</span>
             </h3>
-            <div className="isolate -mx-1 flex gap-1 overflow-x-auto px-1 pb-1" role="tablist" aria-label="Filter projects">
+            <div className="no-scrollbar isolate -mx-5 flex gap-1 overflow-x-auto px-5 sm:-mx-1 sm:px-1" role="tablist" aria-label="Filter projects">
               {projectFilters.map((f) => (
                 <button
                   key={f.id}
@@ -169,7 +169,7 @@ export function Projects() {
                     setExpanded(false);
                   }}
                   className={cn(
-                    "relative shrink-0 rounded-full px-3.5 py-1.5 text-[13px] transition-colors duration-300",
+                    "relative shrink-0 rounded-full px-4 py-2.5 text-[13px] sm:px-3.5 sm:py-1.5 transition-colors duration-300",
                     filter === f.id ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                   )}
                 >

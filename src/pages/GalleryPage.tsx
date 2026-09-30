@@ -40,7 +40,7 @@ export function GalleryPage() {
           </p>
         </div>
 
-        <div className="isolate -mx-1 flex flex-wrap gap-1 px-1" role="tablist" aria-label="Filter gallery">
+        <div className="no-scrollbar isolate -mx-5 flex gap-1 overflow-x-auto px-5 sm:mx-[-0.25rem] sm:flex-wrap sm:overflow-visible sm:px-1" role="tablist" aria-label="Filter gallery">
           {categories.map((c) => (
             <button
               key={c}
@@ -48,7 +48,7 @@ export function GalleryPage() {
               aria-selected={category === c}
               onClick={() => setCategory(c)}
               className={cn(
-                "relative shrink-0 rounded-full px-3.5 py-1.5 text-[13px] transition-colors duration-300",
+                "relative shrink-0 rounded-full px-4 py-2.5 text-[13px] sm:px-3.5 sm:py-1.5 transition-colors duration-300",
                 category === c ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
               )}
             >

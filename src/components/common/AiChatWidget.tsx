@@ -174,7 +174,7 @@ export function AiChatWidget() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-5 right-5 z-[90] bg-transparent p-0 border-0 shadow-none hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="fixed bottom-3 right-3 z-[90] origin-bottom-right scale-[0.8] bg-transparent p-0 sm:bottom-5 sm:right-5 sm:scale-100 border-0 shadow-none hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             aria-label="Open AI assistant"
             title="Ask about Abhishek"
           >

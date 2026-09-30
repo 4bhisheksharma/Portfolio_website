@@ -1,4 +1,4 @@
-import { Component, lazy, Suspense, useRef, useState, type ReactNode } from "react";
+import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -32,6 +32,25 @@ export function Hero() {
   useMotionValueEvent(scrollYProgress, "change", (v) => {
     progress.current = v;
   });
+  // Load the WebGL scene once the page is idle, and pause it while the hero is off-screen
+  const [sceneReady, setSceneReady] = useState(false);
+  const [inView, setInView] = useState(true);
+  useEffect(() => {
+    const start = () => setSceneReady(true);
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    const id = w.requestIdleCallback ? w.requestIdleCallback(start, { timeout: 1500 }) : window.setTimeout(start, 400);
+    return () => {
+      if (!w.requestIdleCallback) window.clearTimeout(id);
+    };
+  }, []);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
@@ -53,11 +72,13 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: D + 0.2 }}
       >
-        <SceneBoundary>
-          <Suspense fallback={null}>
-            <HeroScene progress={progress} />
-          </Suspense>
-        </SceneBoundary>
+        {sceneReady && (
+          <SceneBoundary>
+            <Suspense fallback={null}>
+              <HeroScene progress={progress} active={inView} reduced={Boolean(reduced)} />
+            </Suspense>
+          </SceneBoundary>
+        )}
       </motion.div>
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
 
@@ -106,7 +127,7 @@ export function Hero() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3.5 text-sm transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.04]"
               >
-                Résumé
+                Resume
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </Magnetic>

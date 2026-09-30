@@ -98,7 +98,7 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
                 scrollToTarget(0);
               }
             }}
-            className="group flex items-center gap-2.5 text-sm font-medium tracking-tight"
+            className="group flex items-center gap-2.5 py-2 text-sm font-medium tracking-tight"
           >
             <img src={siteConfig.logo} alt="" className="h-6 w-6 rounded-full bg-white p-0.5" />
             <span>Abhishek Sharma</span>

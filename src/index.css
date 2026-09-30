@@ -70,7 +70,7 @@
   }
 
   .section {
-    @apply py-24 md:py-36;
+    @apply py-16 sm:py-24 md:py-36;
   }
 
   .text-balance {
@@ -98,6 +98,13 @@
   .link-underline:hover {
     background-size: 100% 1px;
     background-position: 0 100%;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 
   .mask-fade-x {
@@ -130,6 +137,13 @@
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+/* A full-screen animated layer costs more than it adds on phones */
+@media (max-width: 767px) {
+  .grain {
+    animation: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

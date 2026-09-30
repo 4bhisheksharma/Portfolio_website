@@ -59,7 +59,7 @@ function CopyEmail() {
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden pb-10 pt-24 md:pt-40">
+    <section id="contact" className="relative overflow-hidden pb-8 pt-16 sm:pb-10 sm:pt-24 md:pt-40">
       <div
         aria-hidden
         className="pointer-events-none absolute bottom-[-30%] left-1/2 h-[60vmax] w-[60vmax] -translate-x-1/2 rounded-full opacity-30 blur-[140px]"
@@ -80,7 +80,7 @@ export function Contact() {
           </span>
         </h2>
 
-        <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12">
+        <div className="mt-12 grid gap-12 sm:mt-16 sm:gap-14 md:mt-24 md:grid-cols-12">
           <FadeIn className="md:col-span-7">
             <p className="mb-4 text-sm text-muted-foreground">
               Open to full-time roles, freelance work and interesting collaborations.
@@ -88,13 +88,13 @@ export function Contact() {
             <div className="flex items-center gap-3">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="link-underline min-w-0 text-base font-medium tracking-tight [overflow-wrap:anywhere] sm:text-2xl md:text-3xl"
+                className="link-underline min-w-0 py-2 text-[15px] font-medium tracking-tight [overflow-wrap:anywhere] min-[400px]:text-base sm:text-2xl md:text-3xl"
               >
                 {siteConfig.email}
               </a>
               <CopyEmail />
             </div>
-            <a href={siteConfig.phoneHref} className="link-underline mt-3 inline-block text-muted-foreground hover:text-foreground">
+            <a href={siteConfig.phoneHref} className="link-underline mt-1 inline-block py-2 text-muted-foreground hover:text-foreground">
               {siteConfig.phone}
             </a>
             <div className="mt-10">
@@ -138,10 +138,10 @@ export function Contact() {
 
 function Footer() {
   return (
-    <footer className="mt-28 flex flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
+    <footer className="mt-20 flex sm:mt-28 flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
       <span>{siteConfig.copyright}</span>
       <span className="font-mono">{siteConfig.version}</span>
-      <button onClick={() => scrollToTarget(0)} className="link-underline self-start hover:text-foreground md:self-auto">
+      <button onClick={() => scrollToTarget(0)} className="link-underline self-start py-2 hover:text-foreground md:self-auto">
         Back to top ↑
       </button>
     </footer>
