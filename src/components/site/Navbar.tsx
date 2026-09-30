@@ -56,16 +56,13 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
   const isHome = location.pathname === "/";
   const active = useActiveId();
   const time = useKathmanduTime();
-  const [hidden, setHidden] = useState(false);
+  const [compact, setCompact] = useState(false);
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
-    setHidden(y > 240 && y > prev + 4 && !open);
-    if (y < prev - 4) setHidden(false);
-  });
+  // Shrink into a tighter pill once the page is scrolled
+  useMotionValueEvent(scrollY, "change", (y) => setCompact(y > 60));
 
   useEffect(() => {
     setScrollLocked(open);
@@ -81,14 +78,20 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
 
   return (
     <>
-      <motion.header
-        className="fixed inset-x-0 top-0 z-[80] flex justify-center px-4 pt-4"
-        animate={{ y: hidden ? -96 : 0 }}
-        transition={{ duration: 0.5, ease }}
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-[80] flex justify-center px-4 transition-[padding] duration-700 ease-out",
+          compact ? "pt-3" : "pt-4"
+        )}
       >
         <nav
           aria-label="Primary"
-          className="flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/[0.06] bg-background/75 py-2 pl-4 pr-2 backdrop-blur-xl backdrop-saturate-150"
+          className={cn(
+            "flex w-full items-center justify-between gap-4 rounded-full border backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 ease-out",
+            compact
+              ? "max-w-[20rem] border-white/[0.1] bg-background/90 py-1 pl-3 pr-1.5 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)] md:max-w-[54rem]"
+              : "max-w-6xl border-white/[0.06] bg-background/75 py-2 pl-4 pr-2"
+          )}
         >
           <Link
             to="/"
@@ -102,7 +105,12 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
           >
             <img src={siteConfig.logo} alt="" className="h-6 w-6 rounded-full bg-white p-0.5" />
             <span>Abhishek Sharma</span>
-            <span className="hidden font-mono text-[11px] text-muted-foreground transition-colors group-hover:text-foreground sm:inline">
+            <span
+              className={cn(
+                "hidden overflow-hidden whitespace-nowrap font-mono text-[11px] text-muted-foreground transition-all duration-500 ease-out group-hover:text-foreground sm:inline-block",
+                compact ? "max-w-0 opacity-0" : "max-w-[5rem] opacity-100"
+              )}
+            >
               NPT {time}
             </span>
           </Link>
@@ -160,7 +168,10 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
             </button>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="hidden rounded-full bg-foreground px-4 py-2 text-[13px] font-medium text-background transition-transform duration-300 ease-out hover:scale-[1.04] active:scale-[0.97] md:block"
+              className={cn(
+                "hidden rounded-full bg-foreground text-[13px] font-medium text-background transition-all duration-500 ease-out hover:scale-[1.04] active:scale-[0.97] md:block",
+                compact ? "px-3.5 py-1.5" : "px-4 py-2"
+              )}
             >
               Let&apos;s talk
             </a>
@@ -183,7 +194,7 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open && (

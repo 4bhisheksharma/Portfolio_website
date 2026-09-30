@@ -64,7 +64,7 @@ export function Hero() {
         };
 
   return (
-    <section id="hero" ref={ref} className="relative flex min-h-[100svh] items-end overflow-hidden">
+    <section id="hero" ref={ref} className="relative flex items-start overflow-hidden sm:min-h-[100svh] sm:items-end">
       <motion.div
         aria-hidden
         className="absolute inset-0"
@@ -84,9 +84,9 @@ export function Hero() {
 
       <motion.div
         style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
-        className="container-max relative z-10 pb-10 pt-40 md:pb-14"
+        className="container-max relative z-10 pb-10 pt-28 sm:pt-40 md:pb-14"
       >
-        <motion.div {...fadeUp(0.1)} className="mb-8 flex flex-wrap items-center gap-3 text-[13px] text-muted-foreground">
+        <motion.div {...fadeUp(0.1)} className="mb-6 flex flex-wrap items-center gap-3 text-[13px] text-muted-foreground sm:mb-8">
           <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 backdrop-blur">
             Available for freelance
           </span>
@@ -104,17 +104,17 @@ export function Hero() {
           </span>
         </h1>
 
-        <div className="mt-10 flex flex-col gap-10 md:mt-14 md:flex-row md:items-end md:justify-between">
+        <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-14 md:flex-row md:items-end md:justify-between">
           <motion.p {...fadeUp(0.8)} className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
             I&apos;m Abhishek, a <span className="text-foreground">freelance Flutter developer</span> shipping
             cross-platform products used across fintech, health and civic services.
           </motion.p>
 
-          <motion.div {...fadeUp(0.95)} className="flex flex-wrap items-center gap-3">
+          <motion.div {...fadeUp(0.95)} className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <Magnetic>
               <button
                 onClick={() => scrollToTarget("#projects")}
-                className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-transform duration-300 ease-out active:scale-[0.97]"
+                className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-[13px] min-[380px]:text-sm sm:px-6 sm:py-3.5 font-medium text-primary-foreground transition-transform duration-300 ease-out active:scale-[0.97]"
               >
                 View selected work
                 <ArrowDown className="h-4 w-4 transition-transform duration-500 ease-out group-hover:translate-y-0.5" />
@@ -125,7 +125,7 @@ export function Hero() {
                 href={siteConfig.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3.5 text-sm transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.04]"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-[13px] min-[380px]:text-sm sm:px-6 sm:py-3.5 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.04]"
               >
                 Resume
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-500 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -136,7 +136,7 @@ export function Hero() {
 
         <motion.div
           {...fadeUp(1.1)}
-          className="mt-16 flex items-center justify-between border-t border-white/[0.06] pt-5 text-xs text-muted-foreground md:mt-24"
+          className="mt-12 flex items-center justify-between border-t sm:mt-16 border-white/[0.06] pt-5 text-xs text-muted-foreground md:mt-24"
         >
           <span className="flex items-center gap-2">
             <ArrowDown className="h-3.5 w-3.5" />

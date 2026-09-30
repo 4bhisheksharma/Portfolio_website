@@ -22,7 +22,7 @@ export const certifications: Certification[] = [
     id: "aaa-scholarship-second",
     title: "AAA Scholarship (2nd time)",
     description:
-      "Awarded the AAA (Academic, Attitude, and Attendance) Scholarship by Itahari International College for the second time.",
+      "Awarded the AAA (Academic, Attitude, and Attendance) Scholarship by Itahari International College for the second time in 2026.",
     image: "/assets/images/AAA-second.jpg",
     imageAlt: "Abhishek Sharma receiving the AAA Scholarship certificate for the second time",
     link: "/assets/images/AAA-second.jpg",
