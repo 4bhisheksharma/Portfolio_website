@@ -155,6 +155,11 @@ export const projects: Project[] = [
         href: "https://play.google.com/store/apps/details?id=com.bobthedeveloper.mobileApp",
         type: "store",
       },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/np/app/sanskar-vastu-compass/id6807282268",
+        type: "store",
+      },
     ],
   },
   {
