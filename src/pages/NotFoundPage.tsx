@@ -1,24 +1,28 @@
 import { Link } from "react-router-dom";
-import { Home } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
+import { SplitReveal } from "@/components/motion/Text";
+import { Magnetic } from "@/components/motion/Magnetic";
 
 export function NotFoundPage() {
   return (
-    <div className="os-desktop-bg min-h-[100dvh] w-full flex flex-col items-center justify-center p-6 text-white select-none">
-      <div className="text-center flex flex-col items-center gap-5">
-        <h1 className="text-8xl sm:text-9xl font-extrabold tracking-tighter text-white/90 font-mono">
-          404
-        </h1>
-        <p className="text-sm text-zinc-400 font-mono tracking-wide uppercase">
-          Page Not Found
-        </p>
+    <main className="container-max flex min-h-[100svh] flex-col items-start justify-center">
+      <p className="mb-6 font-mono text-xs text-muted-foreground">Error 404</p>
+      <h1 className="text-[clamp(3rem,10vw,8rem)] font-medium leading-[0.92] tracking-[-0.05em]">
+        <SplitReveal text="Lost in" immediate />{" "}
+        <span className="font-serif font-normal italic text-primary">
+          <SplitReveal text="the void." immediate delay={0.15} />
+        </span>
+      </h1>
+      <p className="mt-6 max-w-sm text-muted-foreground">This page doesn&apos;t exist, but plenty of good work does.</p>
+      <Magnetic className="mt-10">
         <Link
           to="/"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white font-medium text-sm transition-all active:scale-[0.97]"
+          className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background"
         >
-          <Home className="w-4 h-4 text-emerald-400" />
-          <span>Home</span>
+          <ArrowLeft className="h-4 w-4 transition-transform duration-500 ease-out group-hover:-translate-x-1" />
+          Back home
         </Link>
-      </div>
-    </div>
+      </Magnetic>
+    </main>
   );
 }

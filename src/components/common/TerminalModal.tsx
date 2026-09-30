@@ -116,7 +116,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
         { type: "system", text: "" },
         {
           type: "dim",
-          text: `  Role: Flutter Developer @ Digital Pathshala`,
+          text: `  Role: Freelance Flutter Developer`,
         },
       ];
 
@@ -303,7 +303,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
 
     case "sudo":
       return [
-        { type: "error", text: "  Nice try. Permission denied — this isn't production 😉" },
+        { type: "error", text: "  Nice try. Permission denied. This isn't production 😉" },
       ];
 
     default:
@@ -521,7 +521,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
               <div className="flex-1 flex items-center justify-center gap-2 min-w-0">
                 <TerminalIcon className="h-3.5 w-3.5 text-primary shrink-0" aria-hidden="true" />
                 <span className="text-xs text-muted-foreground font-mono truncate">
-                  abhishek@portfolio — Terminal
+                  abhishek@portfolio · Terminal
                 </span>
               </div>
 
@@ -532,6 +532,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
 
             {/* Body */}
             <div
+              data-lenis-prevent
               ref={bodyRef}
               className="flex-1 overflow-y-auto px-3 sm:px-5 py-4 font-mono text-[11px] sm:text-[13px] leading-relaxed custom-scrollbar"
             >

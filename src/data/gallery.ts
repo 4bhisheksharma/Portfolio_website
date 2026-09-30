@@ -42,14 +42,14 @@ const profileImages: Omit<GalleryImage, "size">[] = [
   {
     id: "profile",
     src: siteConfig.profileImage,
-    alt: "Abhishek Sharma — Flutter developer from Itahari, Nepal",
+    alt: "Abhishek Sharma, Flutter developer from Itahari, Nepal",
     caption: `${siteConfig.name} | ${siteConfig.title}`,
     category: "Profile",
   },
   {
     id: "profile-2",
     src: "/assets/images/profile2.png",
-    alt: "Abhishek Sharma portrait — mobile app developer from Nepal",
+    alt: "Abhishek Sharma portrait, mobile app developer from Nepal",
     caption: `${siteConfig.name} portrait`,
     category: "Profile",
   },
@@ -67,7 +67,7 @@ const aboutImages: Omit<GalleryImage, "size">[] = siteConfig.about.images.map(
 const projectImages: Omit<GalleryImage, "size">[] = projects.map((project) => ({
   id: `project-${project.id}`,
   src: project.image,
-  alt: `${project.title} — Flutter project by Abhishek Sharma, Nepal`,
+  alt: `${project.title}, Flutter project by Abhishek Sharma, Nepal`,
   caption: project.title,
   category: project.categoryLabel,
 }));

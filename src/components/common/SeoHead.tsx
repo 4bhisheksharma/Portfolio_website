@@ -63,7 +63,7 @@ export function SeoHead({ route = "home" }: SeoHeadProps) {
 
     document.title = title;
 
-    // Robots directive — prevent indexing of 404 while retaining link equity
+    // Robots directive: prevent indexing of 404 while retaining link equity
     if (is404) {
       upsertMeta('meta[name="robots"]', {
         name: "robots",

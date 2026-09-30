@@ -28,7 +28,7 @@ export function Counter({ value, suffix = "+", duration = 2000, className }: Cou
     const animate = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      setCount(Math.floor(progress * value));
+      setCount(Math.floor((1 - Math.pow(1 - progress, 3)) * value));
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate);

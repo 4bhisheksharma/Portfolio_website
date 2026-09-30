@@ -35,12 +35,12 @@ export const SEO = {
     ],
     ogImage: "/assets/images/og.png",
     ogImageAlt:
-      "Abhishek Sharma — Flutter mobile app developer from Itahari, Nepal | Open to work",
+      "Abhishek Sharma, Flutter mobile app developer from Itahari, Nepal | Open to work",
   },
   gallery: {
-    title: "Gallery | Abhishek Sharma — Flutter Developer from Nepal",
+    title: "Gallery | Abhishek Sharma, Flutter Developer from Nepal",
     description:
-      "Photos and project screenshots from Abhishek Sharma, Flutter developer based in Itahari, Nepal — apps, certifications, hackathons, and portfolio work.",
+      "Photos and project screenshots from Abhishek Sharma, Flutter developer based in Itahari, Nepal: apps, certifications, hackathons, and portfolio work.",
     path: "/gallery",
   },
   notFound: {
@@ -74,7 +74,7 @@ export const seoImages = [
   {
     url: "/assets/images/profile2.png",
     name: "Abhishek Sharma portrait",
-    caption: "Abhishek Sharma — mobile app developer from Nepal",
+    caption: "Abhishek Sharma, mobile app developer from Nepal",
     category: "Profile",
   },
   {
@@ -146,8 +146,7 @@ export function getPersonSchema() {
     },
     worksFor: {
       "@type": "Organization",
-      name: "Digital Pathshala",
-      url: siteConfig.about.digitalPathshalaUrl,
+      name: "Self-employed (Freelance)",
     },
     alumniOf: {
       "@type": "CollegeOrUniversity",
@@ -264,7 +263,7 @@ export function getFaqSchema() {
         name: "Who is Abhishek Sharma?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Abhishek Sharma is a Flutter mobile app developer based in Itahari, Nepal with 15+ cross-platform mobile projects, AWS certification, and experience at Digital Pathshala.",
+          text: "Abhishek Sharma is a Flutter mobile app developer based in Itahari, Nepal with 15+ cross-platform mobile projects, AWS certification, and previous experience at Digital Pathshala. He currently works as a freelance Flutter developer.",
         },
       },
       {

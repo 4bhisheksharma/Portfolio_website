@@ -16,6 +16,8 @@ export interface Project {
   technologies: string[];
   links: ProjectLink[];
   featured?: boolean;
+  /** Show the screenshot inside a device frame */
+  mockup?: "iphone";
 }
 
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
@@ -29,6 +31,7 @@ export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = 
 export const projects: Project[] = [
   {
     id: "invisible-vpn",
+    mockup: "iphone",
     title: "Invisible VPN",
     description: "Invisible VPN - Secure way to surf online",
     image: "/assets/images/invisible-vpn.png",
@@ -52,6 +55,7 @@ export const projects: Project[] = [
   },
   {
     id: "hisab-khata",
+    mockup: "iphone",
     title: "Hisab Khata",
     description:
       "A modern digital credit and transaction management system designed for small businesses in Nepal.",
@@ -91,6 +95,7 @@ export const projects: Project[] = [
   },
   {
     id: "urban-homes",
+    mockup: "iphone",
     title: "Urban Homes",
     description:
       "Urban Homes - admin-managed customer portal for project files and properties.",
@@ -232,6 +237,11 @@ export const projects: Project[] = [
     categoryLabel: "Mobile App",
     technologies: ["Flutter", "Hive"],
     links: [
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.abhishek.app.pulse",
+        type: "store",
+      },
       { label: "View Code", href: "https://github.com/4bhisheksharma/P.U.L.S.E", type: "github" },
     ],
   },

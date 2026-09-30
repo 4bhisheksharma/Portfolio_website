@@ -1,43 +1,38 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { PhoneOSProvider } from "@/context/PhoneOSContext";
-import { PhoneOS } from "@/components/os/PhoneOS";
-import { sectionToApp } from "@/data/osApps";
+import { Hero } from "@/components/site/Hero";
+import { Showcase } from "@/components/site/Showcase";
+import { About } from "@/components/site/About";
+import { Projects } from "@/components/site/Projects";
+import { Experience } from "@/components/site/Experience";
+import { Skills } from "@/components/site/Skills";
+import { Certifications } from "@/components/site/Certifications";
+import { Contact } from "@/components/site/Contact";
+import { scrollToTarget } from "@/components/motion/SmoothScroll";
 
-interface HomePageProps {
-  onOpenTerminal: () => void;
-}
-
-function resolveInitialApp(hash: string, scrollTo?: string): {
-  app: import("@/data/osApps").AppScreenId | null;
-  unlocked: boolean;
-} {
-  const target = scrollTo ?? hash;
-  const sectionId = target.replace("#", "");
-  const app = sectionToApp[sectionId] ?? null;
-  const unlocked = Boolean(app || sectionId === "hero" || target.length > 0);
-  return { app, unlocked: unlocked || Boolean(app) };
-}
-
-export function HomePage({ onOpenTerminal }: HomePageProps) {
+export function HomePage() {
   const location = useLocation();
-  const scrollTarget = (location.state as { scrollTo?: string } | null)?.scrollTo;
-  const hash = window.location.hash;
-  const { app, unlocked } = resolveInitialApp(hash, scrollTarget);
+  const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
 
   useEffect(() => {
-    if (scrollTarget) {
-      window.history.replaceState({}, "");
-    }
-  }, [scrollTarget]);
+    const target = scrollTo ?? (location.hash.startsWith("#/") ? "" : location.hash);
+    if (!target || target === "#hero") return;
+    // wait a frame so sections have laid out
+    const id = requestAnimationFrame(() => scrollToTarget(target, !scrollTo));
+    if (scrollTo) window.history.replaceState({}, "");
+    return () => cancelAnimationFrame(id);
+  }, [scrollTo, location.hash]);
 
   return (
-    <PhoneOSProvider
-      initialApp={app}
-      initialUnlocked={unlocked}
-      onOpenTerminal={onOpenTerminal}
-    >
-      <PhoneOS />
-    </PhoneOSProvider>
+    <main>
+      <Hero />
+      <Showcase />
+      <About />
+      <Projects />
+      <Experience />
+      <Skills />
+      <Certifications />
+      <Contact />
+    </main>
   );
 }
