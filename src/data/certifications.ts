@@ -19,6 +19,15 @@ export const certifications: Certification[] = [
     link: "https://www.facebook.com/share/p/1WjZuBpawo/",
   },
   {
+    id: "aaa-scholarship-second",
+    title: "AAA Scholarship (2nd time)",
+    description:
+      "Awarded the AAA (Academic, Attitude, and Attendance) Scholarship by Itahari International College for the second time.",
+    image: "/assets/images/AAA-second.jpg",
+    imageAlt: "Abhishek Sharma receiving the AAA Scholarship certificate for the second time",
+    link: "/assets/images/AAA-second.jpg",
+  },
+  {
     id: "young-scientist-summit",
     title: "7th Young Scientist Summit",
     description:

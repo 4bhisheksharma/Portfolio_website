@@ -76,10 +76,11 @@ export const projects: Project[] = [
   },
   {
     id: "dhrms",
+    mockup: "iphone",
     title: "DHRMS",
     description:
       "DHRMS - Digital Health Record Management System for Nepal",
-    image: "/assets/images/dhrms.png",
+    image: "/assets/images/dhrms-ss.png",
     category: "mobile",
     categoryLabel: "Mobile App",
     technologies: ["Flutter", "Node.js", "Supabase", "DigitalOcean"],

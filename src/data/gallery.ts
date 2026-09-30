@@ -46,13 +46,6 @@ const profileImages: Omit<GalleryImage, "size">[] = [
     caption: `${siteConfig.name} | ${siteConfig.title}`,
     category: "Profile",
   },
-  {
-    id: "profile-2",
-    src: "/assets/images/profile2.png",
-    alt: "Abhishek Sharma portrait, mobile app developer from Nepal",
-    caption: `${siteConfig.name} portrait`,
-    category: "Profile",
-  },
 ];
 
 const aboutImages: Omit<GalleryImage, "size">[] = siteConfig.about.images.map(
@@ -101,7 +94,17 @@ const sections = [
   experienceImages,
 ];
 
-export const galleryImages: GalleryImage[] = sections.flatMap((section) => {
+// The same file can appear in several sources (e.g. an award photo in About and Certifications); keep the first
+const seen = new Set<string>();
+const uniqueSections = sections.map((section) =>
+  section.filter((img) => {
+    if (!img.src || seen.has(img.src)) return false;
+    seen.add(img.src);
+    return true;
+  })
+);
+
+export const galleryImages: GalleryImage[] = uniqueSections.flatMap((section) => {
   const sized = withSizes(section, offset);
   offset += section.length;
   return sized;
