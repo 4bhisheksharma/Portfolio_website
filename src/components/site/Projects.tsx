@@ -93,25 +93,38 @@ function ProjectList({ items }: { items: Project[] }) {
               transition={{ duration: 0.5, delay: Math.min(i, 8) * 0.03, ease }}
               className="border-b border-border"
             >
-              <a
-                href={project.links[0]?.href}
-                target="_blank"
-                rel="noopener noreferrer"
+              <div
                 onPointerEnter={show(project.image)}
-                className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-4 py-5 transition-colors duration-300 md:grid-cols-[3rem_1.4fr_1fr_1fr_auto] md:py-6"
+                className="group flex flex-col gap-3 py-5 md:grid md:grid-cols-[3rem_minmax(0,1.5fr)_minmax(7rem,0.7fr)_auto] md:items-center md:gap-x-6 md:py-6"
               >
-                <span className="font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                <span className="text-lg font-medium tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-2 md:text-xl">
-                  {project.title}
-                </span>
+                <div className="flex min-w-0 items-start gap-4 md:contents">
+                  <span className="pt-1 font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="min-w-0">
+                    <p className="text-lg font-medium tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-2 md:text-xl">
+                      {project.title}
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground md:hidden">{project.categoryLabel}</p>
+                    <p className="mt-1 text-xs text-muted-foreground md:text-sm">
+                      {project.technologies.slice(0, 3).join(" · ")}
+                    </p>
+                  </div>
+                </div>
                 <span className="hidden text-sm text-muted-foreground md:block">{project.categoryLabel}</span>
-                <span className="hidden text-sm text-muted-foreground md:block">
-                  {project.technologies.slice(0, 3).join(" · ")}
-                </span>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] text-muted-foreground transition-all duration-500 ease-out group-hover:rotate-45 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
-                  <ArrowUpRight className="h-3.5 w-3.5" />
-                </span>
-              </a>
+                <div className="flex flex-wrap gap-2 pl-10 md:justify-end md:pl-0">
+                  {project.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/link inline-flex items-center gap-1 rounded-full border border-white/[0.08] px-3.5 py-2 text-xs text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-foreground"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="h-3 w-3 transition-transform duration-300 group-hover/link:-translate-y-px group-hover/link:translate-x-px" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </motion.li>
           ))}
         </AnimatePresence>
