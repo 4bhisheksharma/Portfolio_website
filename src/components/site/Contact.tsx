@@ -7,10 +7,7 @@ import { Magnetic } from "@/components/motion/Magnetic";
 import { FadeIn, SplitReveal } from "@/components/motion/Text";
 import { scrollToTarget } from "@/components/motion/SmoothScroll";
 
-const socials = [
-  ...footerSocials.filter((s) => s.label !== "App"),
-  ...heroSocials.filter((s) => s.label === "Blog"),
-];
+const socials = [...footerSocials, ...heroSocials.filter((s) => s.label === "Blog")];
 
 function CopyEmail() {
   const [copied, setCopied] = useState(false);

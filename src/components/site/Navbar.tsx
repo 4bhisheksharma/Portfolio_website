@@ -87,10 +87,10 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
         <nav
           aria-label="Primary"
           className={cn(
-            "flex w-full items-center justify-between gap-4 rounded-full border backdrop-blur-xl backdrop-saturate-150 transition-all duration-700 ease-out",
+            "flex w-full items-center justify-between gap-4 rounded-full border border-white/[0.14] backdrop-blur-2xl backdrop-saturate-150 transition-all duration-700 ease-out",
             compact
-              ? "max-w-[20rem] border-white/[0.1] bg-background/90 py-1 pl-3 pr-1.5 shadow-[0_10px_40px_-12px_rgba(0,0,0,0.7)] md:max-w-[54rem]"
-              : "max-w-6xl border-white/[0.06] bg-background/75 py-2 pl-4 pr-2"
+              ? "max-w-[20rem] bg-background/55 py-1 pl-3 pr-1.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_10px_40px_-12px_rgba(0,0,0,0.55)] md:max-w-[54rem]"
+              : "max-w-6xl bg-background/40 py-2 pl-4 pr-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]"
           )}
         >
           <Link

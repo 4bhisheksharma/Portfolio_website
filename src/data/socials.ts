@@ -18,7 +18,7 @@ export interface SocialLink {
 }
 
 export const heroSocials: SocialLink[] = [
-  { label: "App", href: "https://app.abhishek-sharma.com.np/", icon: FaAppStore },
+  { label: "Apps", href: "https://app.abhishek-sharma.com.np/", icon: FaAppStore },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/4bhisheksharma/", icon: FaLinkedin },
   { label: "GitHub", href: "https://github.com/4bhisheksharma", icon: FaGithub },
   {
@@ -34,7 +34,7 @@ export const heroSocials: SocialLink[] = [
 ];
 
 export const footerSocials: SocialLink[] = [
-  { label: "App", href: "https://app.abhishek-sharma.com.np/", icon: FaAppStore },
+  { label: "Apps", href: "https://app.abhishek-sharma.com.np/", icon: FaAppStore },
   { label: "GitHub", href: "https://github.com/4bhisheksharma", icon: FaGithub },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/4bhisheksharma/", icon: FaLinkedin },
   {

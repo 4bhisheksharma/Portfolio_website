@@ -87,9 +87,9 @@ export function Hero() {
         className="container-max relative z-10 pb-10 pt-28 sm:pt-40 md:pb-14"
       >
         <motion.div {...fadeUp(0.1)} className="mb-6 flex flex-wrap items-center gap-3 text-[13px] text-muted-foreground sm:mb-8">
-          <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 backdrop-blur">
+          {/* <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 backdrop-blur">
             Available for freelance
-          </span>
+          </span> */}
           <span>Flutter developer based in Itahari, Nepal</span>
         </motion.div>
 
@@ -143,8 +143,9 @@ export function Hero() {
             Scroll to explore
           </span>
           <ul className="hidden items-center gap-5 sm:flex">
-            {heroSocials
-              .filter((s) => ["LinkedIn", "GitHub", "pub.dev", "Blog"].includes(s.label))
+            {["LinkedIn", "GitHub", "pub.dev", "Apps", "Blog"]
+              .map((label) => heroSocials.find((s) => s.label === label))
+              .filter((s) => s != null)
               .map((s) => (
                 <li key={s.label}>
                   <a
