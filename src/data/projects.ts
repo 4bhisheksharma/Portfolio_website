@@ -1,4 +1,4 @@
-export type ProjectCategory = "mobile" | "web" | "iot" | "games";
+export type ProjectCategory = "mobile" | "package" | "web" | "iot" | "games";
 
 export interface ProjectLink {
   label: string;
@@ -23,6 +23,7 @@ export interface Project {
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
   { id: "all", label: "All Projects" },
   { id: "mobile", label: "Mobile Apps" },
+  { id: "package", label: "Packages" },
   { id: "web", label: "Web Apps" },
   { id: "iot", label: "IoT Projects" },
   { id: "games", label: "Games" },
@@ -120,6 +121,22 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "nepal-administrative-map",
+    title: "Nepal Administrative Map",
+    description:
+      "Bilingual (English/नेपाली) map of Nepal's 7 provinces, 77 districts and 753 local levels in one line of Flutter code. Drill-down zoom, data colouring with legends, offline GPS-to-municipality lookup, and accessible on every platform. Boundary data compressed from 3.9 MB to 422 KB.",
+    image: "/assets/images/nepal-administrative-map.jpg",
+    category: "package",
+    categoryLabel: "Pub Package",
+    technologies: ["Flutter", "Dart", "Maps", "Open Source"],
+    featured: true,
+    links: [
+      { label: "Live Demo", href: "https://4bhisheksharma.github.io/nepal_administrative_map/", type: "live" },
+      { label: "Pub.dev Package", href: "https://pub.dev/packages/nepal_administrative_map", type: "other" },
+      { label: "View Code", href: "https://github.com/4bhisheksharma/nepal_administrative_map", type: "github" },
+    ],
+  },
+  {
     id: "belbari-municipality",
     title: "Belbari Municipality",
     description:
@@ -182,8 +199,8 @@ export const projects: Project[] = [
     description:
       "A command-line tool that scaffolds Flutter projects following Clean Architecture - generates the full core layer and feature modules with boilerplate files in one command.",
     image: "/assets/images/clean_arch.png",
-    category: "mobile",
-    categoryLabel: "Mobile App Package",
+    category: "package",
+    categoryLabel: "Pub Package",
     technologies: ["Flutter", "Dart"],
     featured: true,
     links: [
@@ -196,8 +213,8 @@ export const projects: Project[] = [
     description:
       "Real-time Flutter performance monitoring overlay - startup time, FPS, memory, CPU, network latency, and widget rebuild tracking displayed directly inside your running application.",
     image: "/assets/images/flutter_app_vitals.png",
-    category: "mobile",
-    categoryLabel: "Mobile App Package",
+    category: "package",
+    categoryLabel: "Pub Package",
     technologies: ["Flutter", "Dart"],
     featured: true,
     links: [

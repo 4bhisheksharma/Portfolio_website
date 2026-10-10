@@ -168,7 +168,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
           )
         : projects;
       if (!list.length) {
-        return [{ type: "error", text: `  No projects matching '${filter}'. Try: mobile | web | iot | games` }];
+        return [{ type: "error", text: `  No projects matching '${filter}'. Try: mobile | package | web | iot | games` }];
       }
       return [
         {
@@ -181,7 +181,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
           text: `  ${(i + 1).toString().padStart(2)}. ${p.title.padEnd(28)} [${p.category}]`,
         })),
         { type: "system", text: "" },
-        { type: "dim", text: "  Tip: projects mobile | projects web | projects iot" },
+        { type: "dim", text: "  Tip: projects mobile | projects package | projects web" },
       ];
     }
 
@@ -330,7 +330,7 @@ function autocomplete(partial: string): string | null {
       return match ? `open ${match}` : null;
     }
     if (head.toLowerCase() === "projects") {
-      const opts = ["all", "mobile", "web", "iot", "games"];
+      const opts = ["all", "mobile", "package", "web", "iot", "games"];
       const match = opts.find((o) => o.startsWith((rest[0] || "").toLowerCase()));
       return match ? `projects ${match}` : null;
     }
