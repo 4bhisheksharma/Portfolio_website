@@ -94,14 +94,31 @@ function ProjectList({ items }: { items: Project[] }) {
               className="border-b border-border"
             >
               <div
-                onPointerEnter={show(project.image)}
+                onPointerEnter={show(project.image, { contain: project.logo })}
                 className="group flex flex-col gap-3 py-5 md:grid md:grid-cols-[3rem_minmax(0,1.5fr)_minmax(7rem,0.7fr)_auto] md:items-center md:gap-x-6 md:py-6"
               >
                 <div className="flex min-w-0 items-start gap-4 md:contents">
-                  <span className="pt-1 font-mono text-xs text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
+                  {/* a small visual anchor per row; the hover preview only exists with a mouse */}
+                  <img
+                    src={project.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    width={48}
+                    height={48}
+                    className={cn(
+                      "h-12 w-12 shrink-0 rounded-xl border border-white/[0.08] transition-transform duration-500 ease-out group-hover:-rotate-3",
+                      project.logo ? "bg-white object-cover" : "bg-card object-cover object-top"
+                    )}
+                  />
                   <div className="min-w-0">
-                    <p className="text-lg font-medium tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-2 md:text-xl">
+                    <p className="flex flex-wrap items-center gap-x-2 text-lg font-medium tracking-tight transition-transform duration-500 ease-out group-hover:translate-x-2 md:text-xl">
                       {project.title}
+                      {project.isNew && (
+                        <span className="rounded-full bg-primary/10 px-2 py-0.5 font-mono text-[10px] font-normal tracking-normal text-primary">
+                          New
+                        </span>
+                      )}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground md:hidden">{project.categoryLabel}</p>
                     <p className="mt-1 text-xs text-muted-foreground md:text-sm">
@@ -110,7 +127,7 @@ function ProjectList({ items }: { items: Project[] }) {
                   </div>
                 </div>
                 <span className="hidden text-sm text-muted-foreground md:block">{project.categoryLabel}</span>
-                <div className="flex flex-wrap gap-2 pl-10 md:justify-end md:pl-0">
+                <div className="flex flex-wrap gap-2 pl-16 md:justify-end md:pl-0">
                   {project.links.map((link) => (
                     <a
                       key={link.href}

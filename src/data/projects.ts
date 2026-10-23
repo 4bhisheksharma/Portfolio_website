@@ -18,6 +18,10 @@ export interface Project {
   featured?: boolean;
   /** Show the screenshot inside a device frame */
   mockup?: "iphone";
+  /** The image is a square app logo rather than a screenshot */
+  logo?: boolean;
+  /** Recently released; shows a "New" badge */
+  isNew?: boolean;
 }
 
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
@@ -116,6 +120,46 @@ export const projects: Project[] = [
       {
         label: "App Store",
         href: "https://apps.apple.com/us/app/urban-homes-np/id6796251918",
+        type: "store",
+      },
+    ],
+  },
+  {
+    id: "chill-nepal",
+    title: "ChillNepal",
+    description:
+      "Your travel companion for Nepal. Find places near you across all 7 provinces and 77 districts, build day-by-day trip plans, collect a digital Nepal passport of your discoveries, and earn Chill Points.",
+    image: "/assets/images/chill-nepal.jpg",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "Maps"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Web", href: "https://www.chillnepal.app/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.illuminati.chillnepal",
+        type: "store",
+      },
+    ],
+  },
+  {
+    id: "jft-test",
+    title: "JFT Test with Indra",
+    description:
+      "Prepare for the JFT-Basic Japanese exam with exam-style mock tests, focused practice for vocabulary, grammar, kanji and listening, detailed answer explanations, and progress tracking that highlights weak areas.",
+    image: "/assets/images/jft.jpg",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "EdTech"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Web", href: "https://thejfttest.com/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.illuminati.jft.app",
         type: "store",
       },
     ],

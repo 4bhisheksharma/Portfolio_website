@@ -6,10 +6,13 @@ const ease = [0.22, 1, 0.36, 1] as const;
 /**
  * Image card that trails the cursor while a list row is hovered.
  * Spread `containerProps` on the list wrapper, call `show(src)` on row hover, render `preview`.
+ * Pass `{ contain: true }` to `show` for a single image (e.g. a logo) that must not be cropped.
  */
 export function useFloatingPreview({ contain = false }: { contain?: boolean } = {}) {
   const reduced = useReducedMotion();
   const [src, setSrc] = useState<string | null>(null);
+  const [fitOverride, setFitOverride] = useState(false);
+  const fitContain = contain || fitOverride;
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const sx = useSpring(x, { stiffness: 160, damping: 22, mass: 0.6 });
@@ -23,8 +26,10 @@ export function useFloatingPreview({ contain = false }: { contain?: boolean } = 
     onPointerLeave: () => setSrc(null),
   };
 
-  const show = (next: string | null) => (e: React.PointerEvent) => {
-    if (e.pointerType === "mouse") setSrc(next);
+  const show = (next: string | null, opts: { contain?: boolean } = {}) => (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    setSrc(next);
+    setFitOverride(Boolean(opts.contain));
   };
 
   const preview = reduced ? null : (
@@ -41,7 +46,7 @@ export function useFloatingPreview({ contain = false }: { contain?: boolean } = 
             key={src}
             src={src}
             alt=""
-            className={contain ? "absolute inset-0 h-full w-full bg-white object-contain p-2" : "absolute inset-0 h-full w-full object-cover"}
+            className={fitContain ? "absolute inset-0 h-full w-full bg-white object-contain p-2" : "absolute inset-0 h-full w-full object-cover"}
             initial={{ opacity: 0, scale: 1.15 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
