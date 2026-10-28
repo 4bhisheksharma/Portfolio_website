@@ -145,6 +145,30 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "switchly",
+    title: "Switchly",
+    description:
+      "One-tap Quick Settings tiles for Android settings that do not have one. Private DNS switcher, internet kill switch, caffeine, grayscale, live battery stats, and customizable toggles.",
+    image: "/assets/images/switchly.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "Android"],
+    logo: true,
+    isNew: true,
+    links: [
+      {
+        label: "Download APK",
+        href: "https://github.com/4bhisheksharma/switchly/releases/latest",
+        type: "other",
+      },
+      {
+        label: "View Code",
+        href: "https://github.com/4bhisheksharma/switchly",
+        type: "github",
+      },
+    ],
+  },
+  {
     id: "jft-test",
     title: "JFT Test with Indra",
     description:
