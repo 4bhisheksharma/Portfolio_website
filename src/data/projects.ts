@@ -189,6 +189,46 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "question-times",
+    title: "Question Times",
+    description:
+      "Authoritative international journalism, continental dispatches & global news. Features breaking world updates, province-wise and international perspectives, and curated editorial reporting.",
+    image: "/assets/images/question-times.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "News", "REST API"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Web", href: "https://www.questiontimes.info/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.illuminati.questiontimes.app",
+        type: "store",
+      },
+    ],
+  },
+  {
+    id: "question-nepal",
+    title: "Question Nepal",
+    description:
+      "Independent journalism and breaking news from all 7 provinces of Nepal. Dedicated regional dispatches, national affairs, and comprehensive province-by-province coverage.",
+    image: "/assets/images/question-nepal.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "News", "REST API"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Web", href: "https://www.questionnepal.info/", type: "live" },
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=com.illuminati.questionnepal.app",
+        type: "store",
+      },
+    ],
+  },
+  {
     id: "nepal-administrative-map",
     title: "Nepal Administrative Map",
     description:
