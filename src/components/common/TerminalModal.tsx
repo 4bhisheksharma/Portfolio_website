@@ -116,7 +116,7 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
         { type: "system", text: "" },
         {
           type: "dim",
-          text: `  Role: Freelance Flutter Developer`,
+          text: `  Role: ${siteConfig.role}`,
         },
       ];
 

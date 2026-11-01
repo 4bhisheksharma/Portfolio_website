@@ -6,7 +6,7 @@ import { TiltCard } from "@/components/motion/TiltCard";
 import { SectionHeader } from "./SectionHeader";
 
 const facts: { k: string; v: string; extra?: string }[] = [
-  { k: "Currently", v: "Freelance Flutter Developer" },
+  { k: "Currently", v: "Mid - Level Flutter Developer", extra: "@ Illuuminati Tech" },
   { k: "Studying", v: "BSc. Computing", extra: `@ ${siteConfig.about.college}` },
   { k: "Based in", v: siteConfig.location },
 ];

@@ -38,24 +38,28 @@ export const experienceStats: ExperienceStat[] = [
 
 export const companies: CompanyExperience[] = [
   {
-    id: "freelance",
-    company: "Freelance",
-    employmentType: "Self-employed",
-    totalDuration: "Present",
-    location: "Itahari, Nepal",
-    workMode: "Remote",
-    logoText: "AS",
-    skills: ["Flutter", "Dart", "Firebase", "Supabase", "REST API"],
+    id: "illuminati-tech",
+    company: "Illuuminati Tech Pvt. Ltd.",
+    employmentType: "Full-time",
+    totalDuration: "3 mos",
+    location: "Nepal",
+    workMode: "On-site",
+    logoText: "IT",
+    skills: ["Flutter", "Dart", "BLoC", "REST API", "Play Console", "App Store Connect"],
     roles: [
       {
-        id: "freelance-flutter-developer",
-        title: "Freelance Flutter Developer",
-        period: "Sep 2026 - Present",
-        duration: "",
+        id: "mid-level-flutter-developer",
+        title: "Mid - Level Flutter Developer",
+        period: "Sept 2026 - Nov 2026",
+        duration: "3 mos",
         isCurrent: true,
         description:
-          "Building cross-platform mobile apps for clients, from design and development through to Play Store and App Store releases.",
-        technologies: ["Flutter", "Dart", "Firebase", "Supabase", "REST API"],
+          "Worked as a Flutter Developer, build real-world cross-platform mobile applications publishing to the Play Console and Apple Store Connect.",
+        achievements: [
+          "Built real-world cross-platform mobile applications.",
+          "Published production apps to Google Play Console and Apple Store Connect.",
+        ],
+        technologies: ["Flutter", "Dart", "BLoC", "REST API", "Play Console", "App Store Connect"],
       },
     ],
   },
@@ -77,9 +81,12 @@ export const companies: CompanyExperience[] = [
         period: "Jul 2026 - Sep 2026",
         duration: "3 mos",
         description:
-          "Built cross-platform mobile applications with Flutter, implemented new features, and optimized app performance.",
-        achievements: ["Worked on real-world client projects."],
-        technologies: ["Flutter", "Dart", "API Integration", "BLoC"],
+          "Worked as a Flutter Developer, build real-world cross-platform mobile applications and implementing various features, publishing to the Play Console and Apple Store Connect.",
+        achievements: [
+          "Worked on real-world client projects.",
+          "Published apps to Google Play Console and Apple Store Connect.",
+        ],
+        technologies: ["Flutter", "Dart", "API Integration", "BLoC", "Play Console", "App Store Connect"],
       },
       {
         id: "associate-flutter-developer",
@@ -87,7 +94,7 @@ export const companies: CompanyExperience[] = [
         period: "Mar 2026 - Jul 2026",
         duration: "5 mos",
         description:
-          "Developed cross-platform mobile applications with Flutter, built new features, and improved app performance.",
+          "Worked as a Flutter Developer, building real-world cross-platform mobile applications.",
         achievements: ["Worked on real-world client projects."],
         technologies: ["Flutter", "Dart", "API Integration", "BLoC"],
       },
@@ -97,7 +104,8 @@ export const companies: CompanyExperience[] = [
         period: "Jun 2025 - Aug 2025",
         duration: "3 mos",
         description:
-          "Worked as a Flutter Developer intern, building cross-platform mobile applications, implementing features, and optimizing app performance.",
+          "Worked as a Flutter Developer intern, build cross-platform mobile applications and implemented various features while optimizing app performance.",
+        achievements: ["Implemented core UI components and performance optimizations."],
         technologies: ["Flutter", "Dart", "Django", "BLoC", "REST API"],
       },
     ],

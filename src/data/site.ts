@@ -24,7 +24,7 @@ export const siteConfig = {
   phoneHref: "tel:+9779805390066",
   location: "Itahari, Morang, Nepal",
   url: "https://abhishek-sharma.com.np/",
-  resumeUrl: "/assets/misc/abhishek-sharma-cv.pdf",
+  resumeUrl: "/assets/misc/Abhishek-Sharma-Resume.pdf",
   profileImage: "/assets/images/profile1.png",
   logo: "/assets/images/logo.png",
   copyright: "© 2026 Abhishek Sharma | All rights reserved.",
@@ -35,8 +35,8 @@ export const siteConfig = {
     description:
       "Abhishek Sharma is a Flutter mobile app developer from Itahari, Nepal, specializing in scalable cross-platform apps with Flutter, Dart, and Firebase. 15+ projects across fintech, social, and accounting, including Digital Khata and Bhetghat.",
     currentRole: {
-      beforeCompany: "Freelance Flutter Developer",
-      company: "",
+      beforeCompany: "Mid - Level Flutter Developer at ",
+      company: "Illuuminati Tech Pvt. Ltd.",
       afterCompany: " · Previously at Digital Pathshala · BSc. Computing at Itahari International College, Nepal",
     },
     digitalPathshalaUrl: "https://digitalpathshalanepal.com/",

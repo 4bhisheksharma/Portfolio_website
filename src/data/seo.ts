@@ -149,7 +149,7 @@ export function getPersonSchema() {
     },
     worksFor: {
       "@type": "Organization",
-      name: "Self-employed (Freelance)",
+      name: "Illuuminati Tech Pvt. Ltd.",
     },
     alumniOf: {
       "@type": "CollegeOrUniversity",

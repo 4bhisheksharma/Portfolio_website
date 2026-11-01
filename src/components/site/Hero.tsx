@@ -106,7 +106,7 @@ export function Hero() {
 
         <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-14 md:flex-row md:items-end md:justify-between">
           <motion.p {...fadeUp(0.8)} className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-            I&apos;m Abhishek, a <span className="text-foreground">freelance Flutter developer</span> shipping
+            I&apos;m Abhishek, a <span className="text-foreground">Flutter developer</span> shipping
             cross-platform products used across fintech, health and civic services.
           </motion.p>
 
