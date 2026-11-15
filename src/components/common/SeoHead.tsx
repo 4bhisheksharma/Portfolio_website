@@ -10,7 +10,7 @@ import {
   getSoftwareApplicationsSchema,
 } from "@/data/seo";
 
-export type SeoRoute = "home" | "gallery" | "404";
+export type SeoRoute = "home" | "gallery" | "404" | "switchlyPrivacy";
 
 interface SeoHeadProps {
   route?: SeoRoute;
@@ -53,6 +53,10 @@ export function SeoHead({ route = "home" }: SeoHeadProps) {
       title = SEO.gallery.title;
       description = SEO.gallery.description;
       canonical = absoluteUrl(SEO.gallery.path);
+    } else if (route === "switchlyPrivacy") {
+      title = SEO.switchlyPrivacy.title;
+      description = SEO.switchlyPrivacy.description;
+      canonical = absoluteUrl(SEO.switchlyPrivacy.path);
     } else if (is404) {
       title = SEO.notFound.title;
       description = SEO.notFound.description;

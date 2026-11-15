@@ -22,6 +22,8 @@ export interface Project {
   logo?: boolean;
   /** Recently released; shows a "New" badge */
   isNew?: boolean;
+  /** In closed testing on Google Play */
+  closedTesting?: boolean;
 }
 
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
@@ -155,10 +157,21 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Dart", "Android"],
     logo: true,
     isNew: true,
+    closedTesting: true,
     links: [
+      {
+        label: "Play Store (Testers)",
+        href: "https://play.google.com/store/apps/details?id=app.utils.switchly",
+        type: "store",
+      },
       {
         label: "Download APK",
         href: "https://github.com/4bhisheksharma/switchly/releases/latest",
+        type: "other",
+      },
+      {
+        label: "Privacy Policy",
+        href: "/switchly/privacy",
         type: "other",
       },
       {

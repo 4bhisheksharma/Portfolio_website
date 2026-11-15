@@ -46,6 +46,12 @@ export const SEO = {
       "Photos and project screenshots from Abhishek Sharma, Flutter developer based in Itahari, Nepal: apps, certifications, hackathons, and portfolio work.",
     path: "/gallery",
   },
+  switchlyPrivacy: {
+    title: "Privacy Policy - Switchly | Abhishek Sharma",
+    description:
+      "Privacy Policy for Switchly: 100% on-device Quick Settings utility toggles for Android with zero data collection, zero tracking, and complete privacy.",
+    path: "/switchly/privacy",
+  },
   notFound: {
     title: "404: Page Not Found | Abhishek Sharma",
     description:
@@ -223,7 +229,7 @@ export function getImageGallerySchema() {
   };
 }
 
-export function getBreadcrumbSchema(route: "home" | "gallery" | "404") {
+export function getBreadcrumbSchema(route: "home" | "gallery" | "404" | "switchlyPrivacy") {
   const itemListElement = [
     {
       "@type": "ListItem",
@@ -239,6 +245,13 @@ export function getBreadcrumbSchema(route: "home" | "gallery" | "404") {
       position: 2,
       name: "Gallery",
       item: `${SEO.siteUrl}/gallery`,
+    });
+  } else if (route === "switchlyPrivacy") {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 2,
+      name: "Switchly Privacy Policy",
+      item: `${SEO.siteUrl}/switchly/privacy`,
     });
   } else if (route === "404") {
     itemListElement.push({

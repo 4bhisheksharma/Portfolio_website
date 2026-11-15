@@ -5,6 +5,7 @@ import { LegacyHashRedirect } from "@/components/layout/LegacyHashRedirect";
 import { SeoHead, type SeoRoute } from "@/components/common/SeoHead";
 import { HomePage } from "@/pages/HomePage";
 import { GalleryPage } from "@/pages/GalleryPage";
+import { SwitchlyPrivacyPage } from "@/pages/SwitchlyPrivacyPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { SmoothScroll, scrollToTarget, setScrollLocked } from "@/components/motion/SmoothScroll";
 import { Cursor } from "@/components/motion/Cursor";
@@ -27,6 +28,7 @@ function AppShell() {
 
   const pathname = location.pathname;
   const isGallery = pathname === "/gallery";
+  const isSwitchlyPrivacy = pathname === "/switchly/privacy";
   const isHome = pathname === "/";
   const isLegacySection = sectionIds.includes(
     pathname.replace(/^\//, "") as (typeof sectionIds)[number]
@@ -35,6 +37,8 @@ function AppShell() {
   let seoRoute: SeoRoute = "home";
   if (isGallery) {
     seoRoute = "gallery";
+  } else if (isSwitchlyPrivacy) {
+    seoRoute = "switchlyPrivacy";
   } else if (!isHome && !isLegacySection) {
     seoRoute = "404";
   }
@@ -77,6 +81,7 @@ function AppShell() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/switchly/privacy" element={<SwitchlyPrivacyPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Suspense fallback={null}>

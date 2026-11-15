@@ -119,6 +119,11 @@ function ProjectList({ items }: { items: Project[] }) {
                           New
                         </span>
                       )}
+                      {project.closedTesting && (
+                        <span className="rounded-full bg-amber-500/10 px-2 py-0.5 font-mono text-[10px] font-normal tracking-normal text-amber-400 border border-amber-500/20">
+                          Closed Testing
+                        </span>
+                      )}
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground md:hidden">{project.categoryLabel}</p>
                     <p className="mt-1 text-xs text-muted-foreground md:text-sm">
@@ -132,8 +137,8 @@ function ProjectList({ items }: { items: Project[] }) {
                     <a
                       key={link.href}
                       href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      target={link.href.startsWith("/") ? undefined : "_blank"}
+                      rel={link.href.startsWith("/") ? undefined : "noopener noreferrer"}
                       className="group/link inline-flex items-center gap-1 rounded-full border border-white/[0.08] px-3.5 py-2 text-xs text-muted-foreground transition-all duration-300 hover:border-primary/40 hover:text-foreground"
                     >
                       {link.label}
