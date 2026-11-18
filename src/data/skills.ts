@@ -62,7 +62,7 @@ export const skillCategories: SkillCategory[] = [
     label: "Back-end",
     skills: [
       { name: "Django", icon: SiDjango },
-      { name: "Jakarta EE", icon: FaServer },
+
     ],
   },
   {

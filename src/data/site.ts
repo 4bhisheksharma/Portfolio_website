@@ -33,11 +33,11 @@ export const siteConfig = {
     headline: "Hello! I'm Abhishek",
     subheadline: "Mobile App Developer",
     description:
-      "Abhishek Sharma is a Flutter mobile app developer from Itahari, Nepal, specializing in scalable cross-platform apps with Flutter, Dart, and Firebase. 15+ projects across fintech, social, and accounting, including Digital Khata and Bhetghat.",
+      "Abhishek Sharma is a Flutter mobile app developer from Itahari, Nepal, building production-grade cross-platform apps with Flutter, Dart, and Firebase. 15+ shipped projects spanning privacy, healthcare, real estate, and civic tech - including Invisible VPN, DHRMS, Urban Homes, Belbari Municipality, and Sanskar Vastu Compass.",
     currentRole: {
-      beforeCompany: "Mid - Level Flutter Developer at ",
+      beforeCompany: "Freelance Flutter Developer · Previously at ",
       company: "Illuuminati Tech Pvt. Ltd.",
-      afterCompany: " · Previously at Digital Pathshala · BSc. Computing at Itahari International College, Nepal",
+      afterCompany: " & Digital Pathshala · BSc. Computing at Itahari International College, Nepal",
     },
     digitalPathshalaUrl: "https://digitalpathshalanepal.com/",
     college: "Itahari International College",
