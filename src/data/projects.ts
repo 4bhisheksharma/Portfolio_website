@@ -458,6 +458,66 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "app-portfolio-web",
+    title: "App Portfolio Showcase",
+    description:
+      "Dedicated showcase website for Abhishek Sharma's mobile apps directory, featuring real-time search, category filters, URL hash deep linking, and Google Play closed testing access.",
+    image: "/assets/images/app-portfolio.png",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Live", href: "https://app.abhishek-sharma.com.np/", type: "live" },
+      { label: "View Code", href: "https://github.com/4bhisheksharma/app-portfolio", type: "github" },
+    ],
+  },
+  {
+    id: "imago",
+    title: "Imago Image Studio",
+    description:
+      "A creative digital studio and photography portfolio platform showcasing high-end visual storytelling, client photo galleries, creative direction, and studio services.",
+    image: "/assets/images/imago.jpg",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Live Demo", href: "https://imago.abhishek-sharma.com.np/", type: "live" },
+    ],
+  },
+  {
+    id: "nepal-administrative-map-web",
+    title: "Nepal Administrative Map",
+    description:
+      "Interactive web-based administrative map of Nepal with drill-down exploration across 7 provinces, 77 districts, and 753 local levels, boundary data visualization, and district search.",
+    image: "/assets/images/nepal-administrative-map.jpg",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["GeoJSON", "TypeScript", "Tailwind CSS", "Maps"],
+    isNew: true,
+    links: [
+      { label: "Live", href: "https://map.abhishek-sharma.com.np/", type: "live" },
+    ],
+  },
+  {
+    id: "lamichhane-dudh-dairy",
+    title: "Lamichhane Dudh Dairy",
+    description:
+      "Modern web portal and product showcase for Lamichhane Dudh Dairy, presenting fresh milk, dairy products, pricing information, and local dairy distribution in Nepal.",
+    image: "/assets/images/lamichhane-dairy.png",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Live", href: "https://lamichhane-dudh-dairy.vercel.app/", type: "live" },
+    ],
+  },
+  {
     id: "hamro-basti",
     title: "Hamro-Basti",
     description:
