@@ -458,6 +458,26 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "voyager-3d",
+    title: "Voyager 3D Space Mission Simulator",
+    description:
+      "Interactive 3D real-time simulation of NASA's Voyager 1 and Voyager 2 space exploration missions, planetary encounters, orbital trajectories, and interstellar journey.",
+    image: "/assets/images/voyager.png",
+    category: "web",
+    categoryLabel: "Web App",
+    technologies: ["Three.js", "React", "TypeScript", "Tailwind CSS", "Vite"],
+    logo: true,
+    isNew: true,
+    links: [
+      { label: "Live Demo", href: "https://voyager.abhishek-sharma.com.np/", type: "live" },
+      {
+        label: "View Code",
+        href: "https://github.com/4bhisheksharma/voyager-3D-space-mission-simulator",
+        type: "github",
+      },
+    ],
+  },
+  {
     id: "app-portfolio-web",
     title: "App Portfolio Showcase",
     description:
