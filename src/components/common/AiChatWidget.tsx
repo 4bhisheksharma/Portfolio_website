@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, Loader2 } from "lucide-react";
 import { buildSystemPrompt } from "@/lib/portfolioContext";
 import { streamChatCompletion, type ChatMessage } from "@/lib/openrouter";
-import { siteConfig } from "@/data/site";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { LottieBot } from "@/components/common/LottieBot";
 import { cn } from "@/lib/utils";
 
@@ -54,6 +54,8 @@ function renderMarkdown(text: string) {
 }
 
 export function AiChatWidget() {
+  const portfolioData = usePortfolioData();
+  const siteConfig = portfolioData.siteConfig;
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([WELCOME]);
   const [input, setInput] = useState("");
@@ -88,7 +90,7 @@ export function AiChatWidget() {
     setLoading(true);
 
     const apiMessages: ChatMessage[] = [
-      { role: "system", content: buildSystemPrompt() },
+      { role: "system", content: buildSystemPrompt(portfolioData) },
       ...messages
         .filter((m) => m.id !== "welcome")
         .map((m) => ({ role: m.role, content: m.content })),

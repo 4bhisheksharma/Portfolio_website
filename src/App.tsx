@@ -12,6 +12,7 @@ import { Cursor } from "@/components/motion/Cursor";
 import { Navbar } from "@/components/site/Navbar";
 import { Intro } from "@/components/site/Intro";
 import { sectionIds } from "@/data/site";
+import { PortfolioDataProvider } from "@/context/PortfolioContext";
 
 // Optional extras load after the main page
 const TerminalModal = lazy(() =>
@@ -96,11 +97,13 @@ function AppShell() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <SmoothScroll>
-        <AppShell />
-      </SmoothScroll>
-    </BrowserRouter>
+    <PortfolioDataProvider>
+      <BrowserRouter>
+        <SmoothScroll>
+          <AppShell />
+        </SmoothScroll>
+      </BrowserRouter>
+    </PortfolioDataProvider>
   );
 }
 

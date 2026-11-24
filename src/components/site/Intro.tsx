@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { setScrollLocked } from "@/components/motion/SmoothScroll";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -27,6 +28,7 @@ export function getIntroDelay() {
 
 /** Brief curtain on first visit per session: a counter, then the page slides in. */
 export function Intro() {
+  const { siteConfig } = usePortfolioData();
   const reduced = useReducedMotion();
   const [show, setShow] = useState(() => willPlay && !reduced);
   const [count, setCount] = useState(0);
@@ -71,7 +73,7 @@ export function Intro() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Abhishek Sharma · Portfolio
+            {siteConfig.name} · Portfolio
           </motion.span>
           <span className="font-mono text-[clamp(4rem,14vw,10rem)] font-light leading-none tabular-nums tracking-tighter">
             {count}

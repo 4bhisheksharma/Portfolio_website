@@ -1,17 +1,18 @@
-import { siteConfig } from "@/data/site";
-import { experienceStats } from "@/data/experience";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { Counter } from "@/components/common/Counter";
 import { FadeIn, ScrollText } from "@/components/motion/Text";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { SectionHeader } from "./SectionHeader";
 
-const facts: { k: string; v: string; extra?: string }[] = [
-  { k: "Currently", v: "Freelance Flutter Developer" },
-  { k: "Studying", v: "BSc. Computing", extra: `@ ${siteConfig.about.college}` },
-  { k: "Based in", v: siteConfig.location },
-];
-
 export function About() {
+  const { siteConfig, experienceStats } = usePortfolioData();
+
+  const facts: { k: string; v: string; extra?: string }[] = [
+    { k: "Currently", v: siteConfig.role || "Freelance Flutter Developer" },
+    { k: "Studying", v: "BSc. Computing", extra: siteConfig.about?.college ? `@ ${siteConfig.about.college}` : undefined },
+    { k: "Based in", v: siteConfig.location },
+  ];
+
   return (
     <section id="about" className="section">
       <div className="container-max">
@@ -23,7 +24,7 @@ export function About() {
               <div className="h-full w-full overflow-hidden rounded-3xl border border-white/[0.06] bg-card">
                 <img
                   src={siteConfig.profileImage}
-                  alt="Abhishek Sharma, Flutter developer from Itahari, Nepal"
+                  alt={`${siteConfig.name}, ${siteConfig.role} from ${siteConfig.location}`}
                   className="h-full w-full scale-[1.02] object-cover grayscale-[35%] transition-all duration-700 ease-out hover:scale-[1.06] hover:grayscale-0"
                   loading="lazy"
                   width={800}

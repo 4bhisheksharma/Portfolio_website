@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
-import { galleryImages } from "@/data/gallery";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { GalleryLightbox } from "@/components/common/GalleryLightbox";
 import { SplitReveal } from "@/components/motion/Text";
 import { setScrollLocked } from "@/components/motion/SmoothScroll";
@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function GalleryPage() {
+  const { galleryImages, siteConfig } = usePortfolioData();
   const reduced = useReducedMotion();
   const [category, setCategory] = useState("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -17,10 +18,10 @@ export function GalleryPage() {
     setScrollLocked(lightboxIndex !== null);
   }, [lightboxIndex]);
 
-  const categories = useMemo(() => ["All", ...new Set(galleryImages.map((img) => img.category))], []);
+  const categories = useMemo(() => ["All", ...new Set(galleryImages.map((img) => img.category))], [galleryImages]);
   const images = useMemo(
     () => (category === "All" ? galleryImages : galleryImages.filter((img) => img.category === category)),
-    [category]
+    [category, galleryImages]
   );
 
   return (
@@ -35,8 +36,7 @@ export function GalleryPage() {
             </span>
           </h1>
           <p className="mt-6 max-w-md text-sm text-muted-foreground">
-            Photos, Flutter project screenshots, certifications and hackathon moments from Abhishek Sharma, Flutter
-            developer based in Itahari, Nepal.
+            Photos, Flutter project screenshots, certifications and hackathon moments from {siteConfig.name}, {siteConfig.role} based in {siteConfig.location}.
           </p>
         </div>
 

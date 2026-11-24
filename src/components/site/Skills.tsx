@@ -1,8 +1,8 @@
-import { skillCategories, type Skill } from "@/data/skills";
+import { useMemo } from "react";
+import { type Skill } from "@/data/skills";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { FadeIn } from "@/components/motion/Text";
 import { SectionHeader } from "./SectionHeader";
-
-const allSkills = skillCategories.flatMap((c) => c.skills);
 
 function MarqueeRow({ items, reverse = false }: { items: Skill[]; reverse?: boolean }) {
   return (
@@ -27,6 +27,8 @@ function MarqueeRow({ items, reverse = false }: { items: Skill[]; reverse?: bool
 }
 
 export function Skills() {
+  const { skillCategories } = usePortfolioData();
+  const allSkills = useMemo(() => skillCategories.flatMap((c) => c.skills), [skillCategories]);
   const half = Math.ceil(allSkills.length / 2);
   return (
     <section id="skills" className="section overflow-hidden">

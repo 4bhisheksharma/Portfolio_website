@@ -1,7 +1,8 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { projects, projectFilters, type Project, type ProjectCategory } from "@/data/projects";
+import { projectFilters, type Project, type ProjectCategory } from "@/data/projects";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { FadeIn } from "@/components/motion/Text";
 import { useFloatingPreview } from "@/components/motion/FloatingPreview";
 import { SectionHeader } from "./SectionHeader";
@@ -11,6 +12,34 @@ import { cn } from "@/lib/utils";
 const ease = [0.22, 1, 0.36, 1] as const;
 const FEATURED_COUNT = 4;
 const LIST_PREVIEW = 8;
+
+const handleImgError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  const target = e.currentTarget;
+  const currentSrc = target.getAttribute("src") || target.src || "";
+
+  if (!target.dataset.triedFallback && currentSrc.includes("/apps/")) {
+    target.dataset.triedFallback = "true";
+    const filename = currentSrc.split("/").pop()?.split("?")[0];
+    if (filename) {
+      target.src = `/assets/images/${filename}`;
+      return;
+    }
+  }
+
+  if (!target.dataset.triedFallback2 && currentSrc.includes("/assets/images/")) {
+    target.dataset.triedFallback2 = "true";
+    const filename = currentSrc.split("/").pop()?.split("?")[0];
+    if (filename) {
+      target.src = `/apps/${filename}`;
+      return;
+    }
+  }
+
+  if (!target.dataset.triedPlaceholder) {
+    target.dataset.triedPlaceholder = "true";
+    target.src = "/assets/images/logo.png";
+  }
+};
 
 function FeaturedCard({ project, index }: { project: Project; index: number }) {
   const primary = project.links[0];
@@ -37,6 +66,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
               src={project.image}
               alt={`${project.title}, ${project.categoryLabel} by Abhishek Sharma`}
               loading="lazy"
+              onError={handleImgError}
               className="h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.05]"
             />
           )}
@@ -106,6 +136,7 @@ function ProjectList({ items }: { items: Project[] }) {
                     decoding="async"
                     width={48}
                     height={48}
+                    onError={handleImgError}
                     className={cn(
                       "h-12 w-12 shrink-0 rounded-xl border border-white/[0.08] transition-transform duration-500 ease-out group-hover:-rotate-3",
                       project.logo ? "bg-white object-cover" : "bg-card object-cover object-top"
@@ -157,13 +188,14 @@ function ProjectList({ items }: { items: Project[] }) {
 }
 
 export function Projects() {
+  const { projects } = usePortfolioData();
   const [filter, setFilter] = useState<"all" | ProjectCategory>("all");
   const [expanded, setExpanded] = useState(false);
 
-  const featured = projects.slice(0, FEATURED_COUNT);
+  const featured = useMemo(() => projects.slice(0, FEATURED_COUNT), [projects]);
   const rest = useMemo(
     () => projects.slice(FEATURED_COUNT).filter((p) => filter === "all" || p.category === filter),
-    [filter]
+    [projects, filter]
   );
   const visible = expanded ? rest : rest.slice(0, LIST_PREVIEW);
 

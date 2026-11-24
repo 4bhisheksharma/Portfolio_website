@@ -1,8 +1,7 @@
 import { Component, lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useMotionValueEvent, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { siteConfig } from "@/data/site";
-import { heroSocials } from "@/data/socials";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { SplitReveal } from "@/components/motion/Text";
 import { scrollToTarget } from "@/components/motion/SmoothScroll";
@@ -24,6 +23,7 @@ class SceneBoundary extends Component<{ children: ReactNode }, { failed: boolean
 }
 
 export function Hero() {
+  const { siteConfig, heroSocials } = usePortfolioData();
   const ref = useRef<HTMLElement>(null);
   const progress = useRef(0);
   const reduced = useReducedMotion();
@@ -87,10 +87,7 @@ export function Hero() {
         className="container-max relative z-10 pb-10 pt-28 sm:pt-40 md:pb-14"
       >
         <motion.div {...fadeUp(0.1)} className="mb-6 flex flex-wrap items-center gap-3 text-[13px] text-muted-foreground sm:mb-8">
-          {/* <span className="rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 backdrop-blur">
-            Available for freelance
-          </span> */}
-          <span>Flutter developer based in Itahari, Nepal</span>
+          <span>{siteConfig.role || "Flutter developer"} based in {siteConfig.location || "Itahari, Nepal"}</span>
         </motion.div>
 
         <h1 className="max-w-5xl text-[clamp(2.75rem,8.5vw,7.5rem)] font-medium leading-[0.95] tracking-[-0.045em]">
@@ -106,7 +103,7 @@ export function Hero() {
 
         <div className="mt-8 flex flex-col gap-8 sm:mt-10 sm:gap-10 md:mt-14 md:flex-row md:items-end md:justify-between">
           <motion.p {...fadeUp(0.8)} className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
-            I&apos;m Abhishek, a <span className="text-foreground">Flutter developer</span> shipping
+            I&apos;m {siteConfig.name.split(" ")[0]}, a <span className="text-foreground">{siteConfig.role}</span> shipping
             cross-platform products used across fintech, health and civic services.
           </motion.p>
 
@@ -144,8 +141,8 @@ export function Hero() {
           </span>
           <ul className="hidden items-center gap-5 sm:flex">
             {["LinkedIn", "GitHub", "pub.dev", "Apps", "Blog"]
-              .map((label) => heroSocials.find((s) => s.label === label))
-              .filter((s) => s != null)
+              .map((label) => heroSocials.find((s) => s.label.toLowerCase() === label.toLowerCase()))
+              .filter((s): s is (typeof heroSocials)[number] => s != null)
               .map((s) => (
                 <li key={s.label}>
                   <a

@@ -9,11 +9,12 @@ import {
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Minus, Square, X, Terminal as TerminalIcon } from "lucide-react";
-import { siteConfig } from "@/data/site";
-import { projects } from "@/data/projects";
-import { experienceEntries } from "@/data/experience";
-import { skillCategories } from "@/data/skills";
-import { certifications } from "@/data/certifications";
+import { siteConfig as defaultSiteConfig } from "@/data/site";
+import { projects as defaultProjects } from "@/data/projects";
+import { experienceEntries as defaultExperienceEntries } from "@/data/experience";
+import { skillCategories as defaultSkillCategories } from "@/data/skills";
+import { certifications as defaultCertifications } from "@/data/certifications";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { cn } from "@/lib/utils";
 
 interface Line {
@@ -66,7 +67,23 @@ function bootLines(): Line[] {
   ];
 }
 
-function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
+function runCommand(
+  raw: string,
+  history: string[],
+  ctx?: {
+    siteConfig?: any;
+    projects?: any[];
+    experienceEntries?: any[];
+    skillCategories?: any[];
+    certifications?: any[];
+  }
+): Line[] | "__CLEAR__" {
+  const siteConfig = ctx?.siteConfig ?? defaultSiteConfig;
+  const projects = ctx?.projects ?? defaultProjects;
+  const experienceEntries = ctx?.experienceEntries ?? defaultExperienceEntries;
+  const skillCategories = ctx?.skillCategories ?? defaultSkillCategories;
+  const certifications = ctx?.certifications ?? defaultCertifications;
+
   const input = raw.trim();
   if (!input) return [];
 
@@ -148,11 +165,11 @@ function runCommand(raw: string, history: string[]): Line[] | "__CLEAR__" {
       return BANNER.map((t) => ({ type: "accent" as const, text: t }));
 
     case "skills":
-      return skillCategories.flatMap((cat) => [
+      return skillCategories.flatMap((cat: any) => [
         { type: "success" as const, text: `  [${cat.label}]` },
         {
           type: "output" as const,
-          text: `   ${cat.skills.map((s) => s.name).join(" · ")}`,
+          text: `   ${(cat.skills || []).map((s: any) => s.name).join(" · ")}`,
         },
         { type: "system" as const, text: "" },
       ]);
@@ -349,6 +366,7 @@ interface TerminalModalProps {
 }
 
 export function TerminalModal({ open, onClose }: TerminalModalProps) {
+  const portfolioData = usePortfolioData();
   const [lines, setLines] = useState<Line[]>(bootLines);
   const [value, setValue] = useState("");
   const [history, setHistory] = useState<string[]>([]);
@@ -381,7 +399,7 @@ export function TerminalModal({ open, onClose }: TerminalModalProps) {
   const submit = (e?: FormEvent) => {
     e?.preventDefault();
     const cmd = value;
-    const result = runCommand(cmd, history);
+    const result = runCommand(cmd, history, portfolioData);
 
     if (result === "__CLEAR__") {
       setLines(bootLines());

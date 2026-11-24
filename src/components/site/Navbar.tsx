@@ -2,7 +2,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Terminal } from "lucide-react";
-import { siteConfig } from "@/data/site";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { scrollToTarget, setScrollLocked } from "@/components/motion/SmoothScroll";
 import { cn } from "@/lib/utils";
 
@@ -51,6 +51,7 @@ function useActiveId() {
 }
 
 export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
+  const { siteConfig } = usePortfolioData();
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
@@ -103,8 +104,8 @@ export function Navbar({ onOpenTerminal }: { onOpenTerminal: () => void }) {
             }}
             className="group flex items-center gap-2.5 py-2 text-sm font-medium tracking-tight"
           >
-            <img src={siteConfig.logo} alt="" className="h-6 w-6 rounded-full bg-white p-0.5" />
-            <span>Abhishek Sharma</span>
+            <img src={siteConfig.logo} alt="" className="h-6 w-6 rounded-full bg-white p-0.5 object-cover" />
+            <span>{siteConfig.name}</span>
             <span
               className={cn(
                 "hidden overflow-hidden whitespace-nowrap font-mono text-[11px] text-muted-foreground transition-all duration-500 ease-out group-hover:text-foreground sm:inline-block",

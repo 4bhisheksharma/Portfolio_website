@@ -24,6 +24,8 @@ export interface Project {
   isNew?: boolean;
   /** In closed testing on Google Play */
   closedTesting?: boolean;
+  tag?: string;
+  status?: string;
 }
 
 export const projectFilters: { id: "all" | ProjectCategory; label: string }[] = [
@@ -655,6 +657,41 @@ export const projects: Project[] = [
         href: "https://github.com/4bhisheksharma/Simple_snake_game",
         type: "github",
       },
+    ],
+  },
+  {
+    id: "git-mosaic",
+    title: "Git Mosaic",
+    description: "Beautiful GitHub contribution graph and streak widgets for your home screen. Track contribution streaks, customize color themes, and monitor daily activity at a glance.",
+    image: "/apps/git-mosaic.png",
+    category: "mobile",
+    categoryLabel: "Mobile App",
+    technologies: ["Flutter", "Dart", "Android Widgets"],
+    logo: true,
+    closedTesting: true,
+    tag: "Widget",
+    status: "closed_testing",
+    links: [
+      { label: "Play Store", href: "https://play.google.com/store/apps/details?id=app.gitmosaic", type: "store" },
+      { label: "GitHub", href: "https://github.com/4bhisheksharma/git-mosaic-widget", type: "github" },
+      { label: "Privacy", href: "/gitmosaic/privacy", type: "other" },
+    ],
+  },
+  {
+    id: "find-the-imposter",
+    title: "Find The Imposter",
+    description: "The pass-and-play party word game. Share subtle clues, spot the bluff, and catch the imposter with 3 to 20 players on a single phone.",
+    image: "/apps/find-the-imposter.png",
+    category: "games",
+    categoryLabel: "Game",
+    technologies: ["Flutter", "Dart", "Game Logic"],
+    logo: true,
+    closedTesting: true,
+    tag: "Party Game",
+    status: "closed_testing",
+    links: [
+      { label: "Play Store", href: "https://play.google.com/store/apps/details?id=app.imposter.findtheimposter", type: "store" },
+      { label: "Privacy", href: "/find-the-imposter/privacy", type: "other" },
     ],
   },
 ];

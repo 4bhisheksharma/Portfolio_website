@@ -1,23 +1,20 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
-import { siteConfig } from "@/data/site";
-import { footerSocials, heroSocials } from "@/data/socials";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { Magnetic } from "@/components/motion/Magnetic";
 import { FadeIn, SplitReveal } from "@/components/motion/Text";
 import { scrollToTarget } from "@/components/motion/SmoothScroll";
 
-const socials = [...footerSocials, ...heroSocials.filter((s) => s.label === "Blog")];
-
-function CopyEmail() {
+function CopyEmail({ email }: { email: string }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(siteConfig.email);
+      await navigator.clipboard.writeText(email);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      window.location.href = `mailto:${siteConfig.email}`;
+      window.location.href = `mailto:${email}`;
     }
   };
 
@@ -55,6 +52,12 @@ function CopyEmail() {
 }
 
 export function Contact() {
+  const { siteConfig, heroSocials, footerSocials } = usePortfolioData();
+  const socials = useMemo(
+    () => [...footerSocials, ...heroSocials.filter((s) => s.label === "Blog")],
+    [footerSocials, heroSocials]
+  );
+
   return (
     <section id="contact" className="relative overflow-hidden pb-8 pt-16 sm:pb-10 sm:pt-24 md:pt-40">
       <div
@@ -89,7 +92,7 @@ export function Contact() {
               >
                 {siteConfig.email}
               </a>
-              <CopyEmail />
+              <CopyEmail email={siteConfig.email} />
             </div>
             <a href={siteConfig.phoneHref} className="link-underline mt-1 inline-block py-2 text-muted-foreground hover:text-foreground">
               {siteConfig.phone}
@@ -127,17 +130,17 @@ export function Contact() {
           </FadeIn>
         </div>
 
-        <Footer />
+        <Footer copyright={siteConfig.copyright} version={siteConfig.version} />
       </div>
     </section>
   );
 }
 
-function Footer() {
+function Footer({ copyright, version }: { copyright: string; version: string }) {
   return (
     <footer className="mt-20 flex sm:mt-28 flex-col gap-4 border-t border-border pt-6 text-xs text-muted-foreground md:flex-row md:items-center md:justify-between">
-      <span>{siteConfig.copyright}</span>
-      <span className="font-mono">{siteConfig.version}</span>
+      <span>{copyright}</span>
+      <span className="font-mono">{version}</span>
       <button onClick={() => scrollToTarget(0)} className="link-underline self-start py-2 hover:text-foreground md:self-auto">
         Back to top ↑
       </button>

@@ -1,16 +1,17 @@
+import { useMemo } from "react";
 import { ArrowUpRight } from "lucide-react";
-import { certifications } from "@/data/certifications";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { FadeIn } from "@/components/motion/Text";
 import { useFloatingPreview } from "@/components/motion/FloatingPreview";
 import { SectionHeader } from "./SectionHeader";
-
-const items = certifications.filter((c) => !c.comingSoon);
 
 function yearOf(text: string) {
   return text.match(/20\d{2}/)?.[0] ?? "";
 }
 
 export function Certifications() {
+  const { certifications } = usePortfolioData();
+  const items = useMemo(() => certifications.filter((c) => !c.comingSoon), [certifications]);
   const { containerProps, show, preview } = useFloatingPreview({ contain: true });
 
   return (

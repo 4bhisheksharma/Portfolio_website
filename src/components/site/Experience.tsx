@@ -1,11 +1,12 @@
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { useId, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
-import { companies } from "@/data/experience";
+import { type CompanyExperience } from "@/data/experience";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import { FadeIn } from "@/components/motion/Text";
 import { SectionHeader } from "./SectionHeader";
 
-type Company = (typeof companies)[number];
+type Company = CompanyExperience;
 
 function CompanyBlock({ company }: { company: Company }) {
   const listRef = useRef<HTMLDivElement>(null);
@@ -169,6 +170,8 @@ function CompanyBlock({ company }: { company: Company }) {
 }
 
 export function Experience() {
+  const { companies } = usePortfolioData();
+
   return (
     <section id="experience" className="section">
       <div className="container-max">

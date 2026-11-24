@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { usePortfolioData } from "@/context/PortfolioContext";
 import {
   SEO,
   absoluteUrl,
@@ -41,12 +42,14 @@ function upsertJsonLd(id: string, data: object) {
 }
 
 export function SeoHead({ route = "home" }: SeoHeadProps) {
+  const { siteConfig } = usePortfolioData();
+
   useEffect(() => {
     const isGallery = route === "gallery";
     const is404 = route === "404";
 
-    let title: string = SEO.default.title;
-    let description: string = SEO.default.description;
+    let title: string = siteConfig.seo?.title || SEO.default.title;
+    let description: string = siteConfig.seo?.description || SEO.default.description;
     let canonical: string = SEO.siteUrl;
 
     if (isGallery) {
