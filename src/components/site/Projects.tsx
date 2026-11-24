@@ -192,11 +192,27 @@ export function Projects() {
   const [filter, setFilter] = useState<"all" | ProjectCategory>("all");
   const [expanded, setExpanded] = useState(false);
 
-  const featured = useMemo(() => projects.slice(0, FEATURED_COUNT), [projects]);
-  const rest = useMemo(
-    () => projects.slice(FEATURED_COUNT).filter((p) => filter === "all" || p.category === filter),
-    [projects, filter]
-  );
+  // Dynamic Featured selection respecting admin hierarchy & explicit placement
+  const featured = useMemo(() => {
+    // 1. Projects explicitly marked `featured: true` (in their admin hierarchy order)
+    const explicitlyFeatured = projects.filter((p) => p.featured === true);
+    if (explicitlyFeatured.length >= FEATURED_COUNT) {
+      return explicitlyFeatured.slice(0, FEATURED_COUNT);
+    }
+    // 2. If less than FEATURED_COUNT, fill with the top projects in hierarchy (excluding explicit featured: false)
+    const explicitIds = new Set(explicitlyFeatured.map((p) => p.id));
+    const candidateFillers = projects.filter(
+      (p) => !explicitIds.has(p.id) && p.featured !== false
+    );
+    return [...explicitlyFeatured, ...candidateFillers].slice(0, FEATURED_COUNT);
+  }, [projects]);
+
+  const rest = useMemo(() => {
+    const featuredIds = new Set(featured.map((p) => p.id));
+    return projects
+      .filter((p) => !featuredIds.has(p.id))
+      .filter((p) => filter === "all" || p.category === filter);
+  }, [projects, featured, filter]);
   const visible = expanded ? rest : rest.slice(0, LIST_PREVIEW);
 
   return (
