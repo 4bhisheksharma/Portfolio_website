@@ -46,9 +46,19 @@ export function stripThinking(text: string): string {
     .trimStart();
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 function renderMarkdown(text: string) {
   const clean = stripThinking(text);
-  return clean
+  const safe = escapeHtml(clean);
+  return safe
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\n/g, "<br />");
 }
